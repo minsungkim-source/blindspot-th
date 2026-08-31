@@ -31,7 +31,7 @@ area["ISO3166-1"="TH"][admin_level=2]->.th;
 out center;
 """
 
-HEADERS = {"User-Agent": "blindspot-th/0.1 (+https://github.com/blindspot-th/blindspot-th)"}
+HEADERS = {"User-Agent": "blindspot-th/0.1 (+https://github.com/minsungkim-source/blindspot-th)"}
 
 # 폴리곤 밖으로 떨어진 점을 가장 가까운 주에 붙일 때의 상한.
 #

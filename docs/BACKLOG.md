@@ -10,10 +10,10 @@
       `src/config/attribution.ts`의 `REPO_URL`, `etl/sources/bot_province.py`와
       `etl/sources/osm_atm.py`의 User-Agent, `index.html`의 주석 예시.
       (`README.md`·`CONTRIBUTING.md`에는 실제로 자리표시자가 없었다)
-- [ ] GitHub에 공개 저장소 생성 — `blindspot-th/blindspot-th`
-      · Pages 주소는 `https://blindspot-th.github.io/blindspot-th/`가 된다.
-        루트(`https://blindspot-th.github.io/`)로 내려면 저장소 이름을
-        `blindspot-th.github.io`로 만들어야 하고, `deploy.yml`이 그 경우도 자동으로 처리한다
+- [x] GitHub 공개 저장소 생성 완료 — **`minsungkim-source/blindspot-th`** (2026-08-31)
+      · Pages 주소: `https://minsungkim-source.github.io/blindspot-th/`
+      · 조직명이 `blindspot-th`가 아니라 `minsungkim-source`로 정해져,
+        앞서 치환했던 `<org>` 값을 실제 조직명으로 다시 고쳤다
 - [ ] 저장소 설정 — Pages 활성화, `parser-drift` / `data` 라벨 생성,
       Actions 권한(`contents: write`, `pull-requests: write`, `issues: write`) 확인
 - [x] `vite.config.ts`의 `base` — 기본값 `/blindspot-th/`가 저장소명과 이미 일치한다.
@@ -22,8 +22,7 @@
 - [x] 푸터에 `ATTRIBUTIONS` 렌더 — `src/components/Footer.tsx`.
       로딩·에러 화면에서도 빠지지 않는다 (라이선스 의무는 상태와 무관하다).
       `meta.json`의 소스별 기준시점을 배지로 함께 보여준다
-- [x] 푸터 저장소 링크가 `https://github.com/blindspot-th/blindspot-th`로 렌더되는 것 확인
-      (저장소 개설 전이라 링크는 아직 404 — 개설 후 한 번 눌러볼 것)
+- [x] 푸터 저장소 링크가 `https://github.com/minsungkim-source/blindspot-th`로 렌더되는 것 확인
 
 ## Sprint 1 — 데이터 파이프라인 (2026-08-26 완료)
 

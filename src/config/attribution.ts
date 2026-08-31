@@ -52,5 +52,5 @@ export const ATTRIBUTIONS: Attribution[] = [
   },
 ];
 
-export const REPO_URL = "https://github.com/blindspot-th/blindspot-th";
+export const REPO_URL = "https://github.com/minsungkim-source/blindspot-th";
 export const CODE_LICENSE = "MIT";

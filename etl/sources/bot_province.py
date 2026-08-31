@@ -48,7 +48,7 @@ from bs4 import BeautifulSoup
 BASE = "https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx"
 QUERY = {"reportID": "781", "language": "eng"}
 HEADERS = {
-    "User-Agent": "blindspot-th/0.1 (+https://github.com/blindspot-th/blindspot-th)",
+    "User-Agent": "blindspot-th/0.1 (+https://github.com/minsungkim-source/blindspot-th)",
     "Accept-Language": "en",
 }
 
