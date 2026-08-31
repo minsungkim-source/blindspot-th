@@ -1,0 +1,159 @@
+{
+ "generated_at": "2026-08-31T06:14:29.799463+00:00",
+ "country": "TH",
+ "admin_level": "ADM1",
+ "n_units": 77,
+ "money_unit": "baht",
+ "digital_confidence": "missing",
+ "degraded_sources": {
+  "nso_ict": "SourceUnavailable: NSO 카탈로그 API가 HTTP 418를 돌려줬다 (2026-08 기준 CloudWAF가 418로 차단 중)."
+ },
+ "sources": {
+  "admin_ref": {
+   "as_of": "v1.0.2",
+   "grade": "A",
+   "url": "https://github.com/DevelopedbyWill/thailand-canonical-admin-names",
+   "license": "CC BY 4.0 (data) / CC BY 3.0 IGO (polygons)"
+  },
+  "bot_province": {
+   "as_of": "2025-06",
+   "grade": "A",
+   "url": "https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx?reportID=781&language=eng",
+   "license": "Bank of Thailand — attribution required, aggregate publication only",
+   "fingerprint": {
+    "header_hash": "3bf442c80cbbe289",
+    "data_rows": 84,
+    "province_rows": 77,
+    "column_widths": [
+     15
+    ]
+   },
+   "as_of_label": "JUN 2025 p"
+  },
+  "nesdc_gpp": {
+   "as_of": "2024",
+   "grade": "B",
+   "url": "https://www.nesdc.go.th/en/info/gross-regional-and-provincial-product-gpp/",
+   "license": "NESDC — attribution required"
+  },
+  "osm_atm": {
+   "as_of": "2026-08-31T06:13:04Z",
+   "grade": "C",
+   "url": "https://www.openstreetmap.org/copyright",
+   "license": "ODbL — © OpenStreetMap contributors"
+  },
+  "findex": {
+   "as_of": "2024",
+   "grade": "A",
+   "url": "https://www.worldbank.org/en/publication/globalfindex/report",
+   "license": "World Bank — aggregate indicators only, microdata not redistributed"
+  }
+ },
+ "index": {
+  "normalization": "percentile",
+  "supply": {
+   "branch_density": {
+    "weight": 0.3,
+    "expr": "branches / (population / 1e5)"
+   },
+   "geographic_access": {
+    "weight": 0.2,
+    "expr": "branches / (area_km2 / 1e3)"
+   },
+   "deposit_penetration": {
+    "weight": 0.2,
+    "expr": "log(deposits_total / population)"
+   },
+   "credit_penetration": {
+    "weight": 0.2,
+    "expr": "log(credits_total / population)"
+   },
+   "atm_density": {
+    "weight": 0.1,
+    "expr": "atm_count / (population / 1e5)",
+    "grade": "C"
+   }
+  },
+  "demand": {
+   "population_scale": {
+    "weight": 0.3,
+    "expr": "log(population)"
+   },
+   "income_downside": {
+    "weight": 0.25,
+    "expr": "gpp_per_capita",
+    "invert": true
+   },
+   "dispersion": {
+    "weight": 0.2,
+    "expr": "population / area_km2",
+    "invert": true
+   },
+   "cash_economy": {
+    "weight": 0.15,
+    "expr": "gpp_agriculture_share"
+   },
+   "credit_thirst": {
+    "weight": 0.1,
+    "expr": "credits_total / deposits_total",
+    "invert": true
+   }
+  },
+  "digital": {
+   "method": "region_downscale",
+   "source": "nso_ict",
+   "weight_key": "urbanization_rate",
+   "confidence": "missing",
+   "confidence_planned": "estimated"
+  },
+  "presets": {
+   "balanced": {
+    "label": "균형"
+   },
+   "scale_first": {
+    "label": "규모 우선",
+    "demand": {
+     "population_scale": 0.5,
+     "income_downside": 0.2,
+     "dispersion": 0.15,
+     "cash_economy": 0.1,
+     "credit_thirst": 0.05
+    }
+   },
+   "remote_first": {
+    "label": "원격지 우선",
+    "supply": {
+     "branch_density": 0.2,
+     "geographic_access": 0.35,
+     "deposit_penetration": 0.15,
+     "credit_penetration": 0.2,
+     "atm_density": 0.1
+    },
+    "demand": {
+     "population_scale": 0.2,
+     "income_downside": 0.2,
+     "dispersion": 0.35,
+     "cash_economy": 0.2,
+     "credit_thirst": 0.05
+    }
+   },
+   "credit_gap": {
+    "label": "신용 갈증",
+    "supply": {
+     "branch_density": 0.2,
+     "geographic_access": 0.15,
+     "deposit_penetration": 0.2,
+     "credit_penetration": 0.35,
+     "atm_density": 0.1
+    },
+    "demand": {
+     "population_scale": 0.25,
+     "income_downside": 0.25,
+     "dispersion": 0.1,
+     "cash_economy": 0.1,
+     "credit_thirst": 0.3
+    }
+   }
+  }
+ }
+}
