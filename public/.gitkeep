@@ -1,0 +1,1 @@
+og.png 등 정적 자산. data/ 는 빌드 시 npm run data:sync 로 복사된다.

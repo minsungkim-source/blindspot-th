@@ -1,0 +1,129 @@
+/* 가중치 패널. 슬라이더 규격은 DESIGN.md §5 —
+   트랙 --surface-3 4px, 채운 구간 --accent, 썸 12px + --ground 2px 링. */
+
+.weights {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 24px;
+  min-width: 0;
+}
+
+.weights__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.weights__head h2 {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.weights__reset {
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: none;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.weights__reset:hover { color: var(--ink); border-color: var(--border-strong); }
+
+.weights__presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.weights__preset {
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.weights__preset:hover { color: var(--ink); border-color: var(--border-strong); }
+
+/* 선택된 프리셋은 색 + 테두리 둘 다로 표시한다 — 색만 쓰면 못 보는 사람이 있다 */
+.weights__preset[aria-pressed="true"] {
+  background: var(--accent-wash);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.weights__hint,
+.weights__error {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+
+.weights__error { color: var(--critical); }
+
+.weights__group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+
+.weights__group legend {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 0 5px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+.weights__group legend .num { font-size: 11px; color: var(--ink-3); }
+
+.wslider {
+  display: grid;
+  grid-template-columns: 78px 1fr 26px 34px;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+}
+
+.wslider label { color: var(--ink-2); }
+
+.wslider input[type="range"] {
+  width: 100%;
+  height: 4px;
+  accent-color: var(--accent);
+  background: var(--surface-3);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.wslider__value { text-align: right; color: var(--ink); }
+
+/* 슬라이더 값과 실제 반영 비율은 다르다 (합이 100이 아니면 재정규화된다).
+   둘 다 보여주지 않으면 "30으로 놨는데 왜 30이 아니지"가 된다. */
+.wslider__share { text-align: right; color: var(--ink-3); font-size: 11px; }
+
+@media (max-width: 767px) {
+  .weights { padding: 18px 16px; }
+  .wslider { grid-template-columns: 68px 1fr 24px 32px; }
+}

@@ -1,0 +1,79 @@
+/* 귀속 푸터. 색·간격은 tokens.css의 토큰만 쓴다 (리터럴 hex 금지).
+   형제 간격은 flex/grid + gap으로만 만든다 — 요소별 margin을 쓰지 않는다. */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px 24px 34px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.footer__title {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.footer__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 8px;
+}
+
+.footer__link {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.footer__link:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* 기준시점 배지 — DESIGN.md §5의 칩 규격 */
+.footer__stamp {
+  padding: 4px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+.footer__provides,
+.footer__license {
+  flex-basis: 100%;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.footer__meta,
+.footer__note {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 22px 16px 30px;
+  }
+}

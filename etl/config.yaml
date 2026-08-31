@@ -1,0 +1,158 @@
+# Blindspot TH — ETL configuration
+# 소스 URL, 기준시점, 지수 가중치. 코드를 고치지 않고 여기만 바꾼다.
+
+country: TH
+admin_level: ADM1          # ADM2 드릴다운은 Phase 2
+n_units: 77
+
+paths:
+  raw: ../data/raw
+  reference: ../data/reference
+  processed: ../data/processed
+
+sources:
+
+  bot_province:
+    enabled: true
+    grade: A
+    url: https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx
+    params: { reportID: 781, language: eng }
+    # 시계열은 이 표를 월별로 반복 조회해 쌓는다
+    months_back: 12
+    snapshot_raw: true         # 응답 HTML을 data/raw/에 남긴다 (파서 사후 분석용)
+    license: "Bank of Thailand — attribution required, aggregate publication only"
+
+  bot_api:
+    # 결정(2026-08): 등록을 미룬다. v1은 bot_province 스크래핑으로 간다.
+    # 승인되면 bot_province.py를 이 경로로 교체하고 스크래핑 리스크를 없앤다.
+    # 카나리가 반복 실패하면 이 결정을 재검토한다.
+    enabled: false
+    status: deferred
+    url: https://portal.api.bot.or.th/
+    note: "등록·승인 리드타임 있음. 자격증명이 필요하므로 공개 저장소에 키를 두지 않는다."
+
+  bot_district:
+    enabled: false          # Phase 2 (ADM2)
+    grade: A
+    url: https://www.bot.or.th/content/dam/bot/documents/en/statistics/financial-institutions-statistics/cb_t3E-district.zip
+    note: "4개 상업은행 이상인 군만 수록 (~306행). 2018년 이전은 .xls"
+
+  admin_ref:
+    enabled: true
+    grade: A
+    repo: DevelopedbyWill/thailand-canonical-admin-names
+    ref: v1.0.2
+    files:
+      provinces_csv: data/v1.0.0/thailand-adm1-provinces-v1.0.0.csv
+      provinces_geojson: data/v1.0.0/thailand-adm1-polygons-v1.0.0.geojson
+      overrides: data/overrides.csv
+    license: "CC BY 4.0 (data) / CC BY 3.0 IGO (polygons)"
+
+  nesdc_gpp:
+    enabled: true
+    grade: B
+    url: https://www.nesdc.go.th/en/info/gross-regional-and-provincial-product-gpp/
+    # GPP per capita 표에 주별 인구가 동봉된다 — 1인당 지표의 분모로 쓴다
+    # 2026-08 확인: 세션 쿠키 없이는 302 무한 리다이렉트. 파일 목록은 DataTable JSON 안에 있다.
+    #               도시화율은 이 공표물에 없다 → 디지털 축은 v1에서 결측 (DATA_SOURCES.md)
+    license: "NESDC — attribution required"
+
+  nso_ict:
+    enabled: true
+    grade: C
+    api: https://catalogapi.nso.go.th/api/datadic
+    table: ICTH_37_27_15_64per
+    # 2026-08-26 확인: CloudWAF가 HTTP 418로 차단. 보조 소스라 빌드는 계속 가고
+    #                  digital_readiness는 결측으로 남는다. 우회하지 않는다 (공개 저장소 원칙).
+    optional: true
+    note: "권역 5개 × 시가지/비시가지까지만. 주별 하향 추정 필요 (METHODOLOGY §5)"
+    license: "NSO Thailand"
+
+  findex:
+    enabled: true
+    grade: A
+    api: https://api.worldbank.org/v2
+    source_id: 28
+    country: THA
+    indicators:
+      account_all: account.t.d
+      account_female: account.t.d.1
+      account_male: account.t.d.2
+      account_rural: account.t.d.9
+      account_urban: account.t.d.10
+      account_poorest40: account.t.d.7
+      borrow_any: borrow.any.t.d
+      mobile_phone: con1
+      mobile_phone_rural: con1.9
+      mobile_phone_urban: con1.10
+    note: "국가 단위. 지도 레이어 아님 — 벤치마크 패널 전용"
+    license: "World Bank — aggregate indicators only, microdata not redistributed"
+
+  osm_atm:
+    enabled: true
+    grade: C
+    endpoint: https://overpass-api.de/api/interpreter
+    # 공개 인스턴스는 504·429가 잦다. 순서대로 폴백한다.
+    # 전 지구 DB를 서비스하는 인스턴스만 넣는다 — overpass.osm.ch 같은 지역 추출본은
+    # 태국 쿼리에 정상 응답으로 0건을 돌려주므로 미러로 쓰면 안 된다
+    # (load()의 "0개 반환" 게이트가 잡지만, 애초에 넣지 않는다).
+    mirrors:
+      - https://overpass.kumi.systems/api/interpreter
+    timeout_s: 180
+    amenities: [atm, bank]
+    license: "ODbL — © OpenStreetMap contributors"
+
+# ---------------------------------------------------------------- 지수
+
+index:
+  normalization: percentile      # percentile | zscore  (METHODOLOGY §2 참조)
+
+  supply:
+    branch_density:      { weight: 0.30, expr: "branches / (population / 1e5)" }
+    geographic_access:   { weight: 0.20, expr: "branches / (area_km2 / 1e3)" }
+    deposit_penetration: { weight: 0.20, expr: "log(deposits_total / population)" }
+    credit_penetration:  { weight: 0.20, expr: "log(credits_total / population)" }
+    atm_density:         { weight: 0.10, expr: "atm_count / (population / 1e5)", grade: C }
+
+  demand:
+    population_scale:   { weight: 0.30, expr: "log(population)" }
+    income_downside:    { weight: 0.25, expr: "gpp_per_capita", invert: true }
+    dispersion:         { weight: 0.20, expr: "population / area_km2", invert: true }
+    cash_economy:       { weight: 0.15, expr: "gpp_agriculture_share" }
+    credit_thirst:      { weight: 0.10, expr: "credits_total / deposits_total", invert: true }
+
+  digital:
+    method: region_downscale
+    source: nso_ict
+    weight_key: urbanization_rate
+    confidence: estimated
+
+  presets:
+    balanced:
+      label: "균형"
+    scale_first:
+      label: "규모 우선"
+      demand: { population_scale: 0.50, income_downside: 0.20, dispersion: 0.15, cash_economy: 0.10, credit_thirst: 0.05 }
+    remote_first:
+      label: "원격지 우선"
+      supply: { branch_density: 0.20, geographic_access: 0.35, deposit_penetration: 0.15, credit_penetration: 0.20, atm_density: 0.10 }
+      demand: { population_scale: 0.20, income_downside: 0.20, dispersion: 0.35, cash_economy: 0.20, credit_thirst: 0.05 }
+    credit_gap:
+      label: "신용 갈증"
+      supply: { branch_density: 0.20, geographic_access: 0.15, deposit_penetration: 0.20, credit_penetration: 0.35, atm_density: 0.10 }
+      demand: { population_scale: 0.25, income_downside: 0.25, dispersion: 0.10, cash_economy: 0.10, credit_thirst: 0.30 }
+
+# ---------------------------------------------------------------- 검증
+
+validation:
+  require_all_units: true
+  max_join_failures: 0
+  max_mom_change_pct: 30        # 전월 대비 지점수·인구 급변 감지
+  required_fields:
+    - branches
+    - deposits_total
+    - credits_total
+    - population
+    - area_km2
+    - gpp_per_capita
+    - gpp_agriculture_share

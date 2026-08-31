@@ -1,0 +1,147 @@
+/* 랭킹 테이블. DESIGN.md §5의 테이블 규격.
+   수치 열은 우측 정렬 + mono + tabular-nums — 자릿수가 흔들리면 비교가 안 된다. */
+
+.ranktable {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ranktable__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ranktable__search input {
+  width: 200px;
+  padding: 7px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.ranktable__search input::placeholder { color: var(--ink-3); }
+
+.ranktable__count {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  margin-inline-end: auto;
+}
+
+.ranktable__export {
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.ranktable__export:hover {
+  border-color: var(--border-strong);
+  color: var(--ink);
+}
+
+/* 넓은 콘텐츠는 자기 컨테이너에서 스크롤한다. 페이지 본문은 가로 스크롤하지 않는다. */
+.ranktable__scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.ranktable table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ranktable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  text-align: left;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ranktable thead th[data-numeric] { text-align: right; }
+
+.ranktable thead th button {
+  width: 100%;
+  padding: 11px 15px;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.ranktable thead th button:hover { color: var(--ink); }
+
+.ranktable__caret {
+  display: inline-block;
+  width: 1em;
+  font-size: 9px;
+  color: var(--accent);
+}
+
+.ranktable tbody th,
+.ranktable tbody td {
+  padding: 11px 15px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+
+.ranktable tbody td[data-numeric] { text-align: right; }
+
+.ranktable tbody tr:hover { background: rgba(255, 255, 255, 0.017); }
+
+/* 선택 행은 색이 아니라 좌측 표시선 + 배경으로 — 값 열의 가독성을 건드리지 않는다 */
+.ranktable tbody tr[data-selected] { background: var(--accent-wash); }
+.ranktable tbody tr[data-selected] th { box-shadow: inset 2px 0 0 var(--accent); }
+
+.ranktable__pick {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ranktable__name {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ranktable__name-th {
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+.ranktable__empty {
+  padding: 26px 15px;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .ranktable [data-secondary] { display: none; }
+}

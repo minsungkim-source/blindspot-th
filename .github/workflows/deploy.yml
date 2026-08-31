@@ -1,0 +1,62 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      # figi.py ↔ score.ts 패리티가 여기서 걸린다. 갈라진 채로 배포하지 않는다.
+      - run: npm test
+
+      # OG 메타태그는 절대 URL이어야 한다 — 스크래퍼가 상대 경로를 해석하지 않는다.
+      # 프로젝트 페이지 주소를 리포 정보에서 만든다. 조직/사용자 페이지면 base가 '/'다.
+      - name: Resolve site URL
+        id: site
+        run: |
+          repo="${GITHUB_REPOSITORY#*/}"
+          owner="${GITHUB_REPOSITORY_OWNER}"
+          if [ "$repo" = "${owner}.github.io" ]; then
+            echo "base=/"                             >> "$GITHUB_OUTPUT"
+            echo "url=https://${owner}.github.io"      >> "$GITHUB_OUTPUT"
+          else
+            echo "base=/${repo}/"                      >> "$GITHUB_OUTPUT"
+            echo "url=https://${owner}.github.io/${repo}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - run: npm run build
+        env:
+          VITE_BASE: ${{ steps.site.outputs.base }}
+          VITE_SITE_URL: ${{ steps.site.outputs.url }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blindspot TH — 태국 금융포용 갭 맵</title>
+    <meta name="description" content="태국 77개 주의 금융 공급과 수요의 격차를 지수화하고, 에이전트·키오스크·지점 확장 우선순위를 보여주는 지도." />
+
+    <!--
+      OG 이미지 경로는 **절대 URL이어야 한다.** 스크래퍼는 상대 경로를 해석하지 않는다.
+      VITE_SITE_URL은 배포 워크플로가 넣는다 (예: https://blindspot-th.github.io/blindspot-th).
+      비어 있으면 미리보기 이미지가 안 뜬다 — 링크로 유통되는 도구라 그게 곧 유실이다.
+      og.png는 ETL이 figi.json과 같은 색 램프로 매번 다시 그린다 (etl/og_image.py).
+    -->
+    <meta property="og:title" content="Blindspot TH" />
+    <meta property="og:description" content="태국 77개 주 금융포용 갭 — 공급 대비 수요의 격차를 지수화한 지도" />
+    <meta property="og:image" content="%VITE_SITE_URL%/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      이 도구는 JavaScript가 필요합니다. 데이터 원본은
+      <a href="https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx?reportID=781&language=eng">BOT 통계</a>와
+      <a href="https://www.nesdc.go.th/en/info/gross-regional-and-provincial-product-gpp/">NESDC GPP</a>에서
+      직접 보실 수 있습니다.
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+pandas>=2.2
+requests>=2.32
+beautifulsoup4>=4.12
+lxml>=5.2
+openpyxl>=3.1
+xlrd>=2.0            # BOT 군별 파일 2018년 이전은 .xls
+PyYAML>=6.0
+topojson>=1.9        # GeoJSON → TopoJSON 변환
+shapely>=2.0         # ATM point-in-polygon (osm_atm). build.py가 모듈 임포트 시점에 필요하다
+pytest>=8.0          # tests/ — 파서 드리프트 감지가 여기에 걸려 있다
+pillow>=10.0        # OG 이미지 렌더 (etl/og_image.py). 없으면 이미지만 건너뛴다

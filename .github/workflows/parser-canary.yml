@@ -1,0 +1,70 @@
+name: parser-canary
+
+# BOT API 포털 등록을 미뤘으므로 스크래핑이 v1의 유일한 경로다.
+# 월간 ETL만으로는 표 구조가 바뀌어도 최대 한 달을 모른다.
+# 이 워크플로는 산출물을 쓰지 않고 파싱 가능 여부만 주 1회 점검한다.
+
+on:
+  schedule:
+    - cron: "0 1 * * 1"     # 매주 월요일 08:00 ICT
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r etl/requirements.txt
+
+      # 픽스처 기반 회귀 테스트. 원본을 건드리기 전에 파서 자체가 멀쩡한지 본다.
+      - name: Test parser against fixture
+        run: python -m pytest tests/test_bot_parser.py -q
+
+      - name: Probe BOT parser
+        id: probe
+        working-directory: etl
+        run: |
+          set -o pipefail
+          python -m sources.bot_province --canary | tee "$GITHUB_STEP_SUMMARY"
+
+      - name: Open issue on drift
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "BOT 파서 점검 실패 — FI_CB_011_S4 구조 변경 의심";
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "parser-drift",
+            });
+            if (open.length) {
+              core.info("이미 열린 이슈가 있다 — 중복 생성하지 않는다.");
+              return;
+            }
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title,
+              labels: ["parser-drift", "data"],
+              body: [
+                "주간 카나리가 실패했습니다. BOT 통계 페이지 구조가 바뀌었을 가능성이 높습니다.",
+                "",
+                `실행 로그: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+                "",
+                "확인 순서",
+                "1. 로그의 `ParserDriftError` 메시지를 읽는다 — 어떤 검사가 걸렸는지 말해준다.",
+                "2. 원본 페이지를 직접 연다: https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx?reportID=781&language=eng",
+                "3. `etl/sources/bot_province.py`의 `COLUMNS`, `EXPECT_HEADER_TOKENS`, `EXPECT_COLUMNS`, `EXPECT_PROVINCE_ROWS`를 **의도적으로** 갱신한다. 검사를 느슨하게 만들어 통과시키지 마세요.",
+                "4. `tests/fixtures/bot_province_2025-06.html`를 새 구조의 응답으로 교체하고 `tests/test_bot_parser.py`에 케이스를 추가한다.",
+                "5. 고치기 전까지 월간 데이터 갱신 PR은 열리지 않습니다 — 낡은 데이터가 배포되는 것이 아니라 갱신이 멈출 뿐입니다.",
+                "",
+                "> 이 실패가 반복되면 BOT API 포털 등록을 앞당기는 것을 검토하세요. 승인되면 스크래핑 경로가 사라집니다.",
+              ].join("\n"),
+            });
