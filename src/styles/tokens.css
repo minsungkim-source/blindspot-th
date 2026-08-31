@@ -63,6 +63,13 @@
 
   --ease: cubic-bezier(0.2, 0, 0, 1);
   --dur: 160ms;
+
+  /* 소제목(eyebrow) 라벨의 자간.
+     0.11em은 대문자 라틴을 위한 값이다 — 한글에는 글자마다 1.2px씩 벌어져
+     "갭  점수"처럼 보인다. 이 화면의 라벨은 전부 한글이므로 낮춘다.
+     `text-transform: uppercase`는 한글에 무해하고 섞인 라틴에만 걸리므로 그대로 둔다.
+     8곳이 같은 값을 쓰므로 여기 한 곳에서만 조정한다. */
+  --track-label: 0.02em;
 }
 
 * { box-sizing: border-box; }

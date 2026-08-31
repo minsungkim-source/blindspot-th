@@ -9,7 +9,7 @@
 .legend__label {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.11em;
+  letter-spacing: var(--track-label);
   text-transform: uppercase;
   color: var(--ink-3);
 }
