@@ -3,7 +3,10 @@
  "not_by_province": true,
  "as_of": "2024",
  "source_url": "https://www.worldbank.org/en/publication/globalfindex/report",
- "sample_note": "태국 표본 n=1,000 · 지역 식별자 없음 — 주별 분해 불가",
+ "sample_note": {
+  "ko": "태국 표본 n=1,000 · 지역 식별자 없음 — 주별 분해 불가",
+  "en": "Thai sample n=1,000 · no sub-national identifier — cannot be split by province"
+ },
  "series": {
   "account_all": [
    {
