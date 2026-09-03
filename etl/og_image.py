@@ -49,6 +49,11 @@ LATIN_FONTS = [
 ]
 
 # 같은 내용의 두 벌. 한글 폰트를 못 찾으면 아래쪽을 쓴다.
+#
+# 카드는 두 언어를 동시에 섬긴다. 사이트는 `?lang=`으로 언어를 고르지만 **스크래퍼는
+# JS를 돌리지 않으므로** 화면이 런타임에 고쳐 쓰는 og:* 태그를 절대 보지 못한다.
+# 정적 HTML이 하나뿐이라 카드도 하나뿐이고, 그 하나가 영어권 링크에도 나간다.
+# 그래서 한글판에는 영문 부제를 한 줄 덧붙인다 (아래 `alt_sub`).
 STRINGS_KO = {
     "sub": "태국 77개 주 금융포용 갭",
     "desc": "공급(지점·예수신) 대비 수요(인구·소득·원격성)의 격차",
@@ -205,6 +210,9 @@ def render(
         d.text((pad + 10, 150), "Blindspot TH", font=title_f, fill=INK)
         d.text((pad + 10, 224), txt["sub"], font=sub_f, fill=INK_2)
         d.text((pad + 10, 258), txt["desc"], font=small_f, fill=INK_3)
+        # 한글판일 때만. 영문판은 카드 전체가 이미 영어라 덧붙일 것이 없다.
+        if korean:
+            d.text((pad + 10, 288), STRINGS_EN["sub"], font=small_f, fill=INK_3)
 
         # 램프 + 양끝 값. 색이 무엇을 뜻하는지 없으면 그림일 뿐이다.
         bar_y, bar_w = 340, 44

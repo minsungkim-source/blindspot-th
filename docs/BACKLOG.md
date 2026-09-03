@@ -14,8 +14,11 @@
       · Pages 주소: `https://minsungkim-source.github.io/blindspot-th/`
       · 조직명이 `blindspot-th`가 아니라 `minsungkim-source`로 정해져,
         앞서 치환했던 `<org>` 값을 실제 조직명으로 다시 고쳤다
-- [ ] 저장소 설정 — Pages 활성화, `parser-drift` / `data` 라벨 생성,
-      Actions 권한(`contents: write`, `pull-requests: write`, `issues: write`) 확인
+- [x] 저장소 설정 (2026-09-03) — Pages를 **GitHub Actions** 소스로 전환,
+      Actions 권한을 read/write로 설정. 처음에는 Pages가 `legacy`(브랜치 서빙)여서
+      리포 루트의 원본 `index.html`을 그대로 내보냈고, `%VITE_SITE_URL%`이 치환되지 않은
+      채 노출됐다 — 빌드를 거치지 않으면 정적 사이트가 '배포된 것처럼' 보이면서 깨져 있다
+      · 남은 것: `parser-drift` / `data` 라벨 생성 (카나리·갱신 PR이 참조한다)
 - [x] `vite.config.ts`의 `base` — 기본값 `/blindspot-th/`가 저장소명과 이미 일치한다.
       배포 시에는 `deploy.yml`이 `GITHUB_REPOSITORY`에서 계산해 `VITE_BASE`로 덮으므로
       저장소명을 바꿔도 따라간다 (로컬 기본값만 이 값을 쓴다)
@@ -46,8 +49,9 @@
 - [x] `tests/test_figi.py` — 백분위·가중합·아키타입 20케이스
 - [x] `tests/test_parity.py` + `src/lib/score.parity.test.ts` — 골든 벡터 방식으로 앞당김
       (원래 Sprint 4). Python이 굽고 TS가 대조한다
-- [ ] `parser-canary.yml` 수동 실행(`workflow_dispatch`)으로 첫 동작 확인
-      — 저장소를 만든 뒤에야 가능
+- [x] `parser-canary.yml` 실주행 확인 (2026-09-03) — 성공. 저장소 개설 8일 뒤에 돌렸는데
+      BOT 표의 지문이 그대로였다 (열 15개·헤더 토큰·주 77행). 카나리가 '변화 없음'을
+      실제로 관측한 것이라, 지문 검사가 늘 통과만 하는 장식이 아님을 확인한 셈이다
 
 ### Sprint 1에서 드러난 것 — 처리 필요
 
@@ -103,7 +107,8 @@
       · 모바일 375px 가로 스크롤 없음, 보조 열 접힘
       · `forced-colors` / `prefers-reduced-motion` 규칙 블록 각 2개, 해치 패턴 DOM에 존재
       · 콘솔 에러 0
-- [ ] GitHub Pages 첫 배포 (`VITE_BASE` 확인)
+- [x] GitHub Pages 첫 배포 (2026-09-03) — `VITE_BASE`가 `/blindspot-th/`로 계산돼
+      에셋 경로·`og:image` 절대 URL 모두 정상. 라이브에서 77개 폴리곤·램프·표 재확인
 
 ## Sprint 3 — 결론을 만드는 층 (2026-08-27 구현, 브라우저 미검증)
 
@@ -143,7 +148,11 @@
       `+7 hours`로 고쳐 정확히 12회/년이 되는 것을 확인했다
 - [x] `refresh-data.yml` 게이트 로직 검증 (시뮬레이션). 스텝 조건도 고쳤다 —
       `exit 0`으로는 뒤 스텝이 멈추지 않아 게이트가 무의미했다
-- [ ] `refresh-data.yml` **실주행** 검증 — 저장소 개설 후에만 가능
+- [x] `refresh-data.yml` 실주행 검증 (2026-09-03) — PR #1이 정상적으로 열렸고 머지했다.
+      · **파이프라인이 결정적임이 부수적으로 증명됐다**: 3일 뒤 다른 OS(CI ubuntu)에서
+        전 소스를 새로 받아 돌렸는데 diff가 **타임스탬프 2개뿐**이었다.
+        수치가 한 자리도 흔들리지 않았다 — 부동소수·정렬·딕셔너리 순서 어디에도
+        환경 의존이 없다는 뜻이다
 - [x] `validate.py` 게이트를 일부러 깨뜨려 PR이 안 열리는지 확인 — `tests/test_validate.py` 27케이스.
       **뮤테이션 테스트로 검증했다**: 게이트를 하나씩 무력화하면 전부 테스트가 실패한다
       (통과하는 게이트가 하나도 없다 = 테스트가 헛돌지 않는다)
@@ -209,6 +218,35 @@
       · 캐시 사용은 `meta.json`의 `from_cache: true`로 남고 PR 체크리스트에 뜬다
       · 저장소에 재배포하지 않는다 (`data/raw/`는 gitignore). CI는 `actions/cache`로 잇는다
       · `tests/test_nesdc_cache.py` 5케이스로 고정
+
+## Sprint 5 — 두 언어 (2026-09-03)
+
+- [x] `src/i18n/strings.ts` — 화면 문구 단일 출처. `ko`를 기준 형태로 두고
+      `const en: Record<Key, string>`으로 받아 **키 누락을 타입 오류로** 막는다.
+      영어판은 직역이 아니라 같은 말의 다른 판본 (`갭 낮음` → `Lower gap`)
+- [x] `?lang=`을 URL 상태에 추가 — **기본값도 생략하지 않는 유일한 상태**다.
+      링크를 받는 쪽 브라우저 언어가 보낸 쪽과 다르면 같은 링크가 다른 화면을 연다.
+      URL에 없을 때만 브라우저 설정을 본다 (`urlState.test.ts`에 왕복 케이스 추가)
+- [x] `Intro` — 상단에 무엇을 재는지 / 어떻게 쓰는지 / 데이터가 어디서 오는지 세 문단.
+      지도와 슬라이더만 보이면 이 도구가 무엇을 주장하는지 알 수 없었다
+- [x] **사전을 거치지 않는 경로 셋을 찾아 막았다.** 문구를 모으는 것만으로는 부족했고,
+      영어 화면의 DOM을 실제로 훑어서야 드러났다 (`koreanTextNodes: 4`)
+      · `findex.json`의 캡션 — ETL이 굽는 값이라 사전 밖이다. `build.py`가 `{ko, en}`으로
+        굽고 화면이 고른다. **옛 문자열 형태도 계속 받는다** — 배포는 즉시지만 데이터
+        갱신은 월 1회 PR이라 새 코드가 옛 데이터를 만나는 창이 실재한다
+      · `degraded_sources`의 사유 — 파이썬 예외 메시지다. 진단용이라 번역하지 않고
+        `title`로 옮기고 화면에는 번역된 요약만 낸다
+      · 문서 제목·설명·`noscript` — 앞의 둘은 화면 언어를 따라가게 했고, `noscript`는
+        언어를 고를 수단 자체가 없으므로 두 언어를 모두 적는다
+- [x] **OG 카드가 한글 전용이던 것을 고쳤다.** 사이트는 `?lang=`으로 언어를 고르지만
+      **스크래퍼는 JS를 돌리지 않아** 앱이 런타임에 고쳐 쓰는 `og:*`를 영영 못 본다.
+      정적 HTML이 하나라 카드도 하나이고 그 하나가 영어권 링크에도 나간다.
+      한글판에 영문 부제를 얹어 한 장으로 두 언어를 섬기게 했다 (`og:locale:alternate` 추가).
+      `STRINGS_EN`은 원래 '한글 폰트 없을 때의 폴백'으로만 쓰이고 있었다
+- [x] 라이브 재검증 — 영어 화면에 남은 한국어는 언어 선택기의 `한국어` 하나뿐이고
+      이건 그대로 두는 것이 맞다 (언어 이름은 자기 언어로 쓴다)
+- [x] 테스트 TS 64개(신규 4: 옛/새 캡션 형태 호환) · 파이썬 94개(신규 3: 두 벌 키 일치,
+      한글판의 영문 부제 유무). 부제 테스트는 뮤테이션으로 살아 있음을 확인했다
 
 ## Phase 2
 

@@ -6,6 +6,10 @@
 공급(은행 지점·예수신) 대비 수요(인구·소득·원격성)의 격차를 지수화하고,
 디지털 준비도를 겹쳐 **물리 접점이 필요한 곳**과 **앱만으로 되는 곳**을 갈라낸다.
 
+**라이브**: <https://minsungkim-source.github.io/blindspot-th/>
+(한국어 · English — `?lang=en`. 언어를 포함한 화면 상태가 전부 주소에 담기므로
+조정한 화면을 링크로 그대로 주고받을 수 있다.)
+
 - 기획서: [Product Plan](https://claude.ai/code/artifact/5cd9b4d0-d01d-451d-a032-c0c823b84ee7)
 - 지수 정의: [`METHODOLOGY.md`](./METHODOLOGY.md)
 - 데이터 계보: [`DATA_SOURCES.md`](./DATA_SOURCES.md)
@@ -18,6 +22,7 @@
 ```
 etl/     Python. 공개 소스 → data/processed/*.json 을 굽는다. CI에서 월 1회 실행.
 src/     Vite + React + TypeScript + D3. 굽힌 JSON을 fetch 해서 그린다.
+         화면 문구는 전부 src/i18n/strings.ts 한 곳에 있다 (한국어·영어).
 data/    reference(크로스워크·폴리곤) / processed(빌드 산출물) / raw(gitignored)
 ```
 

@@ -116,3 +116,40 @@ def test_font_resolution_never_returns_korean_strings_without_korean_font(monkey
     assert korean is False
     # 라틴 폰트조차 없는 환경이면 path가 None이고, 그때는 글자를 아예 안 그린다
     assert path is None or path.endswith((".ttf", ".ttc"))
+
+
+def test_string_sets_stay_in_lockstep():
+    """두 벌은 '같은 내용의 두 판본'이다. 한쪽에만 키가 생기면 KeyError로 죽거나
+    문구 하나가 조용히 사라진다 — 카드는 아무도 안 보는 산출물이라 눈치채지 못한다."""
+    assert set(og_image.STRINGS_KO) == set(og_image.STRINGS_EN)
+
+
+def _left_column_ink(img, y0: int, y1: int) -> int:
+    """카드 왼쪽 텍스트 단에서 배경이 아닌 픽셀 수. 지도는 오른쪽에 있어 섞이지 않는다."""
+    crop = img.convert("RGB").crop((40, y0, 560, y1))
+    bg = og_image._hex(og_image.GROUND) if isinstance(og_image.GROUND, str) else og_image.GROUND
+    return sum(1 for px in crop.getdata() if px != bg)
+
+
+def test_korean_card_also_carries_the_english_subtitle(tmp_path, geo, rows):
+    """카드는 한 장뿐인데 링크는 두 언어로 공유된다.
+
+    사이트는 `?lang=`으로 언어를 고르지만 **스크래퍼는 JS를 돌리지 않는다** — 앱이
+    런타임에 고쳐 쓰는 og:* 태그를 영영 못 본다. 정적 HTML이 하나라 카드도 하나이고,
+    그 하나가 영어권 링크에도 그대로 나간다. 그래서 한글판에 영문 부제를 얹는다.
+    """
+    if not og_image._resolve_font_family()[1]:
+        pytest.skip("한글 폰트가 없는 환경 — 이 경우 카드 전체가 이미 영문이다")
+
+    out = og_image.render(geo, rows, tmp_path / "ko.png", as_of="JUN 2025")
+    assert _left_column_ink(Image.open(out), 285, 306) > 0, "영문 부제 줄이 비어 있다"
+
+
+def test_english_card_does_not_repeat_itself(tmp_path, geo, rows, monkeypatch):
+    """영문판은 카드 전체가 이미 영어다. 부제를 또 얹으면 같은 문장이 두 번 나온다."""
+    monkeypatch.setattr(og_image, "KOREAN_FONTS", [])
+    if og_image._resolve_font_family()[0] is None:
+        pytest.skip("라틴 폰트조차 없는 환경 — 글자를 아예 그리지 않는다")
+
+    out = og_image.render(geo, rows, tmp_path / "en.png", as_of="JUN 2025")
+    assert _left_column_ink(Image.open(out), 285, 306) == 0, "영문판에 덧붙은 줄이 있다"
