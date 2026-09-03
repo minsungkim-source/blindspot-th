@@ -1,0 +1,6470 @@
+[
+ {
+  "tis1099_code": "37",
+  "period": "2024-07",
+  "branches": 9,
+  "deposits_total": 8712000000.0,
+  "credits_total": 9861000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2024-08",
+  "branches": 9,
+  "deposits_total": 8683000000.0,
+  "credits_total": 9728000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2024-09",
+  "branches": 9,
+  "deposits_total": 8888000000.0,
+  "credits_total": 9758000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2024-10",
+  "branches": 9,
+  "deposits_total": 9399000000.0,
+  "credits_total": 9722000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2024-11",
+  "branches": 9,
+  "deposits_total": 9033000000.0,
+  "credits_total": 10114000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2024-12",
+  "branches": 9,
+  "deposits_total": 8915000000.0,
+  "credits_total": 10054000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2025-01",
+  "branches": 9,
+  "deposits_total": 9285000000.0,
+  "credits_total": 10004000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2025-02",
+  "branches": 9,
+  "deposits_total": 9418000000.0,
+  "credits_total": 10051000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2025-03",
+  "branches": 9,
+  "deposits_total": 9184000000.0,
+  "credits_total": 10041000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2025-04",
+  "branches": 9,
+  "deposits_total": 9000000000.0,
+  "credits_total": 10004000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2025-05",
+  "branches": 9,
+  "deposits_total": 8853000000.0,
+  "credits_total": 9959000000.0
+ },
+ {
+  "tis1099_code": "37",
+  "period": "2025-06",
+  "branches": 9,
+  "deposits_total": 8847000000.0,
+  "credits_total": 9956000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2024-07",
+  "branches": 13,
+  "deposits_total": 18373000000.0,
+  "credits_total": 9133000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2024-08",
+  "branches": 13,
+  "deposits_total": 18218000000.0,
+  "credits_total": 9127000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2024-09",
+  "branches": 13,
+  "deposits_total": 18248000000.0,
+  "credits_total": 9114000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2024-10",
+  "branches": 13,
+  "deposits_total": 18913000000.0,
+  "credits_total": 9011000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2024-11",
+  "branches": 13,
+  "deposits_total": 18599000000.0,
+  "credits_total": 9033000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2024-12",
+  "branches": 13,
+  "deposits_total": 18622000000.0,
+  "credits_total": 9074000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2025-01",
+  "branches": 13,
+  "deposits_total": 19023000000.0,
+  "credits_total": 9113000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2025-02",
+  "branches": 13,
+  "deposits_total": 18764000000.0,
+  "credits_total": 8905000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2025-03",
+  "branches": 13,
+  "deposits_total": 18918000000.0,
+  "credits_total": 8843000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2025-04",
+  "branches": 13,
+  "deposits_total": 18811000000.0,
+  "credits_total": 8875000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2025-05",
+  "branches": 13,
+  "deposits_total": 18669000000.0,
+  "credits_total": 8892000000.0
+ },
+ {
+  "tis1099_code": "15",
+  "period": "2025-06",
+  "branches": 13,
+  "deposits_total": 18634000000.0,
+  "credits_total": 8876000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2024-07",
+  "branches": 74,
+  "deposits_total": 129083000000.0,
+  "credits_total": 88262000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2024-08",
+  "branches": 74,
+  "deposits_total": 127495000000.0,
+  "credits_total": 88010000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2024-09",
+  "branches": 74,
+  "deposits_total": 125016000000.0,
+  "credits_total": 88390000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2024-10",
+  "branches": 75,
+  "deposits_total": 129342000000.0,
+  "credits_total": 87735000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2024-11",
+  "branches": 75,
+  "deposits_total": 129358000000.0,
+  "credits_total": 87834000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2024-12",
+  "branches": 75,
+  "deposits_total": 130308000000.0,
+  "credits_total": 88409000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2025-01",
+  "branches": 75,
+  "deposits_total": 131474000000.0,
+  "credits_total": 86955000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2025-02",
+  "branches": 73,
+  "deposits_total": 131726000000.0,
+  "credits_total": 87020000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2025-03",
+  "branches": 73,
+  "deposits_total": 131980000000.0,
+  "credits_total": 86984000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2025-04",
+  "branches": 73,
+  "deposits_total": 131105000000.0,
+  "credits_total": 86876000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2025-05",
+  "branches": 73,
+  "deposits_total": 128989000000.0,
+  "credits_total": 86143000000.0
+ },
+ {
+  "tis1099_code": "14",
+  "period": "2025-06",
+  "branches": 73,
+  "deposits_total": 130465000000.0,
+  "credits_total": 86019000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2024-07",
+  "branches": 1383,
+  "deposits_total": 10780040000000.0,
+  "credits_total": 13364373000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2024-08",
+  "branches": 1378,
+  "deposits_total": 10624798000000.0,
+  "credits_total": 13390570000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2024-09",
+  "branches": 1373,
+  "deposits_total": 10716316000000.0,
+  "credits_total": 13157777000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2024-10",
+  "branches": 1367,
+  "deposits_total": 10895827000000.0,
+  "credits_total": 13584190000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2024-11",
+  "branches": 1363,
+  "deposits_total": 10827676000000.0,
+  "credits_total": 13499506000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2024-12",
+  "branches": 1362,
+  "deposits_total": 10872479000000.0,
+  "credits_total": 13603283000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2025-01",
+  "branches": 1357,
+  "deposits_total": 10861951000000.0,
+  "credits_total": 13620520000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2025-02",
+  "branches": 1354,
+  "deposits_total": 10927169000000.0,
+  "credits_total": 13665265000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2025-03",
+  "branches": 1350,
+  "deposits_total": 10913054000000.0,
+  "credits_total": 13497488000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2025-04",
+  "branches": 1341,
+  "deposits_total": 10952144000000.0,
+  "credits_total": 13654537000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2025-05",
+  "branches": 1335,
+  "deposits_total": 10935282000000.0,
+  "credits_total": 13705271000000.0
+ },
+ {
+  "tis1099_code": "10",
+  "period": "2025-06",
+  "branches": 1328,
+  "deposits_total": 10856707000000.0,
+  "credits_total": 13674586000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2024-07",
+  "branches": 12,
+  "deposits_total": 8918000000.0,
+  "credits_total": 11474000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2024-08",
+  "branches": 12,
+  "deposits_total": 8871000000.0,
+  "credits_total": 11480000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2024-09",
+  "branches": 12,
+  "deposits_total": 9209000000.0,
+  "credits_total": 11347000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2024-10",
+  "branches": 12,
+  "deposits_total": 9712000000.0,
+  "credits_total": 11310000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2024-11",
+  "branches": 12,
+  "deposits_total": 9443000000.0,
+  "credits_total": 11262000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2024-12",
+  "branches": 12,
+  "deposits_total": 9378000000.0,
+  "credits_total": 11228000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2025-01",
+  "branches": 12,
+  "deposits_total": 9591000000.0,
+  "credits_total": 11158000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2025-02",
+  "branches": 12,
+  "deposits_total": 10001000000.0,
+  "credits_total": 11192000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2025-03",
+  "branches": 12,
+  "deposits_total": 9960000000.0,
+  "credits_total": 11274000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2025-04",
+  "branches": 12,
+  "deposits_total": 9559000000.0,
+  "credits_total": 11230000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2025-05",
+  "branches": 12,
+  "deposits_total": 9349000000.0,
+  "credits_total": 11260000000.0
+ },
+ {
+  "tis1099_code": "38",
+  "period": "2025-06",
+  "branches": 11,
+  "deposits_total": 8909000000.0,
+  "credits_total": 11062000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2024-07",
+  "branches": 40,
+  "deposits_total": 48846000000.0,
+  "credits_total": 41567000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2024-08",
+  "branches": 40,
+  "deposits_total": 48827000000.0,
+  "credits_total": 41407000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2024-09",
+  "branches": 40,
+  "deposits_total": 49332000000.0,
+  "credits_total": 41188000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2024-10",
+  "branches": 39,
+  "deposits_total": 50754000000.0,
+  "credits_total": 40975000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2024-11",
+  "branches": 39,
+  "deposits_total": 50742000000.0,
+  "credits_total": 41282000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2024-12",
+  "branches": 39,
+  "deposits_total": 49917000000.0,
+  "credits_total": 40692000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2025-01",
+  "branches": 38,
+  "deposits_total": 50492000000.0,
+  "credits_total": 40970000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2025-02",
+  "branches": 38,
+  "deposits_total": 49538000000.0,
+  "credits_total": 40880000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2025-03",
+  "branches": 38,
+  "deposits_total": 50354000000.0,
+  "credits_total": 40619000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2025-04",
+  "branches": 38,
+  "deposits_total": 50225000000.0,
+  "credits_total": 40505000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2025-05",
+  "branches": 38,
+  "deposits_total": 49944000000.0,
+  "credits_total": 40659000000.0
+ },
+ {
+  "tis1099_code": "31",
+  "period": "2025-06",
+  "branches": 38,
+  "deposits_total": 49199000000.0,
+  "credits_total": 40645000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2024-07",
+  "branches": 54,
+  "deposits_total": 97933000000.0,
+  "credits_total": 67267000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2024-08",
+  "branches": 54,
+  "deposits_total": 97138000000.0,
+  "credits_total": 67820000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2024-09",
+  "branches": 54,
+  "deposits_total": 97064000000.0,
+  "credits_total": 68295000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2024-10",
+  "branches": 54,
+  "deposits_total": 99743000000.0,
+  "credits_total": 67150000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2024-11",
+  "branches": 54,
+  "deposits_total": 99464000000.0,
+  "credits_total": 67246000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2024-12",
+  "branches": 54,
+  "deposits_total": 100780000000.0,
+  "credits_total": 66818000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2025-01",
+  "branches": 54,
+  "deposits_total": 101266000000.0,
+  "credits_total": 66447000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2025-02",
+  "branches": 54,
+  "deposits_total": 100153000000.0,
+  "credits_total": 65745000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2025-03",
+  "branches": 54,
+  "deposits_total": 101497000000.0,
+  "credits_total": 66273000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2025-04",
+  "branches": 54,
+  "deposits_total": 102224000000.0,
+  "credits_total": 65821000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2025-05",
+  "branches": 54,
+  "deposits_total": 101895000000.0,
+  "credits_total": 64897000000.0
+ },
+ {
+  "tis1099_code": "24",
+  "period": "2025-06",
+  "branches": 54,
+  "deposits_total": 100469000000.0,
+  "credits_total": 64198000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2024-07",
+  "branches": 15,
+  "deposits_total": 18000000000.0,
+  "credits_total": 9841000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2024-08",
+  "branches": 15,
+  "deposits_total": 17777000000.0,
+  "credits_total": 9961000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2024-09",
+  "branches": 15,
+  "deposits_total": 17805000000.0,
+  "credits_total": 9956000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2024-10",
+  "branches": 14,
+  "deposits_total": 17957000000.0,
+  "credits_total": 9916000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2024-11",
+  "branches": 13,
+  "deposits_total": 16999000000.0,
+  "credits_total": 10688000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2024-12",
+  "branches": 13,
+  "deposits_total": 16713000000.0,
+  "credits_total": 9315000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2025-01",
+  "branches": 13,
+  "deposits_total": 16965000000.0,
+  "credits_total": 8688000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2025-02",
+  "branches": 13,
+  "deposits_total": 17292000000.0,
+  "credits_total": 8526000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2025-03",
+  "branches": 13,
+  "deposits_total": 17065000000.0,
+  "credits_total": 8644000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2025-04",
+  "branches": 13,
+  "deposits_total": 16757000000.0,
+  "credits_total": 9083000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2025-05",
+  "branches": 13,
+  "deposits_total": 16824000000.0,
+  "credits_total": 8618000000.0
+ },
+ {
+  "tis1099_code": "18",
+  "period": "2025-06",
+  "branches": 13,
+  "deposits_total": 16850000000.0,
+  "credits_total": 8375000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2024-07",
+  "branches": 30,
+  "deposits_total": 31199000000.0,
+  "credits_total": 25998000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2024-08",
+  "branches": 30,
+  "deposits_total": 30621000000.0,
+  "credits_total": 26068000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2024-09",
+  "branches": 30,
+  "deposits_total": 30339000000.0,
+  "credits_total": 26061000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2024-10",
+  "branches": 30,
+  "deposits_total": 32329000000.0,
+  "credits_total": 26020000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2024-11",
+  "branches": 30,
+  "deposits_total": 31709000000.0,
+  "credits_total": 26126000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2024-12",
+  "branches": 30,
+  "deposits_total": 31581000000.0,
+  "credits_total": 26146000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2025-01",
+  "branches": 30,
+  "deposits_total": 31810000000.0,
+  "credits_total": 26031000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2025-02",
+  "branches": 30,
+  "deposits_total": 31707000000.0,
+  "credits_total": 25950000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2025-03",
+  "branches": 30,
+  "deposits_total": 31790000000.0,
+  "credits_total": 26058000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2025-04",
+  "branches": 30,
+  "deposits_total": 31175000000.0,
+  "credits_total": 26033000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2025-05",
+  "branches": 30,
+  "deposits_total": 30725000000.0,
+  "credits_total": 26044000000.0
+ },
+ {
+  "tis1099_code": "36",
+  "period": "2025-06",
+  "branches": 30,
+  "deposits_total": 29910000000.0,
+  "credits_total": 26142000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2024-07",
+  "branches": 43,
+  "deposits_total": 92218000000.0,
+  "credits_total": 35029000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2024-08",
+  "branches": 43,
+  "deposits_total": 88143000000.0,
+  "credits_total": 35400000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2024-09",
+  "branches": 43,
+  "deposits_total": 85680000000.0,
+  "credits_total": 35465000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2024-10",
+  "branches": 43,
+  "deposits_total": 84633000000.0,
+  "credits_total": 35627000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2024-11",
+  "branches": 43,
+  "deposits_total": 83252000000.0,
+  "credits_total": 35592000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2024-12",
+  "branches": 43,
+  "deposits_total": 80672000000.0,
+  "credits_total": 35573000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2025-01",
+  "branches": 43,
+  "deposits_total": 80646000000.0,
+  "credits_total": 35653000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2025-02",
+  "branches": 43,
+  "deposits_total": 78603000000.0,
+  "credits_total": 35725000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2025-03",
+  "branches": 44,
+  "deposits_total": 79326000000.0,
+  "credits_total": 35772000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2025-04",
+  "branches": 44,
+  "deposits_total": 88381000000.0,
+  "credits_total": 35380000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2025-05",
+  "branches": 44,
+  "deposits_total": 98320000000.0,
+  "credits_total": 34601000000.0
+ },
+ {
+  "tis1099_code": "22",
+  "period": "2025-06",
+  "branches": 44,
+  "deposits_total": 97920000000.0,
+  "credits_total": 34580000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2024-07",
+  "branches": 151,
+  "deposits_total": 307986000000.0,
+  "credits_total": 212488000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2024-08",
+  "branches": 151,
+  "deposits_total": 304640000000.0,
+  "credits_total": 211328000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2024-09",
+  "branches": 149,
+  "deposits_total": 303870000000.0,
+  "credits_total": 210346000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2024-10",
+  "branches": 149,
+  "deposits_total": 312195000000.0,
+  "credits_total": 208228000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2024-11",
+  "branches": 149,
+  "deposits_total": 313056000000.0,
+  "credits_total": 207462000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2024-12",
+  "branches": 149,
+  "deposits_total": 314936000000.0,
+  "credits_total": 207890000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2025-01",
+  "branches": 149,
+  "deposits_total": 319117000000.0,
+  "credits_total": 206047000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2025-02",
+  "branches": 146,
+  "deposits_total": 315152000000.0,
+  "credits_total": 205426000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2025-03",
+  "branches": 146,
+  "deposits_total": 313735000000.0,
+  "credits_total": 205705000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2025-04",
+  "branches": 146,
+  "deposits_total": 311986000000.0,
+  "credits_total": 205083000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2025-05",
+  "branches": 146,
+  "deposits_total": 308836000000.0,
+  "credits_total": 205296000000.0
+ },
+ {
+  "tis1099_code": "50",
+  "period": "2025-06",
+  "branches": 146,
+  "deposits_total": 307331000000.0,
+  "credits_total": 205596000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2024-07",
+  "branches": 66,
+  "deposits_total": 89454000000.0,
+  "credits_total": 67672000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2024-08",
+  "branches": 66,
+  "deposits_total": 88898000000.0,
+  "credits_total": 67964000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2024-09",
+  "branches": 66,
+  "deposits_total": 89252000000.0,
+  "credits_total": 67480000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2024-10",
+  "branches": 66,
+  "deposits_total": 91380000000.0,
+  "credits_total": 67353000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2024-11",
+  "branches": 66,
+  "deposits_total": 91611000000.0,
+  "credits_total": 66963000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2024-12",
+  "branches": 66,
+  "deposits_total": 90581000000.0,
+  "credits_total": 66478000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2025-01",
+  "branches": 66,
+  "deposits_total": 90157000000.0,
+  "credits_total": 66417000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2025-02",
+  "branches": 67,
+  "deposits_total": 91575000000.0,
+  "credits_total": 66148000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2025-03",
+  "branches": 66,
+  "deposits_total": 90449000000.0,
+  "credits_total": 66032000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2025-04",
+  "branches": 66,
+  "deposits_total": 90802000000.0,
+  "credits_total": 66073000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2025-05",
+  "branches": 66,
+  "deposits_total": 90278000000.0,
+  "credits_total": 66448000000.0
+ },
+ {
+  "tis1099_code": "57",
+  "period": "2025-06",
+  "branches": 66,
+  "deposits_total": 89492000000.0,
+  "credits_total": 65571000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2024-07",
+  "branches": 264,
+  "deposits_total": 614188000000.0,
+  "credits_total": 453532000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2024-08",
+  "branches": 263,
+  "deposits_total": 609058000000.0,
+  "credits_total": 454348000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2024-09",
+  "branches": 263,
+  "deposits_total": 606767000000.0,
+  "credits_total": 457137000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2024-10",
+  "branches": 262,
+  "deposits_total": 620131000000.0,
+  "credits_total": 453966000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2024-11",
+  "branches": 261,
+  "deposits_total": 623314000000.0,
+  "credits_total": 454802000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2024-12",
+  "branches": 258,
+  "deposits_total": 633544000000.0,
+  "credits_total": 457636000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2025-01",
+  "branches": 257,
+  "deposits_total": 639506000000.0,
+  "credits_total": 457805000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2025-02",
+  "branches": 255,
+  "deposits_total": 641426000000.0,
+  "credits_total": 458771000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2025-03",
+  "branches": 254,
+  "deposits_total": 642414000000.0,
+  "credits_total": 456424000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2025-04",
+  "branches": 255,
+  "deposits_total": 643026000000.0,
+  "credits_total": 456942000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2025-05",
+  "branches": 252,
+  "deposits_total": 640415000000.0,
+  "credits_total": 456449000000.0
+ },
+ {
+  "tis1099_code": "20",
+  "period": "2025-06",
+  "branches": 252,
+  "deposits_total": 640917000000.0,
+  "credits_total": 456271000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2024-07",
+  "branches": 38,
+  "deposits_total": 50399000000.0,
+  "credits_total": 29736000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2024-08",
+  "branches": 38,
+  "deposits_total": 50731000000.0,
+  "credits_total": 29679000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2024-09",
+  "branches": 38,
+  "deposits_total": 52334000000.0,
+  "credits_total": 29566000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2024-10",
+  "branches": 38,
+  "deposits_total": 52076000000.0,
+  "credits_total": 29444000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2024-11",
+  "branches": 38,
+  "deposits_total": 50562000000.0,
+  "credits_total": 29221000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2024-12",
+  "branches": 38,
+  "deposits_total": 49503000000.0,
+  "credits_total": 29371000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2025-01",
+  "branches": 38,
+  "deposits_total": 49289000000.0,
+  "credits_total": 29152000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2025-02",
+  "branches": 38,
+  "deposits_total": 48881000000.0,
+  "credits_total": 29059000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2025-03",
+  "branches": 38,
+  "deposits_total": 47590000000.0,
+  "credits_total": 29069000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2025-04",
+  "branches": 38,
+  "deposits_total": 48547000000.0,
+  "credits_total": 29246000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2025-05",
+  "branches": 38,
+  "deposits_total": 47506000000.0,
+  "credits_total": 29088000000.0
+ },
+ {
+  "tis1099_code": "86",
+  "period": "2025-06",
+  "branches": 38,
+  "deposits_total": 49174000000.0,
+  "credits_total": 28797000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2024-07",
+  "branches": 22,
+  "deposits_total": 24205000000.0,
+  "credits_total": 26768000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2024-08",
+  "branches": 22,
+  "deposits_total": 24066000000.0,
+  "credits_total": 26707000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2024-09",
+  "branches": 22,
+  "deposits_total": 23994000000.0,
+  "credits_total": 26313000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2024-10",
+  "branches": 22,
+  "deposits_total": 24990000000.0,
+  "credits_total": 26165000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2024-11",
+  "branches": 22,
+  "deposits_total": 24693000000.0,
+  "credits_total": 26353000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2024-12",
+  "branches": 22,
+  "deposits_total": 24910000000.0,
+  "credits_total": 26108000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2025-01",
+  "branches": 22,
+  "deposits_total": 25274000000.0,
+  "credits_total": 26127000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2025-02",
+  "branches": 22,
+  "deposits_total": 25217000000.0,
+  "credits_total": 26061000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2025-03",
+  "branches": 22,
+  "deposits_total": 25115000000.0,
+  "credits_total": 25943000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2025-04",
+  "branches": 22,
+  "deposits_total": 24798000000.0,
+  "credits_total": 25833000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2025-05",
+  "branches": 22,
+  "deposits_total": 24660000000.0,
+  "credits_total": 25901000000.0
+ },
+ {
+  "tis1099_code": "46",
+  "period": "2025-06",
+  "branches": 22,
+  "deposits_total": 24490000000.0,
+  "credits_total": 25832000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2024-07",
+  "branches": 26,
+  "deposits_total": 29295000000.0,
+  "credits_total": 30114000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2024-08",
+  "branches": 26,
+  "deposits_total": 28549000000.0,
+  "credits_total": 30035000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2024-09",
+  "branches": 26,
+  "deposits_total": 28904000000.0,
+  "credits_total": 30514000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2024-10",
+  "branches": 26,
+  "deposits_total": 29675000000.0,
+  "credits_total": 30082000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2024-11",
+  "branches": 26,
+  "deposits_total": 29175000000.0,
+  "credits_total": 29811000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2024-12",
+  "branches": 26,
+  "deposits_total": 29595000000.0,
+  "credits_total": 30096000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2025-01",
+  "branches": 25,
+  "deposits_total": 30095000000.0,
+  "credits_total": 29575000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2025-02",
+  "branches": 25,
+  "deposits_total": 30562000000.0,
+  "credits_total": 29212000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2025-03",
+  "branches": 25,
+  "deposits_total": 30031000000.0,
+  "credits_total": 29468000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2025-04",
+  "branches": 24,
+  "deposits_total": 30289000000.0,
+  "credits_total": 29154000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2025-05",
+  "branches": 24,
+  "deposits_total": 29679000000.0,
+  "credits_total": 29111000000.0
+ },
+ {
+  "tis1099_code": "62",
+  "period": "2025-06",
+  "branches": 24,
+  "deposits_total": 28949000000.0,
+  "credits_total": 29095000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2024-07",
+  "branches": 39,
+  "deposits_total": 55445000000.0,
+  "credits_total": 31777000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2024-08",
+  "branches": 39,
+  "deposits_total": 54877000000.0,
+  "credits_total": 31827000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2024-09",
+  "branches": 39,
+  "deposits_total": 54494000000.0,
+  "credits_total": 31917000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2024-10",
+  "branches": 39,
+  "deposits_total": 55303000000.0,
+  "credits_total": 31621000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2024-11",
+  "branches": 39,
+  "deposits_total": 55400000000.0,
+  "credits_total": 31767000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2024-12",
+  "branches": 39,
+  "deposits_total": 55599000000.0,
+  "credits_total": 32299000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2025-01",
+  "branches": 39,
+  "deposits_total": 56611000000.0,
+  "credits_total": 31721000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2025-02",
+  "branches": 39,
+  "deposits_total": 57393000000.0,
+  "credits_total": 31208000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2025-03",
+  "branches": 39,
+  "deposits_total": 57414000000.0,
+  "credits_total": 31151000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2025-04",
+  "branches": 38,
+  "deposits_total": 56650000000.0,
+  "credits_total": 30997000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2025-05",
+  "branches": 38,
+  "deposits_total": 56346000000.0,
+  "credits_total": 30906000000.0
+ },
+ {
+  "tis1099_code": "71",
+  "period": "2025-06",
+  "branches": 37,
+  "deposits_total": 55391000000.0,
+  "credits_total": 30736000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2024-07",
+  "branches": 95,
+  "deposits_total": 133008000000.0,
+  "credits_total": 151223000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2024-08",
+  "branches": 95,
+  "deposits_total": 130828000000.0,
+  "credits_total": 150410000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2024-09",
+  "branches": 95,
+  "deposits_total": 129722000000.0,
+  "credits_total": 150490000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2024-10",
+  "branches": 95,
+  "deposits_total": 135273000000.0,
+  "credits_total": 149011000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2024-11",
+  "branches": 95,
+  "deposits_total": 134554000000.0,
+  "credits_total": 149246000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2024-12",
+  "branches": 95,
+  "deposits_total": 134355000000.0,
+  "credits_total": 148019000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2025-01",
+  "branches": 94,
+  "deposits_total": 136107000000.0,
+  "credits_total": 147290000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2025-02",
+  "branches": 94,
+  "deposits_total": 135002000000.0,
+  "credits_total": 146873000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2025-03",
+  "branches": 94,
+  "deposits_total": 137657000000.0,
+  "credits_total": 144565000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2025-04",
+  "branches": 94,
+  "deposits_total": 135585000000.0,
+  "credits_total": 144111000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2025-05",
+  "branches": 93,
+  "deposits_total": 134896000000.0,
+  "credits_total": 143767000000.0
+ },
+ {
+  "tis1099_code": "40",
+  "period": "2025-06",
+  "branches": 93,
+  "deposits_total": 133355000000.0,
+  "credits_total": 143838000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2024-07",
+  "branches": 38,
+  "deposits_total": 36477000000.0,
+  "credits_total": 41903000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2024-08",
+  "branches": 38,
+  "deposits_total": 36186000000.0,
+  "credits_total": 41948000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2024-09",
+  "branches": 38,
+  "deposits_total": 35742000000.0,
+  "credits_total": 41785000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2024-10",
+  "branches": 38,
+  "deposits_total": 36156000000.0,
+  "credits_total": 41679000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2024-11",
+  "branches": 38,
+  "deposits_total": 36288000000.0,
+  "credits_total": 41475000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2024-12",
+  "branches": 38,
+  "deposits_total": 36735000000.0,
+  "credits_total": 41292000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2025-01",
+  "branches": 38,
+  "deposits_total": 38428000000.0,
+  "credits_total": 40976000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2025-02",
+  "branches": 38,
+  "deposits_total": 39210000000.0,
+  "credits_total": 40681000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2025-03",
+  "branches": 38,
+  "deposits_total": 39184000000.0,
+  "credits_total": 40242000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2025-04",
+  "branches": 39,
+  "deposits_total": 40894000000.0,
+  "credits_total": 42613000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2025-05",
+  "branches": 39,
+  "deposits_total": 40254000000.0,
+  "credits_total": 42092000000.0
+ },
+ {
+  "tis1099_code": "81",
+  "period": "2025-06",
+  "branches": 39,
+  "deposits_total": 39030000000.0,
+  "credits_total": 41937000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2024-07",
+  "branches": 33,
+  "deposits_total": 42902000000.0,
+  "credits_total": 31612000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2024-08",
+  "branches": 33,
+  "deposits_total": 42705000000.0,
+  "credits_total": 31601000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2024-09",
+  "branches": 33,
+  "deposits_total": 42562000000.0,
+  "credits_total": 31488000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2024-10",
+  "branches": 32,
+  "deposits_total": 44024000000.0,
+  "credits_total": 31391000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2024-11",
+  "branches": 32,
+  "deposits_total": 43741000000.0,
+  "credits_total": 31356000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2024-12",
+  "branches": 32,
+  "deposits_total": 43935000000.0,
+  "credits_total": 31483000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2025-01",
+  "branches": 32,
+  "deposits_total": 44000000000.0,
+  "credits_total": 31432000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2025-02",
+  "branches": 33,
+  "deposits_total": 44035000000.0,
+  "credits_total": 31320000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2025-03",
+  "branches": 33,
+  "deposits_total": 43545000000.0,
+  "credits_total": 31417000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2025-04",
+  "branches": 33,
+  "deposits_total": 43682000000.0,
+  "credits_total": 31250000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2025-05",
+  "branches": 33,
+  "deposits_total": 43713000000.0,
+  "credits_total": 31106000000.0
+ },
+ {
+  "tis1099_code": "52",
+  "period": "2025-06",
+  "branches": 33,
+  "deposits_total": 43631000000.0,
+  "credits_total": 31062000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2024-07",
+  "branches": 20,
+  "deposits_total": 27769000000.0,
+  "credits_total": 17824000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2024-08",
+  "branches": 20,
+  "deposits_total": 26817000000.0,
+  "credits_total": 17845000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2024-09",
+  "branches": 20,
+  "deposits_total": 26567000000.0,
+  "credits_total": 17775000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2024-10",
+  "branches": 19,
+  "deposits_total": 28291000000.0,
+  "credits_total": 17821000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2024-11",
+  "branches": 19,
+  "deposits_total": 27556000000.0,
+  "credits_total": 17732000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2024-12",
+  "branches": 19,
+  "deposits_total": 27572000000.0,
+  "credits_total": 17603000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2025-01",
+  "branches": 19,
+  "deposits_total": 27667000000.0,
+  "credits_total": 17421000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2025-02",
+  "branches": 19,
+  "deposits_total": 27067000000.0,
+  "credits_total": 17495000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2025-03",
+  "branches": 19,
+  "deposits_total": 27098000000.0,
+  "credits_total": 17591000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2025-04",
+  "branches": 19,
+  "deposits_total": 27059000000.0,
+  "credits_total": 17611000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2025-05",
+  "branches": 19,
+  "deposits_total": 26917000000.0,
+  "credits_total": 17436000000.0
+ },
+ {
+  "tis1099_code": "51",
+  "period": "2025-06",
+  "branches": 19,
+  "deposits_total": 27303000000.0,
+  "credits_total": 17430000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2024-07",
+  "branches": 19,
+  "deposits_total": 23601000000.0,
+  "credits_total": 21802000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2024-08",
+  "branches": 19,
+  "deposits_total": 23679000000.0,
+  "credits_total": 21726000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2024-09",
+  "branches": 19,
+  "deposits_total": 23751000000.0,
+  "credits_total": 21837000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2024-10",
+  "branches": 19,
+  "deposits_total": 24395000000.0,
+  "credits_total": 21769000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2024-11",
+  "branches": 19,
+  "deposits_total": 24826000000.0,
+  "credits_total": 21772000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2024-12",
+  "branches": 19,
+  "deposits_total": 24876000000.0,
+  "credits_total": 21647000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2025-01",
+  "branches": 19,
+  "deposits_total": 25171000000.0,
+  "credits_total": 21613000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2025-02",
+  "branches": 19,
+  "deposits_total": 25350000000.0,
+  "credits_total": 21649000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2025-03",
+  "branches": 19,
+  "deposits_total": 25228000000.0,
+  "credits_total": 21669000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2025-04",
+  "branches": 19,
+  "deposits_total": 24922000000.0,
+  "credits_total": 21659000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2025-05",
+  "branches": 20,
+  "deposits_total": 24869000000.0,
+  "credits_total": 21386000000.0
+ },
+ {
+  "tis1099_code": "42",
+  "period": "2025-06",
+  "branches": 20,
+  "deposits_total": 24392000000.0,
+  "credits_total": 21385000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2024-07",
+  "branches": 41,
+  "deposits_total": 51214000000.0,
+  "credits_total": 37602000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2024-08",
+  "branches": 41,
+  "deposits_total": 50533000000.0,
+  "credits_total": 37627000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2024-09",
+  "branches": 41,
+  "deposits_total": 51118000000.0,
+  "credits_total": 37530000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2024-10",
+  "branches": 41,
+  "deposits_total": 51756000000.0,
+  "credits_total": 37509000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2024-11",
+  "branches": 41,
+  "deposits_total": 51878000000.0,
+  "credits_total": 37287000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2024-12",
+  "branches": 41,
+  "deposits_total": 51404000000.0,
+  "credits_total": 37208000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2025-01",
+  "branches": 40,
+  "deposits_total": 52312000000.0,
+  "credits_total": 36965000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2025-02",
+  "branches": 40,
+  "deposits_total": 52631000000.0,
+  "credits_total": 36799000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2025-03",
+  "branches": 40,
+  "deposits_total": 52801000000.0,
+  "credits_total": 36547000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2025-04",
+  "branches": 40,
+  "deposits_total": 52560000000.0,
+  "credits_total": 36443000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2025-05",
+  "branches": 40,
+  "deposits_total": 51844000000.0,
+  "credits_total": 36479000000.0
+ },
+ {
+  "tis1099_code": "16",
+  "period": "2025-06",
+  "branches": 40,
+  "deposits_total": 51425000000.0,
+  "credits_total": 36599000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2024-07",
+  "branches": 10,
+  "deposits_total": 7525000000.0,
+  "credits_total": 5344000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2024-08",
+  "branches": 10,
+  "deposits_total": 7513000000.0,
+  "credits_total": 5350000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2024-09",
+  "branches": 10,
+  "deposits_total": 7403000000.0,
+  "credits_total": 5329000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2024-10",
+  "branches": 10,
+  "deposits_total": 7570000000.0,
+  "credits_total": 5343000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2024-11",
+  "branches": 10,
+  "deposits_total": 7843000000.0,
+  "credits_total": 5343000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2024-12",
+  "branches": 10,
+  "deposits_total": 7914000000.0,
+  "credits_total": 5344000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2025-01",
+  "branches": 10,
+  "deposits_total": 7946000000.0,
+  "credits_total": 5360000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2025-02",
+  "branches": 11,
+  "deposits_total": 8060000000.0,
+  "credits_total": 5331000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2025-03",
+  "branches": 11,
+  "deposits_total": 7834000000.0,
+  "credits_total": 5328000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2025-04",
+  "branches": 11,
+  "deposits_total": 7875000000.0,
+  "credits_total": 5301000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2025-05",
+  "branches": 10,
+  "deposits_total": 7798000000.0,
+  "credits_total": 5138000000.0
+ },
+ {
+  "tis1099_code": "58",
+  "period": "2025-06",
+  "branches": 11,
+  "deposits_total": 7596000000.0,
+  "credits_total": 5133000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2024-07",
+  "branches": 31,
+  "deposits_total": 35167000000.0,
+  "credits_total": 29710000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2024-08",
+  "branches": 31,
+  "deposits_total": 35316000000.0,
+  "credits_total": 29758000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2024-09",
+  "branches": 31,
+  "deposits_total": 34910000000.0,
+  "credits_total": 29687000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2024-10",
+  "branches": 31,
+  "deposits_total": 35640000000.0,
+  "credits_total": 29436000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2024-11",
+  "branches": 31,
+  "deposits_total": 34761000000.0,
+  "credits_total": 30266000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2024-12",
+  "branches": 31,
+  "deposits_total": 34546000000.0,
+  "credits_total": 30021000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2025-01",
+  "branches": 31,
+  "deposits_total": 36178000000.0,
+  "credits_total": 29824000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2025-02",
+  "branches": 31,
+  "deposits_total": 35296000000.0,
+  "credits_total": 29607000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2025-03",
+  "branches": 31,
+  "deposits_total": 35323000000.0,
+  "credits_total": 29239000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2025-04",
+  "branches": 31,
+  "deposits_total": 34825000000.0,
+  "credits_total": 29513000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2025-05",
+  "branches": 30,
+  "deposits_total": 34537000000.0,
+  "credits_total": 28986000000.0
+ },
+ {
+  "tis1099_code": "44",
+  "period": "2025-06",
+  "branches": 30,
+  "deposits_total": 34582000000.0,
+  "credits_total": 28829000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2024-07",
+  "branches": 12,
+  "deposits_total": 14951000000.0,
+  "credits_total": 15367000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2024-08",
+  "branches": 12,
+  "deposits_total": 14492000000.0,
+  "credits_total": 15060000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2024-09",
+  "branches": 12,
+  "deposits_total": 14547000000.0,
+  "credits_total": 15263000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2024-10",
+  "branches": 12,
+  "deposits_total": 15051000000.0,
+  "credits_total": 15132000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2024-11",
+  "branches": 12,
+  "deposits_total": 14954000000.0,
+  "credits_total": 15279000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2024-12",
+  "branches": 12,
+  "deposits_total": 16081000000.0,
+  "credits_total": 15724000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2025-01",
+  "branches": 12,
+  "deposits_total": 15681000000.0,
+  "credits_total": 15580000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2025-02",
+  "branches": 12,
+  "deposits_total": 15261000000.0,
+  "credits_total": 15408000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2025-03",
+  "branches": 12,
+  "deposits_total": 15456000000.0,
+  "credits_total": 15312000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2025-04",
+  "branches": 12,
+  "deposits_total": 15594000000.0,
+  "credits_total": 15205000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2025-05",
+  "branches": 12,
+  "deposits_total": 15793000000.0,
+  "credits_total": 15180000000.0
+ },
+ {
+  "tis1099_code": "49",
+  "period": "2025-06",
+  "branches": 12,
+  "deposits_total": 15208000000.0,
+  "credits_total": 15099000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2024-07",
+  "branches": 14,
+  "deposits_total": 22620000000.0,
+  "credits_total": 9585000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2024-08",
+  "branches": 14,
+  "deposits_total": 22496000000.0,
+  "credits_total": 9510000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2024-09",
+  "branches": 14,
+  "deposits_total": 22230000000.0,
+  "credits_total": 9566000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2024-10",
+  "branches": 14,
+  "deposits_total": 22730000000.0,
+  "credits_total": 9577000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2024-11",
+  "branches": 14,
+  "deposits_total": 22732000000.0,
+  "credits_total": 9689000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2024-12",
+  "branches": 14,
+  "deposits_total": 22721000000.0,
+  "credits_total": 9898000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2025-01",
+  "branches": 14,
+  "deposits_total": 22576000000.0,
+  "credits_total": 9670000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2025-02",
+  "branches": 14,
+  "deposits_total": 22578000000.0,
+  "credits_total": 9559000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2025-03",
+  "branches": 14,
+  "deposits_total": 22478000000.0,
+  "credits_total": 9565000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2025-04",
+  "branches": 14,
+  "deposits_total": 22526000000.0,
+  "credits_total": 9636000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2025-05",
+  "branches": 14,
+  "deposits_total": 22244000000.0,
+  "credits_total": 9449000000.0
+ },
+ {
+  "tis1099_code": "26",
+  "period": "2025-06",
+  "branches": 14,
+  "deposits_total": 22109000000.0,
+  "credits_total": 9478000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2024-07",
+  "branches": 98,
+  "deposits_total": 231168000000.0,
+  "credits_total": 126509000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2024-08",
+  "branches": 98,
+  "deposits_total": 229562000000.0,
+  "credits_total": 126502000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2024-09",
+  "branches": 98,
+  "deposits_total": 230534000000.0,
+  "credits_total": 126419000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2024-10",
+  "branches": 98,
+  "deposits_total": 237969000000.0,
+  "credits_total": 125021000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2024-11",
+  "branches": 99,
+  "deposits_total": 235243000000.0,
+  "credits_total": 125212000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2024-12",
+  "branches": 99,
+  "deposits_total": 235194000000.0,
+  "credits_total": 125605000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2025-01",
+  "branches": 99,
+  "deposits_total": 236044000000.0,
+  "credits_total": 125165000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2025-02",
+  "branches": 98,
+  "deposits_total": 236683000000.0,
+  "credits_total": 124995000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2025-03",
+  "branches": 97,
+  "deposits_total": 236524000000.0,
+  "credits_total": 124630000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2025-04",
+  "branches": 97,
+  "deposits_total": 233996000000.0,
+  "credits_total": 124361000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2025-05",
+  "branches": 96,
+  "deposits_total": 232555000000.0,
+  "credits_total": 123792000000.0
+ },
+ {
+  "tis1099_code": "73",
+  "period": "2025-06",
+  "branches": 95,
+  "deposits_total": 234800000000.0,
+  "credits_total": 123839000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2024-07",
+  "branches": 21,
+  "deposits_total": 20691000000.0,
+  "credits_total": 17602000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2024-08",
+  "branches": 21,
+  "deposits_total": 20434000000.0,
+  "credits_total": 17595000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2024-09",
+  "branches": 21,
+  "deposits_total": 20385000000.0,
+  "credits_total": 17419000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2024-10",
+  "branches": 21,
+  "deposits_total": 21516000000.0,
+  "credits_total": 17499000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2024-11",
+  "branches": 21,
+  "deposits_total": 21261000000.0,
+  "credits_total": 17907000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2024-12",
+  "branches": 21,
+  "deposits_total": 21069000000.0,
+  "credits_total": 17765000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2025-01",
+  "branches": 21,
+  "deposits_total": 21604000000.0,
+  "credits_total": 17761000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2025-02",
+  "branches": 21,
+  "deposits_total": 21337000000.0,
+  "credits_total": 17358000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2025-03",
+  "branches": 21,
+  "deposits_total": 21121000000.0,
+  "credits_total": 17479000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2025-04",
+  "branches": 21,
+  "deposits_total": 21144000000.0,
+  "credits_total": 17363000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2025-05",
+  "branches": 21,
+  "deposits_total": 21138000000.0,
+  "credits_total": 17412000000.0
+ },
+ {
+  "tis1099_code": "48",
+  "period": "2025-06",
+  "branches": 21,
+  "deposits_total": 20706000000.0,
+  "credits_total": 17223000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2024-07",
+  "branches": 127,
+  "deposits_total": 180916000000.0,
+  "credits_total": 177177000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2024-08",
+  "branches": 127,
+  "deposits_total": 178688000000.0,
+  "credits_total": 176490000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2024-09",
+  "branches": 127,
+  "deposits_total": 179215000000.0,
+  "credits_total": 176099000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2024-10",
+  "branches": 127,
+  "deposits_total": 183609000000.0,
+  "credits_total": 175449000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2024-11",
+  "branches": 126,
+  "deposits_total": 182597000000.0,
+  "credits_total": 176203000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2024-12",
+  "branches": 126,
+  "deposits_total": 180002000000.0,
+  "credits_total": 175589000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2025-01",
+  "branches": 126,
+  "deposits_total": 183284000000.0,
+  "credits_total": 174661000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2025-02",
+  "branches": 126,
+  "deposits_total": 183344000000.0,
+  "credits_total": 173541000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2025-03",
+  "branches": 126,
+  "deposits_total": 185402000000.0,
+  "credits_total": 172934000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2025-04",
+  "branches": 126,
+  "deposits_total": 182647000000.0,
+  "credits_total": 171518000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2025-05",
+  "branches": 126,
+  "deposits_total": 181830000000.0,
+  "credits_total": 169980000000.0
+ },
+ {
+  "tis1099_code": "30",
+  "period": "2025-06",
+  "branches": 125,
+  "deposits_total": 179483000000.0,
+  "credits_total": 169835000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2024-07",
+  "branches": 52,
+  "deposits_total": 65256000000.0,
+  "credits_total": 62435000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2024-08",
+  "branches": 52,
+  "deposits_total": 64678000000.0,
+  "credits_total": 61981000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2024-09",
+  "branches": 52,
+  "deposits_total": 64961000000.0,
+  "credits_total": 62695000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2024-10",
+  "branches": 52,
+  "deposits_total": 66596000000.0,
+  "credits_total": 62069000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2024-11",
+  "branches": 53,
+  "deposits_total": 67295000000.0,
+  "credits_total": 65860000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2024-12",
+  "branches": 53,
+  "deposits_total": 66137000000.0,
+  "credits_total": 65315000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2025-01",
+  "branches": 53,
+  "deposits_total": 66890000000.0,
+  "credits_total": 63648000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2025-02",
+  "branches": 53,
+  "deposits_total": 67530000000.0,
+  "credits_total": 62054000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2025-03",
+  "branches": 52,
+  "deposits_total": 67696000000.0,
+  "credits_total": 62247000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2025-04",
+  "branches": 52,
+  "deposits_total": 66621000000.0,
+  "credits_total": 61309000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2025-05",
+  "branches": 52,
+  "deposits_total": 65710000000.0,
+  "credits_total": 59355000000.0
+ },
+ {
+  "tis1099_code": "60",
+  "period": "2025-06",
+  "branches": 52,
+  "deposits_total": 65896000000.0,
+  "credits_total": 58866000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2024-07",
+  "branches": 84,
+  "deposits_total": 87128000000.0,
+  "credits_total": 85123000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2024-08",
+  "branches": 84,
+  "deposits_total": 86788000000.0,
+  "credits_total": 85270000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2024-09",
+  "branches": 84,
+  "deposits_total": 87172000000.0,
+  "credits_total": 85206000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2024-10",
+  "branches": 84,
+  "deposits_total": 88835000000.0,
+  "credits_total": 84777000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2024-11",
+  "branches": 83,
+  "deposits_total": 91316000000.0,
+  "credits_total": 84529000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2024-12",
+  "branches": 83,
+  "deposits_total": 89166000000.0,
+  "credits_total": 84597000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2025-01",
+  "branches": 83,
+  "deposits_total": 90677000000.0,
+  "credits_total": 84191000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2025-02",
+  "branches": 83,
+  "deposits_total": 88940000000.0,
+  "credits_total": 83734000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2025-03",
+  "branches": 83,
+  "deposits_total": 89045000000.0,
+  "credits_total": 83877000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2025-04",
+  "branches": 83,
+  "deposits_total": 88209000000.0,
+  "credits_total": 83502000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2025-05",
+  "branches": 83,
+  "deposits_total": 87636000000.0,
+  "credits_total": 83129000000.0
+ },
+ {
+  "tis1099_code": "80",
+  "period": "2025-06",
+  "branches": 83,
+  "deposits_total": 86474000000.0,
+  "credits_total": 83686000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2024-07",
+  "branches": 14,
+  "deposits_total": 16502000000.0,
+  "credits_total": 11566000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2024-08",
+  "branches": 14,
+  "deposits_total": 16451000000.0,
+  "credits_total": 11511000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2024-09",
+  "branches": 14,
+  "deposits_total": 16448000000.0,
+  "credits_total": 11336000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2024-10",
+  "branches": 14,
+  "deposits_total": 16935000000.0,
+  "credits_total": 11206000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2024-11",
+  "branches": 14,
+  "deposits_total": 17009000000.0,
+  "credits_total": 11188000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2024-12",
+  "branches": 14,
+  "deposits_total": 16856000000.0,
+  "credits_total": 11312000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2025-01",
+  "branches": 14,
+  "deposits_total": 17390000000.0,
+  "credits_total": 11436000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2025-02",
+  "branches": 14,
+  "deposits_total": 17014000000.0,
+  "credits_total": 11346000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2025-03",
+  "branches": 14,
+  "deposits_total": 16898000000.0,
+  "credits_total": 11389000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2025-04",
+  "branches": 14,
+  "deposits_total": 16984000000.0,
+  "credits_total": 11314000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2025-05",
+  "branches": 14,
+  "deposits_total": 16912000000.0,
+  "credits_total": 11208000000.0
+ },
+ {
+  "tis1099_code": "55",
+  "period": "2025-06",
+  "branches": 14,
+  "deposits_total": 16710000000.0,
+  "credits_total": 11015000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2024-07",
+  "branches": 16,
+  "deposits_total": 22346000000.0,
+  "credits_total": 12437000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2024-08",
+  "branches": 15,
+  "deposits_total": 22113000000.0,
+  "credits_total": 12084000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2024-09",
+  "branches": 15,
+  "deposits_total": 22547000000.0,
+  "credits_total": 12033000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2024-10",
+  "branches": 15,
+  "deposits_total": 23220000000.0,
+  "credits_total": 11900000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2024-11",
+  "branches": 15,
+  "deposits_total": 23363000000.0,
+  "credits_total": 11957000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2024-12",
+  "branches": 15,
+  "deposits_total": 22643000000.0,
+  "credits_total": 11940000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2025-01",
+  "branches": 15,
+  "deposits_total": 22585000000.0,
+  "credits_total": 11870000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2025-02",
+  "branches": 15,
+  "deposits_total": 22648000000.0,
+  "credits_total": 11833000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2025-03",
+  "branches": 15,
+  "deposits_total": 22108000000.0,
+  "credits_total": 11791000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2025-04",
+  "branches": 15,
+  "deposits_total": 22128000000.0,
+  "credits_total": 11719000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2025-05",
+  "branches": 15,
+  "deposits_total": 22098000000.0,
+  "credits_total": 11713000000.0
+ },
+ {
+  "tis1099_code": "96",
+  "period": "2025-06",
+  "branches": 15,
+  "deposits_total": 21885000000.0,
+  "credits_total": 11592000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2024-07",
+  "branches": 14,
+  "deposits_total": 13538000000.0,
+  "credits_total": 11563000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2024-08",
+  "branches": 14,
+  "deposits_total": 13320000000.0,
+  "credits_total": 11397000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2024-09",
+  "branches": 14,
+  "deposits_total": 13362000000.0,
+  "credits_total": 11381000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2024-10",
+  "branches": 14,
+  "deposits_total": 14038000000.0,
+  "credits_total": 11568000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2024-11",
+  "branches": 14,
+  "deposits_total": 14191000000.0,
+  "credits_total": 11615000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2024-12",
+  "branches": 14,
+  "deposits_total": 14078000000.0,
+  "credits_total": 12474000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2025-01",
+  "branches": 14,
+  "deposits_total": 14930000000.0,
+  "credits_total": 12766000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2025-02",
+  "branches": 14,
+  "deposits_total": 15146000000.0,
+  "credits_total": 13061000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2025-03",
+  "branches": 14,
+  "deposits_total": 14845000000.0,
+  "credits_total": 11913000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2025-04",
+  "branches": 14,
+  "deposits_total": 14636000000.0,
+  "credits_total": 11650000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2025-05",
+  "branches": 14,
+  "deposits_total": 14214000000.0,
+  "credits_total": 11640000000.0
+ },
+ {
+  "tis1099_code": "39",
+  "period": "2025-06",
+  "branches": 14,
+  "deposits_total": 13958000000.0,
+  "credits_total": 11851000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2024-07",
+  "branches": 23,
+  "deposits_total": 26644000000.0,
+  "credits_total": 21990000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2024-08",
+  "branches": 23,
+  "deposits_total": 26439000000.0,
+  "credits_total": 21915000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2024-09",
+  "branches": 23,
+  "deposits_total": 26643000000.0,
+  "credits_total": 21817000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2024-10",
+  "branches": 23,
+  "deposits_total": 27857000000.0,
+  "credits_total": 21567000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2024-11",
+  "branches": 23,
+  "deposits_total": 27555000000.0,
+  "credits_total": 21633000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2024-12",
+  "branches": 23,
+  "deposits_total": 26997000000.0,
+  "credits_total": 21631000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2025-01",
+  "branches": 23,
+  "deposits_total": 27503000000.0,
+  "credits_total": 21468000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2025-02",
+  "branches": 23,
+  "deposits_total": 27773000000.0,
+  "credits_total": 21337000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2025-03",
+  "branches": 23,
+  "deposits_total": 27316000000.0,
+  "credits_total": 21214000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2025-04",
+  "branches": 23,
+  "deposits_total": 27494000000.0,
+  "credits_total": 21076000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2025-05",
+  "branches": 23,
+  "deposits_total": 27630000000.0,
+  "credits_total": 21021000000.0
+ },
+ {
+  "tis1099_code": "43",
+  "period": "2025-06",
+  "branches": 23,
+  "deposits_total": 27280000000.0,
+  "credits_total": 21020000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2024-07",
+  "branches": 161,
+  "deposits_total": 627404000000.0,
+  "credits_total": 278121000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2024-08",
+  "branches": 160,
+  "deposits_total": 624047000000.0,
+  "credits_total": 277533000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2024-09",
+  "branches": 160,
+  "deposits_total": 607548000000.0,
+  "credits_total": 277146000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2024-10",
+  "branches": 160,
+  "deposits_total": 647700000000.0,
+  "credits_total": 278301000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2024-11",
+  "branches": 160,
+  "deposits_total": 647557000000.0,
+  "credits_total": 277657000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2024-12",
+  "branches": 160,
+  "deposits_total": 633038000000.0,
+  "credits_total": 280232000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2025-01",
+  "branches": 159,
+  "deposits_total": 639421000000.0,
+  "credits_total": 275413000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2025-02",
+  "branches": 159,
+  "deposits_total": 627901000000.0,
+  "credits_total": 274845000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2025-03",
+  "branches": 157,
+  "deposits_total": 618686000000.0,
+  "credits_total": 273586000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2025-04",
+  "branches": 158,
+  "deposits_total": 621012000000.0,
+  "credits_total": 274968000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2025-05",
+  "branches": 159,
+  "deposits_total": 630783000000.0,
+  "credits_total": 276982000000.0
+ },
+ {
+  "tis1099_code": "12",
+  "period": "2025-06",
+  "branches": 159,
+  "deposits_total": 655795000000.0,
+  "credits_total": 276903000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2024-07",
+  "branches": 131,
+  "deposits_total": 349994000000.0,
+  "credits_total": 198712000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2024-08",
+  "branches": 131,
+  "deposits_total": 347986000000.0,
+  "credits_total": 198777000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2024-09",
+  "branches": 131,
+  "deposits_total": 348385000000.0,
+  "credits_total": 200987000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2024-10",
+  "branches": 131,
+  "deposits_total": 359156000000.0,
+  "credits_total": 198594000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2024-11",
+  "branches": 131,
+  "deposits_total": 359978000000.0,
+  "credits_total": 199314000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2024-12",
+  "branches": 131,
+  "deposits_total": 366823000000.0,
+  "credits_total": 200548000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2025-01",
+  "branches": 131,
+  "deposits_total": 369080000000.0,
+  "credits_total": 199015000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2025-02",
+  "branches": 131,
+  "deposits_total": 368087000000.0,
+  "credits_total": 199250000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2025-03",
+  "branches": 130,
+  "deposits_total": 370117000000.0,
+  "credits_total": 203454000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2025-04",
+  "branches": 130,
+  "deposits_total": 370980000000.0,
+  "credits_total": 204562000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2025-05",
+  "branches": 130,
+  "deposits_total": 365890000000.0,
+  "credits_total": 201421000000.0
+ },
+ {
+  "tis1099_code": "13",
+  "period": "2025-06",
+  "branches": 130,
+  "deposits_total": 364628000000.0,
+  "credits_total": 201516000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2024-07",
+  "branches": 14,
+  "deposits_total": 21711000000.0,
+  "credits_total": 12047000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2024-08",
+  "branches": 14,
+  "deposits_total": 21603000000.0,
+  "credits_total": 12066000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2024-09",
+  "branches": 14,
+  "deposits_total": 22044000000.0,
+  "credits_total": 11999000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2024-10",
+  "branches": 14,
+  "deposits_total": 22423000000.0,
+  "credits_total": 11970000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2024-11",
+  "branches": 14,
+  "deposits_total": 22765000000.0,
+  "credits_total": 11934000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2024-12",
+  "branches": 14,
+  "deposits_total": 22279000000.0,
+  "credits_total": 11761000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2025-01",
+  "branches": 14,
+  "deposits_total": 22166000000.0,
+  "credits_total": 11646000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2025-02",
+  "branches": 14,
+  "deposits_total": 22078000000.0,
+  "credits_total": 11630000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2025-03",
+  "branches": 14,
+  "deposits_total": 21652000000.0,
+  "credits_total": 11618000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2025-04",
+  "branches": 14,
+  "deposits_total": 21882000000.0,
+  "credits_total": 11532000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2025-05",
+  "branches": 14,
+  "deposits_total": 21883000000.0,
+  "credits_total": 11503000000.0
+ },
+ {
+  "tis1099_code": "94",
+  "period": "2025-06",
+  "branches": 14,
+  "deposits_total": 21670000000.0,
+  "credits_total": 11179000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2024-07",
+  "branches": 24,
+  "deposits_total": 21872000000.0,
+  "credits_total": 11770000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2024-08",
+  "branches": 24,
+  "deposits_total": 21570000000.0,
+  "credits_total": 11680000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2024-09",
+  "branches": 24,
+  "deposits_total": 21458000000.0,
+  "credits_total": 11781000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2024-10",
+  "branches": 24,
+  "deposits_total": 22228000000.0,
+  "credits_total": 11736000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2024-11",
+  "branches": 24,
+  "deposits_total": 22098000000.0,
+  "credits_total": 11679000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2024-12",
+  "branches": 24,
+  "deposits_total": 22508000000.0,
+  "credits_total": 11514000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2025-01",
+  "branches": 24,
+  "deposits_total": 23121000000.0,
+  "credits_total": 11479000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2025-02",
+  "branches": 24,
+  "deposits_total": 23433000000.0,
+  "credits_total": 11378000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2025-03",
+  "branches": 24,
+  "deposits_total": 23507000000.0,
+  "credits_total": 11285000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2025-04",
+  "branches": 24,
+  "deposits_total": 23757000000.0,
+  "credits_total": 11185000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2025-05",
+  "branches": 24,
+  "deposits_total": 23526000000.0,
+  "credits_total": 11144000000.0
+ },
+ {
+  "tis1099_code": "82",
+  "period": "2025-06",
+  "branches": 24,
+  "deposits_total": 23163000000.0,
+  "credits_total": 11145000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2024-07",
+  "branches": 19,
+  "deposits_total": 20292000000.0,
+  "credits_total": 16906000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2024-08",
+  "branches": 19,
+  "deposits_total": 20321000000.0,
+  "credits_total": 16923000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2024-09",
+  "branches": 19,
+  "deposits_total": 20667000000.0,
+  "credits_total": 16900000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2024-10",
+  "branches": 19,
+  "deposits_total": 21263000000.0,
+  "credits_total": 16826000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2024-11",
+  "branches": 19,
+  "deposits_total": 21640000000.0,
+  "credits_total": 16799000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2024-12",
+  "branches": 19,
+  "deposits_total": 21283000000.0,
+  "credits_total": 16781000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2025-01",
+  "branches": 19,
+  "deposits_total": 21072000000.0,
+  "credits_total": 16771000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2025-02",
+  "branches": 19,
+  "deposits_total": 21094000000.0,
+  "credits_total": 16691000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2025-03",
+  "branches": 19,
+  "deposits_total": 20983000000.0,
+  "credits_total": 16702000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2025-04",
+  "branches": 19,
+  "deposits_total": 21106000000.0,
+  "credits_total": 16763000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2025-05",
+  "branches": 19,
+  "deposits_total": 21145000000.0,
+  "credits_total": 16757000000.0
+ },
+ {
+  "tis1099_code": "93",
+  "period": "2025-06",
+  "branches": 19,
+  "deposits_total": 20944000000.0,
+  "credits_total": 16692000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2024-07",
+  "branches": 18,
+  "deposits_total": 19936000000.0,
+  "credits_total": 14429000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2024-08",
+  "branches": 18,
+  "deposits_total": 19503000000.0,
+  "credits_total": 14337000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2024-09",
+  "branches": 18,
+  "deposits_total": 19417000000.0,
+  "credits_total": 14505000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2024-10",
+  "branches": 18,
+  "deposits_total": 20250000000.0,
+  "credits_total": 14366000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2024-11",
+  "branches": 18,
+  "deposits_total": 20254000000.0,
+  "credits_total": 14451000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2024-12",
+  "branches": 18,
+  "deposits_total": 20221000000.0,
+  "credits_total": 14460000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2025-01",
+  "branches": 18,
+  "deposits_total": 19991000000.0,
+  "credits_total": 14462000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2025-02",
+  "branches": 18,
+  "deposits_total": 19875000000.0,
+  "credits_total": 14441000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2025-03",
+  "branches": 18,
+  "deposits_total": 19579000000.0,
+  "credits_total": 14423000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2025-04",
+  "branches": 18,
+  "deposits_total": 19932000000.0,
+  "credits_total": 14239000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2025-05",
+  "branches": 18,
+  "deposits_total": 19836000000.0,
+  "credits_total": 14216000000.0
+ },
+ {
+  "tis1099_code": "56",
+  "period": "2025-06",
+  "branches": 18,
+  "deposits_total": 19539000000.0,
+  "credits_total": 14088000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2024-07",
+  "branches": 37,
+  "deposits_total": 36428000000.0,
+  "credits_total": 32534000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2024-08",
+  "branches": 37,
+  "deposits_total": 36215000000.0,
+  "credits_total": 32732000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2024-09",
+  "branches": 37,
+  "deposits_total": 36587000000.0,
+  "credits_total": 32394000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2024-10",
+  "branches": 36,
+  "deposits_total": 38003000000.0,
+  "credits_total": 32191000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2024-11",
+  "branches": 36,
+  "deposits_total": 38242000000.0,
+  "credits_total": 32512000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2024-12",
+  "branches": 36,
+  "deposits_total": 37259000000.0,
+  "credits_total": 32901000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2025-01",
+  "branches": 36,
+  "deposits_total": 38245000000.0,
+  "credits_total": 32730000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2025-02",
+  "branches": 36,
+  "deposits_total": 38315000000.0,
+  "credits_total": 32562000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2025-03",
+  "branches": 36,
+  "deposits_total": 37657000000.0,
+  "credits_total": 32778000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2025-04",
+  "branches": 36,
+  "deposits_total": 37194000000.0,
+  "credits_total": 32425000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2025-05",
+  "branches": 36,
+  "deposits_total": 37199000000.0,
+  "credits_total": 32103000000.0
+ },
+ {
+  "tis1099_code": "67",
+  "period": "2025-06",
+  "branches": 36,
+  "deposits_total": 36876000000.0,
+  "credits_total": 32106000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2024-07",
+  "branches": 31,
+  "deposits_total": 36278000000.0,
+  "credits_total": 23530000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2024-08",
+  "branches": 31,
+  "deposits_total": 36210000000.0,
+  "credits_total": 23404000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2024-09",
+  "branches": 31,
+  "deposits_total": 35966000000.0,
+  "credits_total": 23261000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2024-10",
+  "branches": 31,
+  "deposits_total": 36513000000.0,
+  "credits_total": 23118000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2024-11",
+  "branches": 30,
+  "deposits_total": 36096000000.0,
+  "credits_total": 23092000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2024-12",
+  "branches": 30,
+  "deposits_total": 36118000000.0,
+  "credits_total": 23031000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2025-01",
+  "branches": 30,
+  "deposits_total": 36425000000.0,
+  "credits_total": 22713000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2025-02",
+  "branches": 30,
+  "deposits_total": 35892000000.0,
+  "credits_total": 22585000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2025-03",
+  "branches": 30,
+  "deposits_total": 36214000000.0,
+  "credits_total": 22669000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2025-04",
+  "branches": 30,
+  "deposits_total": 36431000000.0,
+  "credits_total": 22295000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2025-05",
+  "branches": 29,
+  "deposits_total": 35902000000.0,
+  "credits_total": 21938000000.0
+ },
+ {
+  "tis1099_code": "76",
+  "period": "2025-06",
+  "branches": 29,
+  "deposits_total": 35937000000.0,
+  "credits_total": 22069000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2024-07",
+  "branches": 22,
+  "deposits_total": 26722000000.0,
+  "credits_total": 14642000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2024-08",
+  "branches": 22,
+  "deposits_total": 26699000000.0,
+  "credits_total": 14641000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2024-09",
+  "branches": 22,
+  "deposits_total": 26910000000.0,
+  "credits_total": 14704000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2024-10",
+  "branches": 22,
+  "deposits_total": 27268000000.0,
+  "credits_total": 14633000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2024-11",
+  "branches": 22,
+  "deposits_total": 27014000000.0,
+  "credits_total": 14877000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2024-12",
+  "branches": 22,
+  "deposits_total": 26879000000.0,
+  "credits_total": 14756000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2025-01",
+  "branches": 22,
+  "deposits_total": 27558000000.0,
+  "credits_total": 14239000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2025-02",
+  "branches": 22,
+  "deposits_total": 27434000000.0,
+  "credits_total": 14218000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2025-03",
+  "branches": 22,
+  "deposits_total": 27403000000.0,
+  "credits_total": 14337000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2025-04",
+  "branches": 22,
+  "deposits_total": 26733000000.0,
+  "credits_total": 14308000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2025-05",
+  "branches": 22,
+  "deposits_total": 27230000000.0,
+  "credits_total": 14186000000.0
+ },
+ {
+  "tis1099_code": "66",
+  "period": "2025-06",
+  "branches": 22,
+  "deposits_total": 27132000000.0,
+  "credits_total": 14087000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2024-07",
+  "branches": 53,
+  "deposits_total": 64090000000.0,
+  "credits_total": 63175000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2024-08",
+  "branches": 53,
+  "deposits_total": 63371000000.0,
+  "credits_total": 63060000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2024-09",
+  "branches": 52,
+  "deposits_total": 63589000000.0,
+  "credits_total": 62911000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2024-10",
+  "branches": 51,
+  "deposits_total": 65207000000.0,
+  "credits_total": 62501000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2024-11",
+  "branches": 51,
+  "deposits_total": 64596000000.0,
+  "credits_total": 62613000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2024-12",
+  "branches": 51,
+  "deposits_total": 65936000000.0,
+  "credits_total": 62134000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2025-01",
+  "branches": 51,
+  "deposits_total": 66421000000.0,
+  "credits_total": 61604000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2025-02",
+  "branches": 51,
+  "deposits_total": 65366000000.0,
+  "credits_total": 61561000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2025-03",
+  "branches": 51,
+  "deposits_total": 65388000000.0,
+  "credits_total": 61691000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2025-04",
+  "branches": 49,
+  "deposits_total": 65167000000.0,
+  "credits_total": 61395000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2025-05",
+  "branches": 49,
+  "deposits_total": 64498000000.0,
+  "credits_total": 60799000000.0
+ },
+ {
+  "tis1099_code": "65",
+  "period": "2025-06",
+  "branches": 49,
+  "deposits_total": 65068000000.0,
+  "credits_total": 60921000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2024-07",
+  "branches": 14,
+  "deposits_total": 18891000000.0,
+  "credits_total": 15739000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2024-08",
+  "branches": 14,
+  "deposits_total": 18662000000.0,
+  "credits_total": 15751000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2024-09",
+  "branches": 14,
+  "deposits_total": 18820000000.0,
+  "credits_total": 15760000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2024-10",
+  "branches": 14,
+  "deposits_total": 19429000000.0,
+  "credits_total": 15590000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2024-11",
+  "branches": 14,
+  "deposits_total": 19157000000.0,
+  "credits_total": 15686000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2024-12",
+  "branches": 14,
+  "deposits_total": 19215000000.0,
+  "credits_total": 15662000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2025-01",
+  "branches": 14,
+  "deposits_total": 19419000000.0,
+  "credits_total": 15474000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2025-02",
+  "branches": 14,
+  "deposits_total": 19277000000.0,
+  "credits_total": 15378000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2025-03",
+  "branches": 14,
+  "deposits_total": 19251000000.0,
+  "credits_total": 15655000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2025-04",
+  "branches": 14,
+  "deposits_total": 19367000000.0,
+  "credits_total": 15582000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2025-05",
+  "branches": 14,
+  "deposits_total": 19403000000.0,
+  "credits_total": 15539000000.0
+ },
+ {
+  "tis1099_code": "54",
+  "period": "2025-06",
+  "branches": 14,
+  "deposits_total": 18994000000.0,
+  "credits_total": 15410000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2024-07",
+  "branches": 98,
+  "deposits_total": 195996000000.0,
+  "credits_total": 181057000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2024-08",
+  "branches": 96,
+  "deposits_total": 194967000000.0,
+  "credits_total": 181064000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2024-09",
+  "branches": 96,
+  "deposits_total": 191722000000.0,
+  "credits_total": 182927000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2024-10",
+  "branches": 95,
+  "deposits_total": 193535000000.0,
+  "credits_total": 183946000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2024-11",
+  "branches": 95,
+  "deposits_total": 196941000000.0,
+  "credits_total": 184679000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2024-12",
+  "branches": 95,
+  "deposits_total": 199881000000.0,
+  "credits_total": 184514000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2025-01",
+  "branches": 95,
+  "deposits_total": 205219000000.0,
+  "credits_total": 183465000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2025-02",
+  "branches": 95,
+  "deposits_total": 207523000000.0,
+  "credits_total": 182487000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2025-03",
+  "branches": 95,
+  "deposits_total": 208107000000.0,
+  "credits_total": 182272000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2025-04",
+  "branches": 95,
+  "deposits_total": 209449000000.0,
+  "credits_total": 180956000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2025-05",
+  "branches": 94,
+  "deposits_total": 204934000000.0,
+  "credits_total": 180627000000.0
+ },
+ {
+  "tis1099_code": "83",
+  "period": "2025-06",
+  "branches": 92,
+  "deposits_total": 202315000000.0,
+  "credits_total": 180879000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2024-07",
+  "branches": 33,
+  "deposits_total": 42993000000.0,
+  "credits_total": 34980000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2024-08",
+  "branches": 33,
+  "deposits_total": 43879000000.0,
+  "credits_total": 34756000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2024-09",
+  "branches": 33,
+  "deposits_total": 43199000000.0,
+  "credits_total": 34471000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2024-10",
+  "branches": 33,
+  "deposits_total": 43618000000.0,
+  "credits_total": 34218000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2024-11",
+  "branches": 33,
+  "deposits_total": 43414000000.0,
+  "credits_total": 33975000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2024-12",
+  "branches": 33,
+  "deposits_total": 44830000000.0,
+  "credits_total": 33831000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2025-01",
+  "branches": 33,
+  "deposits_total": 44800000000.0,
+  "credits_total": 33642000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2025-02",
+  "branches": 33,
+  "deposits_total": 44638000000.0,
+  "credits_total": 33639000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2025-03",
+  "branches": 32,
+  "deposits_total": 43803000000.0,
+  "credits_total": 33440000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2025-04",
+  "branches": 31,
+  "deposits_total": 45002000000.0,
+  "credits_total": 33309000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2025-05",
+  "branches": 31,
+  "deposits_total": 44367000000.0,
+  "credits_total": 33201000000.0
+ },
+ {
+  "tis1099_code": "25",
+  "period": "2025-06",
+  "branches": 31,
+  "deposits_total": 44206000000.0,
+  "credits_total": 33141000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2024-07",
+  "branches": 49,
+  "deposits_total": 68854000000.0,
+  "credits_total": 37595000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2024-08",
+  "branches": 49,
+  "deposits_total": 67905000000.0,
+  "credits_total": 37447000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2024-09",
+  "branches": 49,
+  "deposits_total": 67790000000.0,
+  "credits_total": 37365000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2024-10",
+  "branches": 48,
+  "deposits_total": 69214000000.0,
+  "credits_total": 37166000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2024-11",
+  "branches": 48,
+  "deposits_total": 68548000000.0,
+  "credits_total": 36997000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2024-12",
+  "branches": 48,
+  "deposits_total": 68582000000.0,
+  "credits_total": 36875000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2025-01",
+  "branches": 48,
+  "deposits_total": 69751000000.0,
+  "credits_total": 36505000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2025-02",
+  "branches": 48,
+  "deposits_total": 69731000000.0,
+  "credits_total": 36385000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2025-03",
+  "branches": 48,
+  "deposits_total": 70279000000.0,
+  "credits_total": 36358000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2025-04",
+  "branches": 48,
+  "deposits_total": 70633000000.0,
+  "credits_total": 36114000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2025-05",
+  "branches": 48,
+  "deposits_total": 70207000000.0,
+  "credits_total": 36283000000.0
+ },
+ {
+  "tis1099_code": "77",
+  "period": "2025-06",
+  "branches": 48,
+  "deposits_total": 70056000000.0,
+  "credits_total": 36137000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2024-07",
+  "branches": 11,
+  "deposits_total": 20952000000.0,
+  "credits_total": 7296000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2024-08",
+  "branches": 11,
+  "deposits_total": 20790000000.0,
+  "credits_total": 7305000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2024-09",
+  "branches": 11,
+  "deposits_total": 20731000000.0,
+  "credits_total": 7191000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2024-10",
+  "branches": 11,
+  "deposits_total": 21199000000.0,
+  "credits_total": 7148000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2024-11",
+  "branches": 11,
+  "deposits_total": 21362000000.0,
+  "credits_total": 7088000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2024-12",
+  "branches": 11,
+  "deposits_total": 21702000000.0,
+  "credits_total": 7039000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2025-01",
+  "branches": 11,
+  "deposits_total": 21721000000.0,
+  "credits_total": 7025000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2025-02",
+  "branches": 11,
+  "deposits_total": 21669000000.0,
+  "credits_total": 6924000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2025-03",
+  "branches": 11,
+  "deposits_total": 21801000000.0,
+  "credits_total": 6911000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2025-04",
+  "branches": 11,
+  "deposits_total": 21695000000.0,
+  "credits_total": 7052000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2025-05",
+  "branches": 11,
+  "deposits_total": 20984000000.0,
+  "credits_total": 6981000000.0
+ },
+ {
+  "tis1099_code": "85",
+  "period": "2025-06",
+  "branches": 11,
+  "deposits_total": 20530000000.0,
+  "credits_total": 6926000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2024-07",
+  "branches": 59,
+  "deposits_total": 100602000000.0,
+  "credits_total": 63605000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2024-08",
+  "branches": 59,
+  "deposits_total": 99289000000.0,
+  "credits_total": 63340000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2024-09",
+  "branches": 59,
+  "deposits_total": 100160000000.0,
+  "credits_total": 63329000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2024-10",
+  "branches": 58,
+  "deposits_total": 101627000000.0,
+  "credits_total": 62456000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2024-11",
+  "branches": 56,
+  "deposits_total": 100800000000.0,
+  "credits_total": 62346000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2024-12",
+  "branches": 56,
+  "deposits_total": 100773000000.0,
+  "credits_total": 62229000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2025-01",
+  "branches": 56,
+  "deposits_total": 102184000000.0,
+  "credits_total": 61941000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2025-02",
+  "branches": 56,
+  "deposits_total": 101437000000.0,
+  "credits_total": 61753000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2025-03",
+  "branches": 56,
+  "deposits_total": 102343000000.0,
+  "credits_total": 61378000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2025-04",
+  "branches": 56,
+  "deposits_total": 100957000000.0,
+  "credits_total": 60814000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2025-05",
+  "branches": 56,
+  "deposits_total": 99601000000.0,
+  "credits_total": 59537000000.0
+ },
+ {
+  "tis1099_code": "70",
+  "period": "2025-06",
+  "branches": 56,
+  "deposits_total": 99977000000.0,
+  "credits_total": 59861000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2024-07",
+  "branches": 89,
+  "deposits_total": 180229000000.0,
+  "credits_total": 159972000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2024-08",
+  "branches": 89,
+  "deposits_total": 179442000000.0,
+  "credits_total": 159798000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2024-09",
+  "branches": 89,
+  "deposits_total": 177827000000.0,
+  "credits_total": 161703000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2024-10",
+  "branches": 89,
+  "deposits_total": 181053000000.0,
+  "credits_total": 159776000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2024-11",
+  "branches": 89,
+  "deposits_total": 183779000000.0,
+  "credits_total": 160457000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2024-12",
+  "branches": 89,
+  "deposits_total": 186563000000.0,
+  "credits_total": 161187000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2025-01",
+  "branches": 89,
+  "deposits_total": 187510000000.0,
+  "credits_total": 159838000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2025-02",
+  "branches": 89,
+  "deposits_total": 187308000000.0,
+  "credits_total": 159099000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2025-03",
+  "branches": 89,
+  "deposits_total": 187495000000.0,
+  "credits_total": 157585000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2025-04",
+  "branches": 89,
+  "deposits_total": 189825000000.0,
+  "credits_total": 156848000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2025-05",
+  "branches": 89,
+  "deposits_total": 190830000000.0,
+  "credits_total": 155558000000.0
+ },
+ {
+  "tis1099_code": "21",
+  "period": "2025-06",
+  "branches": 89,
+  "deposits_total": 190157000000.0,
+  "credits_total": 155309000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2024-07",
+  "branches": 42,
+  "deposits_total": 38335000000.0,
+  "credits_total": 59102000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2024-08",
+  "branches": 41,
+  "deposits_total": 37876000000.0,
+  "credits_total": 58649000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2024-09",
+  "branches": 41,
+  "deposits_total": 37253000000.0,
+  "credits_total": 57037000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2024-10",
+  "branches": 41,
+  "deposits_total": 40137000000.0,
+  "credits_total": 57056000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2024-11",
+  "branches": 41,
+  "deposits_total": 39145000000.0,
+  "credits_total": 56986000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2024-12",
+  "branches": 41,
+  "deposits_total": 39085000000.0,
+  "credits_total": 56659000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2025-01",
+  "branches": 41,
+  "deposits_total": 40174000000.0,
+  "credits_total": 55960000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2025-02",
+  "branches": 41,
+  "deposits_total": 39902000000.0,
+  "credits_total": 55692000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2025-03",
+  "branches": 41,
+  "deposits_total": 39857000000.0,
+  "credits_total": 55825000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2025-04",
+  "branches": 41,
+  "deposits_total": 39257000000.0,
+  "credits_total": 55961000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2025-05",
+  "branches": 41,
+  "deposits_total": 38373000000.0,
+  "credits_total": 55394000000.0
+ },
+ {
+  "tis1099_code": "45",
+  "period": "2025-06",
+  "branches": 41,
+  "deposits_total": 37125000000.0,
+  "credits_total": 54986000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2024-07",
+  "branches": 22,
+  "deposits_total": 28240000000.0,
+  "credits_total": 17200000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2024-08",
+  "branches": 22,
+  "deposits_total": 28004000000.0,
+  "credits_total": 17353000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2024-09",
+  "branches": 22,
+  "deposits_total": 28166000000.0,
+  "credits_total": 17261000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2024-10",
+  "branches": 22,
+  "deposits_total": 29043000000.0,
+  "credits_total": 17107000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2024-11",
+  "branches": 22,
+  "deposits_total": 29045000000.0,
+  "credits_total": 17246000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2024-12",
+  "branches": 22,
+  "deposits_total": 29073000000.0,
+  "credits_total": 17427000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2025-01",
+  "branches": 22,
+  "deposits_total": 29419000000.0,
+  "credits_total": 16832000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2025-02",
+  "branches": 22,
+  "deposits_total": 29802000000.0,
+  "credits_total": 16621000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2025-03",
+  "branches": 22,
+  "deposits_total": 29863000000.0,
+  "credits_total": 16622000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2025-04",
+  "branches": 22,
+  "deposits_total": 29807000000.0,
+  "credits_total": 16575000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2025-05",
+  "branches": 22,
+  "deposits_total": 29405000000.0,
+  "credits_total": 16678000000.0
+ },
+ {
+  "tis1099_code": "27",
+  "period": "2025-06",
+  "branches": 22,
+  "deposits_total": 29124000000.0,
+  "credits_total": 16563000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2024-07",
+  "branches": 33,
+  "deposits_total": 35704000000.0,
+  "credits_total": 41382000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2024-08",
+  "branches": 33,
+  "deposits_total": 35024000000.0,
+  "credits_total": 41271000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2024-09",
+  "branches": 33,
+  "deposits_total": 35476000000.0,
+  "credits_total": 41305000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2024-10",
+  "branches": 32,
+  "deposits_total": 37210000000.0,
+  "credits_total": 40765000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2024-11",
+  "branches": 32,
+  "deposits_total": 36708000000.0,
+  "credits_total": 40757000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2024-12",
+  "branches": 32,
+  "deposits_total": 35892000000.0,
+  "credits_total": 40943000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2025-01",
+  "branches": 32,
+  "deposits_total": 36965000000.0,
+  "credits_total": 40497000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2025-02",
+  "branches": 32,
+  "deposits_total": 36377000000.0,
+  "credits_total": 40531000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2025-03",
+  "branches": 32,
+  "deposits_total": 36943000000.0,
+  "credits_total": 40674000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2025-04",
+  "branches": 32,
+  "deposits_total": 36480000000.0,
+  "credits_total": 40164000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2025-05",
+  "branches": 32,
+  "deposits_total": 35828000000.0,
+  "credits_total": 39925000000.0
+ },
+ {
+  "tis1099_code": "47",
+  "period": "2025-06",
+  "branches": 31,
+  "deposits_total": 35617000000.0,
+  "credits_total": 40059000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2024-07",
+  "branches": 170,
+  "deposits_total": 580865000000.0,
+  "credits_total": 313992000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2024-08",
+  "branches": 170,
+  "deposits_total": 567461000000.0,
+  "credits_total": 309322000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2024-09",
+  "branches": 170,
+  "deposits_total": 565733000000.0,
+  "credits_total": 310154000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2024-10",
+  "branches": 170,
+  "deposits_total": 578167000000.0,
+  "credits_total": 309898000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2024-11",
+  "branches": 170,
+  "deposits_total": 579569000000.0,
+  "credits_total": 308633000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2024-12",
+  "branches": 169,
+  "deposits_total": 593752000000.0,
+  "credits_total": 311198000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2025-01",
+  "branches": 168,
+  "deposits_total": 599750000000.0,
+  "credits_total": 307740000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2025-02",
+  "branches": 168,
+  "deposits_total": 598042000000.0,
+  "credits_total": 307840000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2025-03",
+  "branches": 167,
+  "deposits_total": 602690000000.0,
+  "credits_total": 306887000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2025-04",
+  "branches": 166,
+  "deposits_total": 590209000000.0,
+  "credits_total": 306315000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2025-05",
+  "branches": 166,
+  "deposits_total": 592076000000.0,
+  "credits_total": 306088000000.0
+ },
+ {
+  "tis1099_code": "11",
+  "period": "2025-06",
+  "branches": 164,
+  "deposits_total": 596821000000.0,
+  "credits_total": 307862000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2024-07",
+  "branches": 73,
+  "deposits_total": 202963000000.0,
+  "credits_total": 112610000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2024-08",
+  "branches": 73,
+  "deposits_total": 201060000000.0,
+  "credits_total": 112356000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2024-09",
+  "branches": 73,
+  "deposits_total": 201011000000.0,
+  "credits_total": 112255000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2024-10",
+  "branches": 73,
+  "deposits_total": 205441000000.0,
+  "credits_total": 111471000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2024-11",
+  "branches": 72,
+  "deposits_total": 204096000000.0,
+  "credits_total": 111268000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2024-12",
+  "branches": 72,
+  "deposits_total": 205807000000.0,
+  "credits_total": 111417000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2025-01",
+  "branches": 71,
+  "deposits_total": 207462000000.0,
+  "credits_total": 107767000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2025-02",
+  "branches": 71,
+  "deposits_total": 207253000000.0,
+  "credits_total": 107816000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2025-03",
+  "branches": 70,
+  "deposits_total": 209368000000.0,
+  "credits_total": 108192000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2025-04",
+  "branches": 69,
+  "deposits_total": 201856000000.0,
+  "credits_total": 109095000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2025-05",
+  "branches": 69,
+  "deposits_total": 200251000000.0,
+  "credits_total": 107809000000.0
+ },
+ {
+  "tis1099_code": "74",
+  "period": "2025-06",
+  "branches": 70,
+  "deposits_total": 198948000000.0,
+  "credits_total": 107775000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2024-07",
+  "branches": 11,
+  "deposits_total": 21823000000.0,
+  "credits_total": 9357000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2024-08",
+  "branches": 11,
+  "deposits_total": 21472000000.0,
+  "credits_total": 9234000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2024-09",
+  "branches": 11,
+  "deposits_total": 21488000000.0,
+  "credits_total": 9311000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2024-10",
+  "branches": 11,
+  "deposits_total": 21862000000.0,
+  "credits_total": 9299000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2024-11",
+  "branches": 11,
+  "deposits_total": 21823000000.0,
+  "credits_total": 9315000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2024-12",
+  "branches": 11,
+  "deposits_total": 21512000000.0,
+  "credits_total": 9218000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2025-01",
+  "branches": 11,
+  "deposits_total": 22026000000.0,
+  "credits_total": 9180000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2025-02",
+  "branches": 11,
+  "deposits_total": 21769000000.0,
+  "credits_total": 9159000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2025-03",
+  "branches": 11,
+  "deposits_total": 21717000000.0,
+  "credits_total": 9213000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2025-04",
+  "branches": 11,
+  "deposits_total": 21455000000.0,
+  "credits_total": 9240000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2025-05",
+  "branches": 11,
+  "deposits_total": 21568000000.0,
+  "credits_total": 9386000000.0
+ },
+ {
+  "tis1099_code": "75",
+  "period": "2025-06",
+  "branches": 11,
+  "deposits_total": 21596000000.0,
+  "credits_total": 9483000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2024-07",
+  "branches": 56,
+  "deposits_total": 82267000000.0,
+  "credits_total": 56248000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2024-08",
+  "branches": 56,
+  "deposits_total": 81028000000.0,
+  "credits_total": 55893000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2024-09",
+  "branches": 56,
+  "deposits_total": 81026000000.0,
+  "credits_total": 55975000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2024-10",
+  "branches": 56,
+  "deposits_total": 82289000000.0,
+  "credits_total": 55746000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2024-11",
+  "branches": 56,
+  "deposits_total": 81574000000.0,
+  "credits_total": 55996000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2024-12",
+  "branches": 56,
+  "deposits_total": 81921000000.0,
+  "credits_total": 55935000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2025-01",
+  "branches": 56,
+  "deposits_total": 82862000000.0,
+  "credits_total": 55424000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2025-02",
+  "branches": 56,
+  "deposits_total": 82290000000.0,
+  "credits_total": 55248000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2025-03",
+  "branches": 55,
+  "deposits_total": 81691000000.0,
+  "credits_total": 55433000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2025-04",
+  "branches": 53,
+  "deposits_total": 81262000000.0,
+  "credits_total": 55023000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2025-05",
+  "branches": 53,
+  "deposits_total": 81031000000.0,
+  "credits_total": 55121000000.0
+ },
+ {
+  "tis1099_code": "19",
+  "period": "2025-06",
+  "branches": 53,
+  "deposits_total": 80852000000.0,
+  "credits_total": 55118000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2024-07",
+  "branches": 13,
+  "deposits_total": 10541000000.0,
+  "credits_total": 8327000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2024-08",
+  "branches": 13,
+  "deposits_total": 10412000000.0,
+  "credits_total": 8287000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2024-09",
+  "branches": 13,
+  "deposits_total": 10472000000.0,
+  "credits_total": 8285000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2024-10",
+  "branches": 13,
+  "deposits_total": 10769000000.0,
+  "credits_total": 8219000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2024-11",
+  "branches": 13,
+  "deposits_total": 10905000000.0,
+  "credits_total": 8166000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2024-12",
+  "branches": 13,
+  "deposits_total": 10903000000.0,
+  "credits_total": 8161000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2025-01",
+  "branches": 13,
+  "deposits_total": 11167000000.0,
+  "credits_total": 8118000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2025-02",
+  "branches": 13,
+  "deposits_total": 11080000000.0,
+  "credits_total": 8075000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2025-03",
+  "branches": 13,
+  "deposits_total": 11146000000.0,
+  "credits_total": 8031000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2025-04",
+  "branches": 13,
+  "deposits_total": 11083000000.0,
+  "credits_total": 8020000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2025-05",
+  "branches": 13,
+  "deposits_total": 11054000000.0,
+  "credits_total": 7951000000.0
+ },
+ {
+  "tis1099_code": "91",
+  "period": "2025-06",
+  "branches": 13,
+  "deposits_total": 11124000000.0,
+  "credits_total": 7958000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2024-07",
+  "branches": 11,
+  "deposits_total": 18417000000.0,
+  "credits_total": 8270000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2024-08",
+  "branches": 10,
+  "deposits_total": 18133000000.0,
+  "credits_total": 8368000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2024-09",
+  "branches": 10,
+  "deposits_total": 18285000000.0,
+  "credits_total": 8566000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2024-10",
+  "branches": 10,
+  "deposits_total": 18711000000.0,
+  "credits_total": 8782000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2024-11",
+  "branches": 10,
+  "deposits_total": 18487000000.0,
+  "credits_total": 9361000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2024-12",
+  "branches": 10,
+  "deposits_total": 18421000000.0,
+  "credits_total": 9749000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2025-01",
+  "branches": 10,
+  "deposits_total": 18736000000.0,
+  "credits_total": 9123000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2025-02",
+  "branches": 10,
+  "deposits_total": 18673000000.0,
+  "credits_total": 8941000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2025-03",
+  "branches": 10,
+  "deposits_total": 18651000000.0,
+  "credits_total": 9039000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2025-04",
+  "branches": 10,
+  "deposits_total": 18603000000.0,
+  "credits_total": 9124000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2025-05",
+  "branches": 10,
+  "deposits_total": 18624000000.0,
+  "credits_total": 9077000000.0
+ },
+ {
+  "tis1099_code": "17",
+  "period": "2025-06",
+  "branches": 10,
+  "deposits_total": 18539000000.0,
+  "credits_total": 8856000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2024-07",
+  "branches": 116,
+  "deposits_total": 180746000000.0,
+  "credits_total": 157485000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2024-08",
+  "branches": 116,
+  "deposits_total": 178978000000.0,
+  "credits_total": 155823000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2024-09",
+  "branches": 116,
+  "deposits_total": 179553000000.0,
+  "credits_total": 155201000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2024-10",
+  "branches": 116,
+  "deposits_total": 184923000000.0,
+  "credits_total": 159345000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2024-11",
+  "branches": 116,
+  "deposits_total": 183969000000.0,
+  "credits_total": 162185000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2024-12",
+  "branches": 116,
+  "deposits_total": 183186000000.0,
+  "credits_total": 165123000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2025-01",
+  "branches": 115,
+  "deposits_total": 183591000000.0,
+  "credits_total": 165382000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2025-02",
+  "branches": 115,
+  "deposits_total": 181526000000.0,
+  "credits_total": 162637000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2025-03",
+  "branches": 114,
+  "deposits_total": 182875000000.0,
+  "credits_total": 160962000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2025-04",
+  "branches": 114,
+  "deposits_total": 180828000000.0,
+  "credits_total": 156077000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2025-05",
+  "branches": 112,
+  "deposits_total": 181104000000.0,
+  "credits_total": 152792000000.0
+ },
+ {
+  "tis1099_code": "90",
+  "period": "2025-06",
+  "branches": 113,
+  "deposits_total": 179117000000.0,
+  "credits_total": 147024000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2024-07",
+  "branches": 34,
+  "deposits_total": 36070000000.0,
+  "credits_total": 39028000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2024-08",
+  "branches": 34,
+  "deposits_total": 35883000000.0,
+  "credits_total": 38916000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2024-09",
+  "branches": 34,
+  "deposits_total": 35523000000.0,
+  "credits_total": 38430000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2024-10",
+  "branches": 34,
+  "deposits_total": 37776000000.0,
+  "credits_total": 37959000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2024-11",
+  "branches": 34,
+  "deposits_total": 37115000000.0,
+  "credits_total": 38489000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2024-12",
+  "branches": 34,
+  "deposits_total": 36816000000.0,
+  "credits_total": 38528000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2025-01",
+  "branches": 34,
+  "deposits_total": 36901000000.0,
+  "credits_total": 38532000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2025-02",
+  "branches": 34,
+  "deposits_total": 36866000000.0,
+  "credits_total": 38624000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2025-03",
+  "branches": 34,
+  "deposits_total": 37111000000.0,
+  "credits_total": 38558000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2025-04",
+  "branches": 34,
+  "deposits_total": 36762000000.0,
+  "credits_total": 38488000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2025-05",
+  "branches": 34,
+  "deposits_total": 36668000000.0,
+  "credits_total": 38414000000.0
+ },
+ {
+  "tis1099_code": "33",
+  "period": "2025-06",
+  "branches": 34,
+  "deposits_total": 36816000000.0,
+  "credits_total": 38391000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2024-07",
+  "branches": 20,
+  "deposits_total": 24656000000.0,
+  "credits_total": 12086000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2024-08",
+  "branches": 20,
+  "deposits_total": 24441000000.0,
+  "credits_total": 12052000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2024-09",
+  "branches": 20,
+  "deposits_total": 24184000000.0,
+  "credits_total": 12058000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2024-10",
+  "branches": 20,
+  "deposits_total": 25166000000.0,
+  "credits_total": 12047000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2024-11",
+  "branches": 20,
+  "deposits_total": 24461000000.0,
+  "credits_total": 12076000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2024-12",
+  "branches": 20,
+  "deposits_total": 24612000000.0,
+  "credits_total": 12073000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2025-01",
+  "branches": 20,
+  "deposits_total": 25008000000.0,
+  "credits_total": 11860000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2025-02",
+  "branches": 20,
+  "deposits_total": 24791000000.0,
+  "credits_total": 11950000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2025-03",
+  "branches": 20,
+  "deposits_total": 24549000000.0,
+  "credits_total": 11962000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2025-04",
+  "branches": 20,
+  "deposits_total": 24910000000.0,
+  "credits_total": 11921000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2025-05",
+  "branches": 20,
+  "deposits_total": 24641000000.0,
+  "credits_total": 11995000000.0
+ },
+ {
+  "tis1099_code": "64",
+  "period": "2025-06",
+  "branches": 20,
+  "deposits_total": 24262000000.0,
+  "credits_total": 12215000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2024-07",
+  "branches": 48,
+  "deposits_total": 66895000000.0,
+  "credits_total": 37473000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2024-08",
+  "branches": 48,
+  "deposits_total": 65268000000.0,
+  "credits_total": 37411000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2024-09",
+  "branches": 48,
+  "deposits_total": 65260000000.0,
+  "credits_total": 37274000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2024-10",
+  "branches": 48,
+  "deposits_total": 66696000000.0,
+  "credits_total": 36869000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2024-11",
+  "branches": 48,
+  "deposits_total": 65551000000.0,
+  "credits_total": 37315000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2024-12",
+  "branches": 48,
+  "deposits_total": 65562000000.0,
+  "credits_total": 37337000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2025-01",
+  "branches": 48,
+  "deposits_total": 67124000000.0,
+  "credits_total": 37173000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2025-02",
+  "branches": 47,
+  "deposits_total": 66869000000.0,
+  "credits_total": 37468000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2025-03",
+  "branches": 47,
+  "deposits_total": 65901000000.0,
+  "credits_total": 37938000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2025-04",
+  "branches": 47,
+  "deposits_total": 65394000000.0,
+  "credits_total": 36822000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2025-05",
+  "branches": 47,
+  "deposits_total": 64970000000.0,
+  "credits_total": 36654000000.0
+ },
+ {
+  "tis1099_code": "72",
+  "period": "2025-06",
+  "branches": 47,
+  "deposits_total": 64971000000.0,
+  "credits_total": 37042000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2024-07",
+  "branches": 109,
+  "deposits_total": 138149000000.0,
+  "credits_total": 111778000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2024-08",
+  "branches": 109,
+  "deposits_total": 137244000000.0,
+  "credits_total": 111952000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2024-09",
+  "branches": 108,
+  "deposits_total": 136120000000.0,
+  "credits_total": 110994000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2024-10",
+  "branches": 108,
+  "deposits_total": 137274000000.0,
+  "credits_total": 110118000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2024-11",
+  "branches": 108,
+  "deposits_total": 136537000000.0,
+  "credits_total": 109863000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2024-12",
+  "branches": 107,
+  "deposits_total": 137033000000.0,
+  "credits_total": 110373000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2025-01",
+  "branches": 107,
+  "deposits_total": 139078000000.0,
+  "credits_total": 108461000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2025-02",
+  "branches": 107,
+  "deposits_total": 139317000000.0,
+  "credits_total": 108017000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2025-03",
+  "branches": 106,
+  "deposits_total": 138678000000.0,
+  "credits_total": 107993000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2025-04",
+  "branches": 105,
+  "deposits_total": 138746000000.0,
+  "credits_total": 108612000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2025-05",
+  "branches": 104,
+  "deposits_total": 138600000000.0,
+  "credits_total": 106472000000.0
+ },
+ {
+  "tis1099_code": "84",
+  "period": "2025-06",
+  "branches": 103,
+  "deposits_total": 138209000000.0,
+  "credits_total": 106379000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2024-07",
+  "branches": 37,
+  "deposits_total": 43357000000.0,
+  "credits_total": 46909000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2024-08",
+  "branches": 37,
+  "deposits_total": 42720000000.0,
+  "credits_total": 46708000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2024-09",
+  "branches": 37,
+  "deposits_total": 42662000000.0,
+  "credits_total": 45843000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2024-10",
+  "branches": 37,
+  "deposits_total": 43605000000.0,
+  "credits_total": 45418000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2024-11",
+  "branches": 37,
+  "deposits_total": 43823000000.0,
+  "credits_total": 45394000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2024-12",
+  "branches": 37,
+  "deposits_total": 43739000000.0,
+  "credits_total": 45328000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2025-01",
+  "branches": 37,
+  "deposits_total": 45147000000.0,
+  "credits_total": 44735000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2025-02",
+  "branches": 37,
+  "deposits_total": 44132000000.0,
+  "credits_total": 44167000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2025-03",
+  "branches": 37,
+  "deposits_total": 43687000000.0,
+  "credits_total": 43893000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2025-04",
+  "branches": 36,
+  "deposits_total": 43855000000.0,
+  "credits_total": 43466000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2025-05",
+  "branches": 36,
+  "deposits_total": 43671000000.0,
+  "credits_total": 43283000000.0
+ },
+ {
+  "tis1099_code": "32",
+  "period": "2025-06",
+  "branches": 36,
+  "deposits_total": 43815000000.0,
+  "credits_total": 42999000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2024-07",
+  "branches": 21,
+  "deposits_total": 32919000000.0,
+  "credits_total": 20110000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2024-08",
+  "branches": 21,
+  "deposits_total": 32572000000.0,
+  "credits_total": 20161000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2024-09",
+  "branches": 21,
+  "deposits_total": 32591000000.0,
+  "credits_total": 20263000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2024-10",
+  "branches": 21,
+  "deposits_total": 33745000000.0,
+  "credits_total": 20254000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2024-11",
+  "branches": 21,
+  "deposits_total": 33552000000.0,
+  "credits_total": 20404000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2024-12",
+  "branches": 20,
+  "deposits_total": 33702000000.0,
+  "credits_total": 20779000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2025-01",
+  "branches": 20,
+  "deposits_total": 33981000000.0,
+  "credits_total": 20635000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2025-02",
+  "branches": 20,
+  "deposits_total": 34123000000.0,
+  "credits_total": 20536000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2025-03",
+  "branches": 20,
+  "deposits_total": 34057000000.0,
+  "credits_total": 20483000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2025-04",
+  "branches": 20,
+  "deposits_total": 33791000000.0,
+  "credits_total": 20372000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2025-05",
+  "branches": 20,
+  "deposits_total": 33734000000.0,
+  "credits_total": 20249000000.0
+ },
+ {
+  "tis1099_code": "63",
+  "period": "2025-06",
+  "branches": 20,
+  "deposits_total": 33323000000.0,
+  "credits_total": 19933000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2024-07",
+  "branches": 14,
+  "deposits_total": 23871000000.0,
+  "credits_total": 9722000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2024-08",
+  "branches": 14,
+  "deposits_total": 23076000000.0,
+  "credits_total": 9817000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2024-09",
+  "branches": 14,
+  "deposits_total": 22568000000.0,
+  "credits_total": 9897000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2024-10",
+  "branches": 14,
+  "deposits_total": 22398000000.0,
+  "credits_total": 9886000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2024-11",
+  "branches": 14,
+  "deposits_total": 22467000000.0,
+  "credits_total": 9882000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2024-12",
+  "branches": 14,
+  "deposits_total": 22163000000.0,
+  "credits_total": 9788000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2025-01",
+  "branches": 14,
+  "deposits_total": 22477000000.0,
+  "credits_total": 9781000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2025-02",
+  "branches": 14,
+  "deposits_total": 22431000000.0,
+  "credits_total": 9831000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2025-03",
+  "branches": 14,
+  "deposits_total": 22467000000.0,
+  "credits_total": 9784000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2025-04",
+  "branches": 14,
+  "deposits_total": 24402000000.0,
+  "credits_total": 9683000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2025-05",
+  "branches": 14,
+  "deposits_total": 25830000000.0,
+  "credits_total": 9705000000.0
+ },
+ {
+  "tis1099_code": "23",
+  "period": "2025-06",
+  "branches": 14,
+  "deposits_total": 25092000000.0,
+  "credits_total": 9684000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2024-07",
+  "branches": 41,
+  "deposits_total": 42868000000.0,
+  "credits_total": 40620000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2024-08",
+  "branches": 41,
+  "deposits_total": 42525000000.0,
+  "credits_total": 40650000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2024-09",
+  "branches": 41,
+  "deposits_total": 42897000000.0,
+  "credits_total": 40484000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2024-10",
+  "branches": 41,
+  "deposits_total": 44016000000.0,
+  "credits_total": 40176000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2024-11",
+  "branches": 40,
+  "deposits_total": 44143000000.0,
+  "credits_total": 39995000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2024-12",
+  "branches": 40,
+  "deposits_total": 43776000000.0,
+  "credits_total": 39986000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2025-01",
+  "branches": 40,
+  "deposits_total": 44166000000.0,
+  "credits_total": 40079000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2025-02",
+  "branches": 40,
+  "deposits_total": 43915000000.0,
+  "credits_total": 39994000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2025-03",
+  "branches": 40,
+  "deposits_total": 43639000000.0,
+  "credits_total": 40199000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2025-04",
+  "branches": 39,
+  "deposits_total": 43853000000.0,
+  "credits_total": 37150000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2025-05",
+  "branches": 39,
+  "deposits_total": 43717000000.0,
+  "credits_total": 37071000000.0
+ },
+ {
+  "tis1099_code": "92",
+  "period": "2025-06",
+  "branches": 38,
+  "deposits_total": 43538000000.0,
+  "credits_total": 36969000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2024-07",
+  "branches": 64,
+  "deposits_total": 83336000000.0,
+  "credits_total": 98812000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2024-08",
+  "branches": 64,
+  "deposits_total": 82025000000.0,
+  "credits_total": 98055000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2024-09",
+  "branches": 63,
+  "deposits_total": 82491000000.0,
+  "credits_total": 97244000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2024-10",
+  "branches": 62,
+  "deposits_total": 83652000000.0,
+  "credits_total": 96213000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2024-11",
+  "branches": 62,
+  "deposits_total": 82283000000.0,
+  "credits_total": 97181000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2024-12",
+  "branches": 62,
+  "deposits_total": 81791000000.0,
+  "credits_total": 97275000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2025-01",
+  "branches": 61,
+  "deposits_total": 82581000000.0,
+  "credits_total": 96247000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2025-02",
+  "branches": 61,
+  "deposits_total": 83160000000.0,
+  "credits_total": 96506000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2025-03",
+  "branches": 61,
+  "deposits_total": 83801000000.0,
+  "credits_total": 96563000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2025-04",
+  "branches": 61,
+  "deposits_total": 82717000000.0,
+  "credits_total": 95771000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2025-05",
+  "branches": 60,
+  "deposits_total": 82671000000.0,
+  "credits_total": 94820000000.0
+ },
+ {
+  "tis1099_code": "34",
+  "period": "2025-06",
+  "branches": 60,
+  "deposits_total": 81745000000.0,
+  "credits_total": 94315000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2024-07",
+  "branches": 61,
+  "deposits_total": 101926000000.0,
+  "credits_total": 95934000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2024-08",
+  "branches": 60,
+  "deposits_total": 100851000000.0,
+  "credits_total": 95584000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2024-09",
+  "branches": 60,
+  "deposits_total": 101224000000.0,
+  "credits_total": 95100000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2024-10",
+  "branches": 60,
+  "deposits_total": 102927000000.0,
+  "credits_total": 94492000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2024-11",
+  "branches": 59,
+  "deposits_total": 102885000000.0,
+  "credits_total": 94482000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2024-12",
+  "branches": 59,
+  "deposits_total": 102433000000.0,
+  "credits_total": 94429000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2025-01",
+  "branches": 59,
+  "deposits_total": 102749000000.0,
+  "credits_total": 94353000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2025-02",
+  "branches": 59,
+  "deposits_total": 102268000000.0,
+  "credits_total": 93891000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2025-03",
+  "branches": 59,
+  "deposits_total": 114072000000.0,
+  "credits_total": 93162000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2025-04",
+  "branches": 59,
+  "deposits_total": 112797000000.0,
+  "credits_total": 92528000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2025-05",
+  "branches": 59,
+  "deposits_total": 111514000000.0,
+  "credits_total": 91968000000.0
+ },
+ {
+  "tis1099_code": "41",
+  "period": "2025-06",
+  "branches": 59,
+  "deposits_total": 110625000000.0,
+  "credits_total": 91697000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2024-07",
+  "branches": 11,
+  "deposits_total": 16106000000.0,
+  "credits_total": 5211000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2024-08",
+  "branches": 11,
+  "deposits_total": 15985000000.0,
+  "credits_total": 5255000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2024-09",
+  "branches": 11,
+  "deposits_total": 16256000000.0,
+  "credits_total": 5221000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2024-10",
+  "branches": 11,
+  "deposits_total": 16861000000.0,
+  "credits_total": 5228000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2024-11",
+  "branches": 11,
+  "deposits_total": 16724000000.0,
+  "credits_total": 5334000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2024-12",
+  "branches": 11,
+  "deposits_total": 16822000000.0,
+  "credits_total": 5412000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2025-01",
+  "branches": 11,
+  "deposits_total": 17010000000.0,
+  "credits_total": 5346000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2025-02",
+  "branches": 11,
+  "deposits_total": 17102000000.0,
+  "credits_total": 5403000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2025-03",
+  "branches": 11,
+  "deposits_total": 17104000000.0,
+  "credits_total": 5361000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2025-04",
+  "branches": 11,
+  "deposits_total": 17294000000.0,
+  "credits_total": 5219000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2025-05",
+  "branches": 11,
+  "deposits_total": 17064000000.0,
+  "credits_total": 5148000000.0
+ },
+ {
+  "tis1099_code": "61",
+  "period": "2025-06",
+  "branches": 11,
+  "deposits_total": 16909000000.0,
+  "credits_total": 5385000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2024-07",
+  "branches": 19,
+  "deposits_total": 19572000000.0,
+  "credits_total": 20766000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2024-08",
+  "branches": 19,
+  "deposits_total": 19281000000.0,
+  "credits_total": 20868000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2024-09",
+  "branches": 19,
+  "deposits_total": 19327000000.0,
+  "credits_total": 20981000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2024-10",
+  "branches": 18,
+  "deposits_total": 19933000000.0,
+  "credits_total": 20991000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2024-11",
+  "branches": 18,
+  "deposits_total": 19864000000.0,
+  "credits_total": 20930000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2024-12",
+  "branches": 18,
+  "deposits_total": 19798000000.0,
+  "credits_total": 21863000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2025-01",
+  "branches": 18,
+  "deposits_total": 19747000000.0,
+  "credits_total": 21952000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2025-02",
+  "branches": 18,
+  "deposits_total": 19504000000.0,
+  "credits_total": 21878000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2025-03",
+  "branches": 18,
+  "deposits_total": 19421000000.0,
+  "credits_total": 22116000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2025-04",
+  "branches": 18,
+  "deposits_total": 19610000000.0,
+  "credits_total": 21951000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2025-05",
+  "branches": 18,
+  "deposits_total": 19429000000.0,
+  "credits_total": 22418000000.0
+ },
+ {
+  "tis1099_code": "53",
+  "period": "2025-06",
+  "branches": 17,
+  "deposits_total": 19575000000.0,
+  "credits_total": 22653000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2024-07",
+  "branches": 16,
+  "deposits_total": 31974000000.0,
+  "credits_total": 18575000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2024-08",
+  "branches": 16,
+  "deposits_total": 32333000000.0,
+  "credits_total": 18853000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2024-09",
+  "branches": 16,
+  "deposits_total": 32559000000.0,
+  "credits_total": 18817000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2024-10",
+  "branches": 16,
+  "deposits_total": 33139000000.0,
+  "credits_total": 18842000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2024-11",
+  "branches": 16,
+  "deposits_total": 33653000000.0,
+  "credits_total": 18665000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2024-12",
+  "branches": 16,
+  "deposits_total": 32954000000.0,
+  "credits_total": 18415000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2025-01",
+  "branches": 16,
+  "deposits_total": 32640000000.0,
+  "credits_total": 18390000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2025-02",
+  "branches": 16,
+  "deposits_total": 31930000000.0,
+  "credits_total": 18382000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2025-03",
+  "branches": 16,
+  "deposits_total": 31004000000.0,
+  "credits_total": 18319000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2025-04",
+  "branches": 16,
+  "deposits_total": 32613000000.0,
+  "credits_total": 18264000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2025-05",
+  "branches": 16,
+  "deposits_total": 31949000000.0,
+  "credits_total": 18129000000.0
+ },
+ {
+  "tis1099_code": "95",
+  "period": "2025-06",
+  "branches": 16,
+  "deposits_total": 31547000000.0,
+  "credits_total": 18006000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2024-07",
+  "branches": 14,
+  "deposits_total": 17238000000.0,
+  "credits_total": 18609000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2024-08",
+  "branches": 14,
+  "deposits_total": 17174000000.0,
+  "credits_total": 18575000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2024-09",
+  "branches": 14,
+  "deposits_total": 17320000000.0,
+  "credits_total": 18534000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2024-10",
+  "branches": 14,
+  "deposits_total": 18292000000.0,
+  "credits_total": 18489000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2024-11",
+  "branches": 14,
+  "deposits_total": 17485000000.0,
+  "credits_total": 19773000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2024-12",
+  "branches": 14,
+  "deposits_total": 17289000000.0,
+  "credits_total": 19658000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2025-01",
+  "branches": 13,
+  "deposits_total": 17291000000.0,
+  "credits_total": 19545000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2025-02",
+  "branches": 13,
+  "deposits_total": 17371000000.0,
+  "credits_total": 19356000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2025-03",
+  "branches": 13,
+  "deposits_total": 17812000000.0,
+  "credits_total": 19350000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2025-04",
+  "branches": 13,
+  "deposits_total": 17295000000.0,
+  "credits_total": 19213000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2025-05",
+  "branches": 13,
+  "deposits_total": 17000000000.0,
+  "credits_total": 19080000000.0
+ },
+ {
+  "tis1099_code": "35",
+  "period": "2025-06",
+  "branches": 13,
+  "deposits_total": 16770000000.0,
+  "credits_total": 19105000000.0
+ }
+]

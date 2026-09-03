@@ -1,0 +1,69 @@
+/* 갭 지도. 색은 값 인코딩 전용 — 선택·호버는 스트로크로만 표현한다. */
+
+.gapmap {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.gapmap__svg {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+}
+
+.gapmap__province {
+  /* 헤어라인. 인접 주를 가르되 색 면적을 잡아먹지 않는 최소 두께 */
+  stroke: var(--ground);
+  stroke-width: 0.5;
+  cursor: pointer;
+  transition: stroke var(--dur) var(--ease), stroke-width var(--dur) var(--ease);
+}
+
+.gapmap__province:hover {
+  stroke: var(--ink-2);
+  stroke-width: 1.25;
+}
+
+/* 선택은 색이 아니라 스트로크다. 값 인코딩을 덮지 않는다. */
+.gapmap__province[data-selected] {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.gapmap__province:focus-visible {
+  outline: none;                 /* SVG에서 outline은 바운딩박스에 그려져 쓸모없다 */
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+
+/* 선택과 포커스가 겹치면 선택 표시를 유지하되 포커스를 더 굵게 */
+.gapmap__province[data-selected]:focus-visible {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+
+/* 제외된 주는 '값이 없는 주'와 달라야 한다. 색은 같은 회색이되 점선 스트로크로 가른다 —
+   색을 하나 더 쓰면 값 램프와 경쟁한다. */
+.gapmap__province[data-excluded] {
+  stroke: var(--ink-3);
+  stroke-width: 0.75;
+  stroke-dasharray: 3 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gapmap__province { transition: none; }
+}
+
+/* forced-colors: 시스템이 배경색을 강제 교체해 값 구분이 사라진다.
+   값이 있는 주는 패턴, 없는 주는 빈 채움으로 최소한의 구분을 남긴다. */
+@media (forced-colors: active) {
+  .gapmap__province {
+    fill: url(#fc-hatch) !important;
+    stroke: CanvasText;
+    stroke-width: 0.75;
+  }
+  .gapmap__province[data-missing] { fill: Canvas !important; }
+  .gapmap__province[data-selected] { stroke: Highlight; stroke-width: 3; }
+  .gapmap__province:focus-visible { stroke: Highlight; stroke-width: 3; }
+}

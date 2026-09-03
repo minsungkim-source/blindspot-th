@@ -1,0 +1,475 @@
+{
+ "_comment": "tests/test_parity.py가 만든다. 손으로 고치지 마라. 산식을 바꿨으면 pytest tests/test_parity.py --update-vectors 로 다시 굽고 diff를 확인한다.",
+ "cases": [
+  {
+   "label": "default",
+   "supplyWeights": {
+    "branch_density": 0.3,
+    "geographic_access": 0.2,
+    "deposit_penetration": 0.2,
+    "credit_penetration": 0.2,
+    "atm_density": 0.1
+   },
+   "demandWeights": {
+    "population_scale": 0.3,
+    "income_downside": 0.25,
+    "dispersion": 0.2,
+    "cash_economy": 0.15,
+    "credit_thirst": 0.1
+   },
+   "rows": [
+    {
+     "tis1099_code": "10",
+     "population": 9100000.0,
+     "digital_readiness": 92.0,
+     "pct_supply": {
+      "branch_density": 85.7143,
+      "geographic_access": 100.0,
+      "deposit_penetration": 100.0,
+      "credit_penetration": 100.0,
+      "atm_density": 66.6667
+     },
+     "pct_demand": {
+      "population_scale": 100.0,
+      "income_downside": 0.0,
+      "dispersion": 0.0,
+      "cash_economy": 0.0,
+      "credit_thirst": 0.0
+     },
+     "expected": {
+      "supply": 92.38,
+      "demand": 30.0,
+      "gap": 18.81,
+      "priority": 0.0,
+      "archetype": "retain_crosssell",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "20",
+     "population": 2050000.0,
+     "digital_readiness": 78.0,
+     "pct_supply": {
+      "branch_density": 71.4286,
+      "geographic_access": 71.4286,
+      "deposit_penetration": 71.4286,
+      "credit_penetration": 71.4286,
+      "atm_density": 83.3333
+     },
+     "pct_demand": {
+      "population_scale": 85.7143,
+      "income_downside": 14.2857,
+      "dispersion": 28.5714,
+      "cash_economy": 14.2857,
+      "credit_thirst": 57.1429
+     },
+     "expected": {
+      "supply": 72.62,
+      "demand": 42.86,
+      "gap": 35.12,
+      "priority": 0.0,
+      "archetype": "retain_crosssell",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "30",
+     "population": 620000.0,
+     "digital_readiness": 74.0,
+     "pct_supply": {
+      "branch_density": 100.0,
+      "geographic_access": 85.7143,
+      "deposit_penetration": 85.7143,
+      "credit_penetration": 85.7143,
+      "atm_density": 100.0
+     },
+     "pct_demand": {
+      "population_scale": 28.5714,
+      "income_downside": 28.5714,
+      "dispersion": 14.2857,
+      "cash_economy": 28.5714,
+      "credit_thirst": 42.8571
+     },
+     "expected": {
+      "supply": 91.43,
+      "demand": 27.14,
+      "gap": 17.86,
+      "priority": 0.0,
+      "archetype": "retain_crosssell",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "40",
+     "population": 770000.0,
+     "digital_readiness": 61.0,
+     "pct_supply": {
+      "branch_density": 50.0,
+      "geographic_access": 50.0,
+      "deposit_penetration": 50.0,
+      "credit_penetration": 50.0,
+      "atm_density": 41.6667
+     },
+     "pct_demand": {
+      "population_scale": 64.2857,
+      "income_downside": 64.2857,
+      "dispersion": 50.0,
+      "cash_economy": 64.2857,
+      "credit_thirst": 21.4286
+     },
+     "expected": {
+      "supply": 49.17,
+      "demand": 57.14,
+      "gap": 53.99,
+      "priority": 12.3695,
+      "archetype": "digital_first",
+      "archetypeBorderline": true
+     }
+    },
+    {
+     "tis1099_code": "50",
+     "population": 770000.0,
+     "digital_readiness": 59.0,
+     "pct_supply": {
+      "branch_density": 50.0,
+      "geographic_access": 50.0,
+      "deposit_penetration": 50.0,
+      "credit_penetration": 50.0,
+      "atm_density": 41.6667
+     },
+     "pct_demand": {
+      "population_scale": 64.2857,
+      "income_downside": 64.2857,
+      "dispersion": 50.0,
+      "cash_economy": 64.2857,
+      "credit_thirst": 21.4286
+     },
+     "expected": {
+      "supply": 49.17,
+      "demand": 57.14,
+      "gap": 53.99,
+      "priority": 12.3695,
+      "archetype": "agent_kiosk",
+      "archetypeBorderline": true
+     }
+    },
+    {
+     "tis1099_code": "60",
+     "population": 680000.0,
+     "digital_readiness": 52.0,
+     "pct_supply": {
+      "branch_density": 0.0,
+      "geographic_access": 28.5714,
+      "deposit_penetration": 0.0,
+      "credit_penetration": 0.0,
+      "atm_density": null
+     },
+     "pct_demand": {
+      "population_scale": 42.8571,
+      "income_downside": 85.7143,
+      "dispersion": 71.4286,
+      "cash_economy": 85.7143,
+      "credit_thirst": 100.0
+     },
+     "expected": {
+      "supply": 6.35,
+      "demand": 71.43,
+      "gap": 82.54,
+      "priority": 100.0,
+      "archetype": "agent_kiosk",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "70",
+     "population": 430000.0,
+     "digital_readiness": 41.0,
+     "pct_supply": {
+      "branch_density": 14.2857,
+      "geographic_access": 14.2857,
+      "deposit_penetration": 28.5714,
+      "credit_penetration": 28.5714,
+      "atm_density": 16.6667
+     },
+     "pct_demand": {
+      "population_scale": 14.2857,
+      "income_downside": 42.8571,
+      "dispersion": 85.7143,
+      "cash_economy": 42.8571,
+      "credit_thirst": 85.7143
+     },
+     "expected": {
+      "supply": 20.24,
+      "demand": 47.14,
+      "gap": 63.45,
+      "priority": 39.9306,
+      "archetype": "agent_kiosk",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "80",
+     "population": 246000.0,
+     "digital_readiness": null,
+     "pct_supply": {
+      "branch_density": 28.5714,
+      "geographic_access": 0.0,
+      "deposit_penetration": 14.2857,
+      "credit_penetration": 14.2857,
+      "atm_density": 0.0
+     },
+     "pct_demand": {
+      "population_scale": 0.0,
+      "income_downside": 100.0,
+      "dispersion": 100.0,
+      "cash_economy": 100.0,
+      "credit_thirst": 71.4286
+     },
+     "expected": {
+      "supply": 14.29,
+      "demand": 67.14,
+      "gap": 76.43,
+      "priority": 75.0705,
+      "archetype": null,
+      "archetypeBorderline": false
+     }
+    }
+   ]
+  },
+  {
+   "label": "remote_first",
+   "supplyWeights": {
+    "branch_density": 0.2,
+    "geographic_access": 0.35,
+    "deposit_penetration": 0.15,
+    "credit_penetration": 0.2,
+    "atm_density": 0.1
+   },
+   "demandWeights": {
+    "population_scale": 0.2,
+    "income_downside": 0.2,
+    "dispersion": 0.35,
+    "cash_economy": 0.2,
+    "credit_thirst": 0.05
+   },
+   "rows": [
+    {
+     "tis1099_code": "10",
+     "population": 9100000.0,
+     "digital_readiness": 92.0,
+     "pct_supply": {
+      "branch_density": 85.7143,
+      "geographic_access": 100.0,
+      "deposit_penetration": 100.0,
+      "credit_penetration": 100.0,
+      "atm_density": 66.6667
+     },
+     "pct_demand": {
+      "population_scale": 100.0,
+      "income_downside": 0.0,
+      "dispersion": 0.0,
+      "cash_economy": 0.0,
+      "credit_thirst": 0.0
+     },
+     "expected": {
+      "supply": 93.81,
+      "demand": 20.0,
+      "gap": 13.1,
+      "priority": 0.0,
+      "archetype": "retain_crosssell",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "20",
+     "population": 2050000.0,
+     "digital_readiness": 78.0,
+     "pct_supply": {
+      "branch_density": 71.4286,
+      "geographic_access": 71.4286,
+      "deposit_penetration": 71.4286,
+      "credit_penetration": 71.4286,
+      "atm_density": 83.3333
+     },
+     "pct_demand": {
+      "population_scale": 85.7143,
+      "income_downside": 14.2857,
+      "dispersion": 28.5714,
+      "cash_economy": 14.2857,
+      "credit_thirst": 57.1429
+     },
+     "expected": {
+      "supply": 72.62,
+      "demand": 35.71,
+      "gap": 31.55,
+      "priority": 0.0,
+      "archetype": "retain_crosssell",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "30",
+     "population": 620000.0,
+     "digital_readiness": 74.0,
+     "pct_supply": {
+      "branch_density": 100.0,
+      "geographic_access": 85.7143,
+      "deposit_penetration": 85.7143,
+      "credit_penetration": 85.7143,
+      "atm_density": 100.0
+     },
+     "pct_demand": {
+      "population_scale": 28.5714,
+      "income_downside": 28.5714,
+      "dispersion": 14.2857,
+      "cash_economy": 28.5714,
+      "credit_thirst": 42.8571
+     },
+     "expected": {
+      "supply": 90.0,
+      "demand": 24.29,
+      "gap": 17.14,
+      "priority": 0.0,
+      "archetype": "retain_crosssell",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "40",
+     "population": 770000.0,
+     "digital_readiness": 61.0,
+     "pct_supply": {
+      "branch_density": 50.0,
+      "geographic_access": 50.0,
+      "deposit_penetration": 50.0,
+      "credit_penetration": 50.0,
+      "atm_density": 41.6667
+     },
+     "pct_demand": {
+      "population_scale": 64.2857,
+      "income_downside": 64.2857,
+      "dispersion": 50.0,
+      "cash_economy": 64.2857,
+      "credit_thirst": 21.4286
+     },
+     "expected": {
+      "supply": 49.17,
+      "demand": 57.14,
+      "gap": 53.99,
+      "priority": 12.8349,
+      "archetype": "digital_first",
+      "archetypeBorderline": true
+     }
+    },
+    {
+     "tis1099_code": "50",
+     "population": 770000.0,
+     "digital_readiness": 59.0,
+     "pct_supply": {
+      "branch_density": 50.0,
+      "geographic_access": 50.0,
+      "deposit_penetration": 50.0,
+      "credit_penetration": 50.0,
+      "atm_density": 41.6667
+     },
+     "pct_demand": {
+      "population_scale": 64.2857,
+      "income_downside": 64.2857,
+      "dispersion": 50.0,
+      "cash_economy": 64.2857,
+      "credit_thirst": 21.4286
+     },
+     "expected": {
+      "supply": 49.17,
+      "demand": 57.14,
+      "gap": 53.99,
+      "priority": 12.8349,
+      "archetype": "agent_kiosk",
+      "archetypeBorderline": true
+     }
+    },
+    {
+     "tis1099_code": "60",
+     "population": 680000.0,
+     "digital_readiness": 52.0,
+     "pct_supply": {
+      "branch_density": 0.0,
+      "geographic_access": 28.5714,
+      "deposit_penetration": 0.0,
+      "credit_penetration": 0.0,
+      "atm_density": null
+     },
+     "pct_demand": {
+      "population_scale": 42.8571,
+      "income_downside": 85.7143,
+      "dispersion": 71.4286,
+      "cash_economy": 85.7143,
+      "credit_thirst": 100.0
+     },
+     "expected": {
+      "supply": 11.11,
+      "demand": 72.86,
+      "gap": 80.87,
+      "priority": 98.4475,
+      "archetype": "agent_kiosk",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "70",
+     "population": 430000.0,
+     "digital_readiness": 41.0,
+     "pct_supply": {
+      "branch_density": 14.2857,
+      "geographic_access": 14.2857,
+      "deposit_penetration": 28.5714,
+      "credit_penetration": 28.5714,
+      "atm_density": 16.6667
+     },
+     "pct_demand": {
+      "population_scale": 14.2857,
+      "income_downside": 42.8571,
+      "dispersion": 85.7143,
+      "cash_economy": 42.8571,
+      "credit_thirst": 85.7143
+     },
+     "expected": {
+      "supply": 19.52,
+      "demand": 54.29,
+      "gap": 67.38,
+      "priority": 53.5328,
+      "archetype": "agent_kiosk",
+      "archetypeBorderline": false
+     }
+    },
+    {
+     "tis1099_code": "80",
+     "population": 246000.0,
+     "digital_readiness": null,
+     "pct_supply": {
+      "branch_density": 28.5714,
+      "geographic_access": 0.0,
+      "deposit_penetration": 14.2857,
+      "credit_penetration": 14.2857,
+      "atm_density": 0.0
+     },
+     "pct_demand": {
+      "population_scale": 0.0,
+      "income_downside": 100.0,
+      "dispersion": 100.0,
+      "cash_economy": 100.0,
+      "credit_thirst": 71.4286
+     },
+     "expected": {
+      "supply": 10.71,
+      "demand": 78.57,
+      "gap": 83.93,
+      "priority": 100.0,
+      "archetype": null,
+      "archetypeBorderline": false
+     }
+    }
+   ]
+  }
+ ]
+}

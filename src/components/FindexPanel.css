@@ -1,0 +1,163 @@
+/* Findex 전국 벤치마크. 계열색을 쓰지 않는다 — 여기 값들은 서로 비교되는 것이지
+   범주가 아니다. 강조가 필요한 곳은 --accent 하나로만 한다. */
+
+.findex {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 24px;
+  min-width: 0;
+}
+
+.findex__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.findex__head h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.findex__note,
+.findex__hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+.findex__hint strong { color: var(--ink-2); font-weight: 600; }
+
+.findex__block { display: flex; flex-direction: column; gap: 9px; }
+
+.findex__block h3 {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── 연도별 막대 ─────────────────────────────────────────────── */
+
+.trendbars {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 132px;
+  padding-top: 18px;
+}
+
+.trendbars__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+}
+
+.trendbars__value {
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+.trendbars__bar {
+  width: 100%;
+  max-width: 46px;
+  background: var(--accent-dim);
+  border-radius: var(--r-sm) var(--r-sm) 0 0;
+  min-height: 2px;
+}
+
+/* 전 회차보다 내려간 값. 색만으로 말하지 않도록 값 라벨이 항상 같이 있다. */
+.trendbars__bar[data-down] { background: var(--serious); }
+
+.trendbars__year { font-size: 10.5px; color: var(--ink-3); }
+
+/* ── 집단 간 차이 ────────────────────────────────────────────── */
+
+.findex__pairs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 9px;
+}
+
+.findex__pair {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  font-size: 12px;
+}
+
+.findex__pair-label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.findex__pair-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--ink-2);
+}
+
+.findex__pair-diff {
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+/* 3%p 미만은 사실상 차이가 없다. 크게 보이지 않도록 눌러 둔다. */
+.findex__pair-diff[data-negligible] { color: var(--ink-3); }
+
+.findex__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.findex__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+
+.findex__stat-label { font-size: 12px; color: var(--ink-3); }
+.findex__stat-value { font-size: 15px; color: var(--ink); }
+.findex__stat-year { font-size: 10.5px; color: var(--ink-3); }
+
+.findex__link {
+  align-self: flex-start;
+  color: var(--ink-2);
+  font-size: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.findex__link:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+@media (max-width: 767px) {
+  .findex { padding: 18px 16px; }
+  .trendbars { gap: 6px; }
+}

@@ -1,0 +1,205 @@
+/* 방법론 패널. 표가 두 개라 각각 자기 컨테이너에서 가로 스크롤한다 —
+   페이지 본문은 절대 가로 스크롤하지 않는다 (DESIGN.md §4). */
+
+.methodology {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px 24px;
+  min-width: 0;
+}
+
+.methodology__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.methodology__head h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.methodology__head a {
+  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.methodology__head a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+.methodology__note,
+.methodology__hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+.methodology__note strong,
+.methodology__hint strong { color: var(--ink-2); font-weight: 600; }
+
+.methodology__block { display: flex; flex-direction: column; gap: 9px; }
+
+.methodology__block h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.methodology__scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.methodology table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.methodology thead th {
+  padding: 9px 13px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.methodology tbody th,
+.methodology tbody td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-weight: 400;
+  vertical-align: baseline;
+  color: var(--ink-2);
+}
+
+.methodology tbody th {
+  display: table-cell;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.methodology tbody th a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+.methodology tbody th a:hover { border-bottom-color: var(--accent); }
+
+.methodology tbody tr:last-child th,
+.methodology tbody tr:last-child td { border-bottom: 0; }
+
+/* 확보하지 못한 소스는 행에서 바로 보여야 한다 */
+.methodology tbody tr[data-degraded] { background: rgba(250, 178, 25, 0.06); }
+
+.methodology__license { color: var(--ink-3); font-size: 11.5px; }
+
+.methodology__expr {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.methodology__degraded {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-strong);
+  border-left: 2px solid var(--warning);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: var(--surface-2);
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+.methodology__degraded strong { color: var(--ink); font-weight: 600; }
+
+.methodology__degraded ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.methodology__degraded p { margin: 0; color: var(--ink-3); }
+
+.methodology__kv {
+  display: grid;
+  /* 값이 긴 키가 있다 (urbanization_rate, region_downscale). 170px에서는 잘렸다. */
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 7px;
+  margin: 0;
+}
+
+.methodology__kv > div {
+  display: flex;
+  flex-wrap: wrap;          /* 좁아지면 값이 아래 줄로 내려간다 — 잘리지 않는다 */
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 9px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  font-size: 12px;
+  min-width: 0;
+}
+
+.methodology__kv dt { color: var(--ink-3); }
+
+.methodology__kv dd {
+  margin: 0;
+  color: var(--ink);
+  min-width: 0;
+  overflow-wrap: anywhere;   /* 긴 식별자가 상자를 넘지 않게 */
+}
+
+/* ── 공유 바 ─────────────────────────────────────────────────── */
+
+.sharebar { display: flex; align-items: center; gap: 8px; }
+
+.sharebar__btn {
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.sharebar__btn:hover { color: var(--ink); border-color: var(--border-strong); }
+
+.sharebar__fallback {
+  width: 240px;
+  padding: 6px 10px;
+  border: 1px solid var(--critical);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 11.5px;
+}
+
+@media (max-width: 767px) {
+  .methodology { padding: 18px 16px; }
+}

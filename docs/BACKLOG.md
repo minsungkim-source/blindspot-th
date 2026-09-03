@@ -1,0 +1,236 @@
+# BACKLOG
+
+기획서 §9 로드맵을 이슈 단위로 쪼갠 것. 순서대로 집으면 된다.
+
+## Sprint 0 — 저장소 개설 (결정 반영됨)
+
+- [x] 공개 저장소로 간다 — LICENSE(MIT), CONTRIBUTING.md, 귀속 상수 추가 완료
+- [x] BOT API 포털 등록은 미룬다 — 스크래핑 하드닝 + 주간 카나리로 대응
+- [x] `<org>` 자리표시자 치환 완료 (2026-08-31, 조직명 `blindspot-th`) — 4곳:
+      `src/config/attribution.ts`의 `REPO_URL`, `etl/sources/bot_province.py`와
+      `etl/sources/osm_atm.py`의 User-Agent, `index.html`의 주석 예시.
+      (`README.md`·`CONTRIBUTING.md`에는 실제로 자리표시자가 없었다)
+- [x] GitHub 공개 저장소 생성 완료 — **`minsungkim-source/blindspot-th`** (2026-08-31)
+      · Pages 주소: `https://minsungkim-source.github.io/blindspot-th/`
+      · 조직명이 `blindspot-th`가 아니라 `minsungkim-source`로 정해져,
+        앞서 치환했던 `<org>` 값을 실제 조직명으로 다시 고쳤다
+- [ ] 저장소 설정 — Pages 활성화, `parser-drift` / `data` 라벨 생성,
+      Actions 권한(`contents: write`, `pull-requests: write`, `issues: write`) 확인
+- [x] `vite.config.ts`의 `base` — 기본값 `/blindspot-th/`가 저장소명과 이미 일치한다.
+      배포 시에는 `deploy.yml`이 `GITHUB_REPOSITORY`에서 계산해 `VITE_BASE`로 덮으므로
+      저장소명을 바꿔도 따라간다 (로컬 기본값만 이 값을 쓴다)
+- [x] 푸터에 `ATTRIBUTIONS` 렌더 — `src/components/Footer.tsx`.
+      로딩·에러 화면에서도 빠지지 않는다 (라이선스 의무는 상태와 무관하다).
+      `meta.json`의 소스별 기준시점을 배지로 함께 보여준다
+- [x] 푸터 저장소 링크가 `https://github.com/minsungkim-source/blindspot-th`로 렌더되는 것 확인
+
+## Sprint 1 — 데이터 파이프라인 (2026-08-26 완료)
+
+- [x] `etl/sources/bot_province.py` — 기간은 GET이 아니라 `__VIEWSTATE` 포스트백.
+      12개월 시계열 수집 확인 (924행 = 77 × 12)
+- [x] `EXPECT_*` 지문을 실제 응답으로 보정 — 열 15개(0열이 일련번호), 주 정확히 77개,
+      데이터 84행. **스캐폴드의 `COLUMNS`가 한 칸 밀려 있었다.**
+      예대율 교차 검증을 네 번째 방어로 추가
+- [x] `tests/test_bot_parser.py` — 24케이스. 픽스처 `tests/fixtures/bot_province_2025-06.html`
+      (실제 응답에서 표만 남기고 속성 제거, 32KB)
+- [x] `etl/sources/nesdc_gpp.py` — 세션 쿠키 필요, 파일 목록은 DataTable JSON 안.
+      `PER CAPITA` 시트에서 인구·1인당 GPP, 권역 시트에서 농림어업 비중
+- [x] `etl/sources/osm_atm.py` — shapely STRtree point-in-polygon.
+      4,446개 중 4,175 정확 + 271 스냅(50km 상한) + 0 버림
+- [x] `admin_ref` 별칭 매칭 — 상류 97키로 BOT 66/77 · NESDC 73/77.
+      남는 15개는 `data/reference/province_name_aliases.csv`
+- [x] `data/reference/provinces.topo.json` — GeoJSON → TopoJSON (53KB, 77개)
+- [x] `figi.json` 첫 산출 → **사람 눈 확인 통과**
+      (방콕 공급 99.56으로 1위 · Mae Hong Son 지리적 접근성 0.88로 최하위 ·
+      우선순위 상위가 Chaiyaphum·Narathiwat·Nan 등 북동/북부 농촌)
+- [x] `tests/test_figi.py` — 백분위·가중합·아키타입 20케이스
+- [x] `tests/test_parity.py` + `src/lib/score.parity.test.ts` — 골든 벡터 방식으로 앞당김
+      (원래 Sprint 4). Python이 굽고 TS가 대조한다
+- [ ] `parser-canary.yml` 수동 실행(`workflow_dispatch`)으로 첫 동작 확인
+      — 저장소를 만든 뒤에야 가능
+
+### Sprint 1에서 드러난 것 — 처리 필요
+
+- [ ] **디지털 축이 v1에서 결측이다.** 입력 두 개가 모두 없다:
+      NSO 카탈로그 API는 CloudWAF가 418로 차단, 주별 도시화율은 공개 소스가 없다.
+      지금은 `digital_readiness=null` · `archetype=null`로 정직하게 비워 두고
+      `meta.json`의 `degraded_sources`에 사유를 남긴다.
+      → **결정 (2026-08-27): 결측인 채로 v1을 낸다.** 추정 위에 추정을 쌓지 않는다.
+        사분면·아키타입은 비활성 상태로 두되 화면에 "디지털 축 없음"을 명시하고,
+        Phase 2에서 내부 앱 MAU/인구로 제대로 채운다.
+        상세는 `DATA_SOURCES.md`의 "디지털 축" 절
+- [ ] **ATM을 넣으면 공급 1위가 방콕에서 푸껫으로 바뀐다** (98.42 vs 98.29).
+      공급 축이 전부 밀도 지표(1인당·면적당)라서 인구 620k에 ATM 238개·지점 92개인 푸껫이
+      인구 910만인 방콕을 앞선다. 산식상 맞는 결과지만, 스캐폴드가 적어 둔 사람 눈 확인 기준
+      ("방콕이 공급 1위인가")과는 어긋난다.
+      → Sprint 3 가중치 확정 세션의 안건. 규모 항을 공급 축에 넣을지, 밀도만으로 갈지 결정한다.
+      현재는 밀도만 쓴다 (METHODOLOGY §3 그대로)
+- [x] Overpass 504·429 대응 완료 (2026-08-31). 미러 폴백에 더해 **인스턴스당 재시도**
+      3회(5/15/30초)를 넣었다 — 다른 필수 소스와 같은 규율이다.
+      · 더 중요한 것은 그 실패가 조용하다는 점이었다. **ATM이 한 달 빠지면
+        가중치가 재정규화되어 모든 주의 공급 점수가 움직인다** — 실측으로 평균 2.7pt,
+        최대 7.9pt, 순위 최대 7계단. 그런데 기존 게이트는 branches·population·deposits만
+        봐서 아무것도 걸리지 않았고, PR은 평범한 월간 갱신처럼 보였다.
+      · `validate.py`에 **'사라진 지표' 게이트**를 추가했다 (config의 `indicator_columns`).
+        지난달에 값이 있던 지표가 이번에 0개면 실패시키고, 절반 이하로 줄면 경고한다.
+        계속 없던 지표(디지털 축)는 걸리지 않는다 — '사라진' 것이 아니기 때문.
+      · 뮤테이션 테스트로 확인했다. 실제 데이터로는 통과하고, 장애를 재현하면 막는다.
+- [x] `vite.config.ts`에 `@/` 별칭이 없어서 프런트엔드가 빌드되지 않던 것을 고쳤다 (검증 완료)
+
+## Sprint 2 — 지도와 테이블 (2026-08-27 구현, 브라우저 미검증)
+
+- [x] `GapMap` — d3-geo Mercator, 77개 `<path>`, quantile 색, 헤어라인 스트로크
+      · 각 주는 실제 DOM 노드 (탭 순회 + `aria-label`에 주 이름과 값, Enter/Space 선택, Esc 해제)
+      · 선택 상태는 색이 아니라 2px `--ink` 스트로크로 (값 인코딩을 덮지 않는다)
+      · 탭 순서 = 값 내림차순. `forced-colors`에서는 패턴 채움으로 대체
+      · '제외됨'(방콕 제외)과 '데이터 없음'을 점선 스트로크로 구분 — 스크린리더도 다르게 읽는다
+- [x] `Legend` — 순차 램프 띠 + 양끝 값. 발산형은 중간값 눈금 표시. '데이터 없음' 칸 포함
+- [x] `RankTable` — 정렬·검색·CSV 내보내기(UTF-8 BOM). 기본 정렬 `priority`
+      · 수치 열 우측 정렬 + mono + `tabular-nums`, 결측은 정렬 방향과 무관하게 항상 아래로
+      · 좁은 화면에서 보조 열을 접는다. 지도의 테이블 뷰 대안 역할
+- [x] `ProvincePanel` — 지표 카드, 전국 대비 위치 바, 12개월 스파크라인, 신뢰도 배지
+      · 점이 2개 미만이면 스파크라인을 그리지 않는다
+- [x] `GradeBadge` — 실측/가공/추정/없음. 색 + 텍스트 (색 단독 금지)
+- [x] 헤더 바 — 레이어 선택 · BOT 기준시점 배지 · 방콕 제외 토글 (URL 상태와 연결)
+- [x] 디지털 축 결측 고지를 화면 상단에 낸다 (빈 사분면을 '미구현'으로 오해하지 않도록)
+- [x] **브라우저 검증 완료** (2026-08-31, Node 24 로컬 설치 후)
+      · `tsc --noEmit` 통과 · `vitest` 58/58 · `vite build` 성공 (JS 204KB / gzip 69KB)
+      · 지도 77개 폴리곤이 전부 탭 순회 가능, `aria-label`에 영문·태국어 이름 + 값
+      · 키보드 Enter로 선택 → `aria-pressed=true` + URL `sel=` + 상세 패널 열림 확인
+      · 램프 7단계가 실제로 다 쓰인다 (distinct fill = 7)
+      · 링크 왕복 검증: 커스텀 가중치 URL을 새로 열어 순위·슬라이더·선택이 완전 동일
+      · CSV 78행, UTF-8 BOM(EF BB BF) 확인 — 엑셀에서 태국어가 깨지지 않는다
+      · 모바일 375px 가로 스크롤 없음, 보조 열 접힘
+      · `forced-colors` / `prefers-reduced-motion` 규칙 블록 각 2개, 해치 패턴 DOM에 존재
+      · 콘솔 에러 0
+- [ ] GitHub Pages 첫 배포 (`VITE_BASE` 확인)
+
+## Sprint 3 — 결론을 만드는 층 (2026-08-27 구현, 브라우저 미검증)
+
+- [ ] ~~`Quadrant` — 디지털 준비도 × 갭~~ **디지털 축 결측으로 v1에서 보류** (2026-08-27 결정).
+      가로축이 없으면 그릴 수 없다. 코드도 넣지 않는다 — 빈 컴포넌트가 남아 있으면
+      다음 사람이 "왜 안 그려지지"부터 디버깅한다. 화면 상단 고지로 대신한다.
+      Phase 2에서 내부 앱 MAU/인구가 들어오면 그때 만든다:
+      · 점 크기 = 인구, 점 색 = 갭 순차 램프
+      · 분면 정체성은 위치와 라벨이 나른다 — 색으로 분면을 칠하지 않는다
+      · 중앙값 ±5pt 구간은 회색 + "경계" 라벨
+      · 드래그 브러시 → 지도 하이라이트, 역방향도
+- [x] `WeightPanel` — 슬라이더 10개 + 프리셋 4개 + 초기화. 실시간 재계산
+      · 합을 100으로 강제하지 않는다. 슬라이더 값과 재정규화 후 실제 반영 비율을 둘 다 보여준다
+      · 한 축이 전부 0이면 계산 불가 — 조용히 NaN을 내는 대신 화면에서 막는다
+- [x] URL 상태 인코딩 검증 — `src/lib/urlState.test.ts` (왕복·프리셋·망가진 쿼리스트링)
+      · **버그 발견·수정**: `URLSearchParams.toString()`이 쉼표를 `%2C`로 인코딩해
+        `urlState.ts`의 문서화된 링크 형식(`s=20,35,15,20,10`)과 어긋났다. 쉼표를 되돌린다
+- [x] `FindexPanel` — 전국 계좌보유율 추이 + 도농·성별·소득하위40% 격차
+      · **"주별 아님 · 전국 단위" 배지를 컴포넌트 안에 상시 고정** (props로 끌 수 없다)
+      · **ETL 버그 수정**: findex를 수집만 하고 어떤 산출물에도 쓰지 않고 있었다.
+        `findex.json`을 새로 굽는다 (`build.py`의 `_write_findex`)
+- [x] `Methodology` — **METHODOLOGY.md 대신 meta.json을 렌더한다.**
+      문서는 '계획'이고 meta.json은 '이번 빌드가 실제로 한 것'이다. 지금이 정확히
+      둘이 어긋난 상황이라(디지털 축 계획 estimated / 실제 missing) 문서를 보여주면 거짓말이 된다.
+      소스별 기준시점·등급·라이선스 표 + 지수 정의 표 + 확보 실패 소스 목록. 원문은 링크
+      · **ETL 버그 수정**: `meta.index.digital.confidence`가 config의 계획값을 그대로 싣고
+        있었다. 실제 결과로 덮고 계획값은 `confidence_planned`로 남긴다
+- [x] `ShareBar` — 현재 URL 복사. 클립보드 실패 시 조용히 넘어가지 않고 주소를 노출한다
+
+## Sprint 4 — 자동화와 마감 (2026-08-27)
+
+- [x] **월말 게이트 버그 수정** — 시뮬레이션으로 1년치를 돌려 잡았다.
+      `date -u -d "tomorrow +7 hours"`는 하루를 더 본다. cron이 22:00 UTC에 돌고
+      ICT가 UTC+7이라 그 순간이 이미 '다음 날 05:00 ICT'이기 때문이다. 결과:
+      · 매달 **하루 일찍** (말일이 아니라 말일 전날 05:00 ICT에) 돌고
+      · 28일뿐인 **2월은 cron 범위(28-31)와 어긋나 한 해에 한 번도 안 돈다** → 11회/년
+      `+7 hours`로 고쳐 정확히 12회/년이 되는 것을 확인했다
+- [x] `refresh-data.yml` 게이트 로직 검증 (시뮬레이션). 스텝 조건도 고쳤다 —
+      `exit 0`으로는 뒤 스텝이 멈추지 않아 게이트가 무의미했다
+- [ ] `refresh-data.yml` **실주행** 검증 — 저장소 개설 후에만 가능
+- [x] `validate.py` 게이트를 일부러 깨뜨려 PR이 안 열리는지 확인 — `tests/test_validate.py` 27케이스.
+      **뮤테이션 테스트로 검증했다**: 게이트를 하나씩 무력화하면 전부 테스트가 실패한다
+      (통과하는 게이트가 하나도 없다 = 테스트가 헛돌지 않는다)
+- [x] `tests/test_parity.py` + `src/lib/score.parity.test.ts` — 골든 벡터 방식 (Sprint 1에서 앞당김)
+- [x] CSV 내보내기 (Sprint 2), 공유 링크 복사 (Sprint 3)
+- [x] OG 이미지 — `etl/og_image.py`가 figi.json과 **같은 색 램프로 매번 다시 그린다**.
+      손으로 만든 이미지는 지수가 바뀌어도 그대로 남아 거짓말이 된다
+      · 한글 폰트를 못 찾으면 두부(□□□) 대신 **영문 문구로 내려간다**.
+        CI에는 `fonts-nanum`을 설치해 한글판이 나오게 했다
+      · `refresh-data.yml`의 `add-paths`에 `public/og.png`를 넣었다 — 없으면 갱신된 이미지가
+        PR에 영영 들어가지 않는다
+      · `index.html`의 `og:image`를 절대 URL로 (`%VITE_SITE_URL%`). 상대 경로는 스크래퍼가 못 읽는다.
+        `deploy.yml`이 리포 정보에서 주소를 만들어 넣는다
+- [x] `tests/test_og_image.py` — 규격·채색·결측색·tokens.css 색 일치 8케이스
+- [x] 접근성 점검 (키보드·마크업) — 77개 주 탭 순회, Enter 선택, 포커스 링,
+      `aria-label`/`aria-pressed`/`aria-sort`, 테이블 `caption`, `forced-colors` 해치 패턴 확인
+- [ ] 접근성 점검 (스크린리더 실낭독) — VoiceOver/NVDA로 실제 낭독 순서와 문구 확인.
+      DOM 계약은 검증했으나 사람이 들어봐야 하는 부분은 남아 있다
+- [ ] 이해관계자 리뷰 → 기본 가중치 프리셋 확정 (영업·리스크·전략 합동 세션)
+
+### 브라우저 검증에서 잡은 것 (2026-08-31)
+
+- [x] **`topojson-specification`은 npm에 없는 패키지다** — 타입은 `@types/` 아래에 있다.
+      `npm install`이 `ENOVERSIONS`로 죽었다. import 스펙과 설치 패키지명이 다른 경우라
+      정적 검사로는 잡히지 않았다
+- [x] **타입 오류 4건** — `import.meta.env`에 `vite/client` 타입 참조가 없었고
+      (`src/vite-env.d.ts` 추가), 제네릭 `Record`에 `Object.values/entries`를 쓰면
+      값이 `unknown`으로 넓어지는 것을 `score.ts`에서 좁히지 않았다
+- [x] **패리티 테스트가 진짜 산식 불일치를 잡았다** — Python은 `_weighted()`가 2자리로
+      반올림한 뒤 `gap_raw = demand - supply`를 계산했고, TypeScript는 반올림 전에 뺐다.
+      gap_raw가 0.008 어긋나고 그 오차가 `× log10(인구)`로 증폭돼 priority에서 0.013이 됐다.
+      **반올림은 표시의 문제이므로 계산에서 뺐다** — Python이 출력 직전 한 번만 반올림한다.
+      골든 벡터를 다시 굽고 diff를 확인했다 (gap ±0.005, priority ±0.01, 아키타입 변화 없음)
+- [x] **스파크라인이 바닥에 붙어 '0으로 떨어짐'처럼 보였다** — 12개월간 지점수가
+      완전히 불변인 주가 **77개 중 28개**다. 불변이면 상자 가운데에 그리도록 고쳤다
+
+### 남은 관찰
+
+- [x] 패널 제목 자간을 한글에 맞췄다 (2026-08-31). `0.11em`은 대문자 라틴의 관용값이라
+      한글에서 글자마다 1.2px씩 벌어져 `갭  점수`처럼 보였다.
+      `--track-label: 0.02em` 토큰을 만들고 8개 소제목이 그것을 참조하게 했다 —
+      같은 값이 8곳에 복제돼 있던 것도 함께 정리됐다 (CLAUDE.md의 공용 토큰 규칙).
+      DESIGN.md §5에 라틴 기준값을 쓰지 않는 이유를 남겼다
+
+### 전체 라이브 실행 (2026-08-31)
+
+- [x] **모든 소스를 실제로 받아 처음부터 끝까지 돌렸다.** 저장본·스냅샷 없이 전부 라이브:
+      BOT 12개월(924행) · NESDC 2024 · Overpass ATM 4,451개 · Findex 10계열 ·
+      크로스워크 v1.0.2. `meta.json`에 `from_cache`/`from_snapshot`이 하나도 없다
+      · Overpass가 4,175 → 4,180개로 늘었다 (5일 사이 OSM 기여분 — 라이브임이 확인된다)
+      · 유일한 degraded는 `nso_ict` (CloudWAF 영구 차단, 문서화됨)
+- [x] 갱신된 데이터로 프런트엔드 재검증 — 77개 폴리곤·램프 7단계·탭 순회·
+      Findex "주별 아님" 배지·방법론 15행·확보실패 목록·푸터 귀속 6건·저장소 링크 정상
+
+### Sprint 4에서 드러난 것
+
+- [x] **NESDC 간헐 502 대응 완료** (2026-08-31). 재시도(3회, 백오프 3/10/25초) +
+      **캐시 폴백**을 넣었다. `data/raw/nesdc-gpp-<연도>.xlsx`에 성공할 때마다 저장하고,
+      라이브가 죽으면 그것으로 계속 간다.
+      · **이 소스에만 허용하는 근거는 공표 주기가 1년이라는 것뿐이다** —
+        지난달 GPP 2024와 이번 달 GPP 2024는 같은 파일이다. BOT(월간)에는 붙이지 않는다
+      · **파싱 실패는 캐시로 덮지 않는다** — 그건 장애가 아니라 구조 변경 신호다
+      · 캐시 사용은 `meta.json`의 `from_cache: true`로 남고 PR 체크리스트에 뜬다
+      · 저장소에 재배포하지 않는다 (`data/raw/`는 gitignore). CI는 `actions/cache`로 잇는다
+      · `tests/test_nesdc_cache.py` 5케이스로 고정
+
+## Phase 2
+
+- [ ] `bot_district.py` — 306개 군 파싱. 누락 622개 군의 표시 방식 결정
+- [ ] TrueMoney 에이전트 레이어 (프라이빗 리포로 분기)
+- [ ] 디지털 축을 내부 앱 MAU/인구로 검증·보정
+- [ ] 캄보디아·미얀마 어댑터
+
+## 결정 (기획서 §11)
+
+확정
+
+- [x] **디지털 축은 v1에서 결측으로 간다** (2026-08-27). NSO 카탈로그 API 차단 + 주별
+      도시화율 공개 소스 부재. 사분면·아키타입은 비활성, 화면에 사유를 밝힌다.
+      재검토 트리거: 도시화율 소스를 확보하거나 Phase 2 내부 데이터가 들어올 때
+
+- [x] **리포 공개** — v1은 공개 출처 데이터만. 내부 데이터는 Phase 2에서 별도 프라이빗 저장소로 분기
+- [x] **BOT API 포털 등록 보류** — 스크래핑이 v1 단일 경로.
+      재검토 트리거: 카나리 2회 연속 실패 또는 월간 갱신이 한 번이라도 막힐 때
+
+대기
+
+- [ ] 기본 가중치 확정 주체 — Sprint 3 종료 시 영업·리스크·전략 합동 세션
+- [ ] TrueMoney 데이터 승인 절차 착수 시점 (Phase 2 선행 조건, 리드타임 확인 필요)
+- [ ] ADM2 드릴다운을 v1에 넣을 것인가 — 누락 622개 군을 갭 신호로 쓸지 결측으로 숨길지
