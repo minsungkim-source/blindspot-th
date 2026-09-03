@@ -18,7 +18,9 @@
       Actions 권한을 read/write로 설정. 처음에는 Pages가 `legacy`(브랜치 서빙)여서
       리포 루트의 원본 `index.html`을 그대로 내보냈고, `%VITE_SITE_URL%`이 치환되지 않은
       채 노출됐다 — 빌드를 거치지 않으면 정적 사이트가 '배포된 것처럼' 보이면서 깨져 있다
-      · 남은 것: `parser-drift` / `data` 라벨 생성 (카나리·갱신 PR이 참조한다)
+      · `parser-drift`(#d93f0b) / `data`(#0e8a16) 라벨 생성 확인 —
+        `parser-canary.yml`과 `refresh-data.yml`이 이 이름을 그대로 참조하므로
+        라벨이 없으면 이슈·PR 생성 단계에서 실패한다
 - [x] `vite.config.ts`의 `base` — 기본값 `/blindspot-th/`가 저장소명과 이미 일치한다.
       배포 시에는 `deploy.yml`이 `GITHUB_REPOSITORY`에서 계산해 `VITE_BASE`로 덮으므로
       저장소명을 바꿔도 따라간다 (로컬 기본값만 이 값을 쓴다)
