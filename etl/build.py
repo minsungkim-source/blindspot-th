@@ -237,7 +237,12 @@ def _write_findex(path: Path, payload: dict | None) -> None:
         "not_by_province": True,
         "as_of": payload.get("as_of"),
         "source_url": payload.get("source_url"),
-        "sample_note": "태국 표본 n=1,000 · 지역 식별자 없음 — 주별 분해 불가",
+        # 화면에 그대로 나가는 캡션이라 언어별로 굽는다. 화면이 언어를 고를 수 있어야 하는데
+        # 데이터가 한 언어로만 오면 그 지점에서 번역이 끊긴다.
+        "sample_note": {
+            "ko": "태국 표본 n=1,000 · 지역 식별자 없음 — 주별 분해 불가",
+            "en": "Thai sample n=1,000 · no sub-national identifier — cannot be split by province",
+        },
         "series": series,
     })
     print(f"  wrote  {path.name}  ({len(series)} series)")

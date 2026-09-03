@@ -11,6 +11,7 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 import { ARCHETYPES } from "@/config/indicators";
+import { useI18n, type I18n } from "@/i18n";
 import { downloadCsv, toCsv } from "@/lib/csv";
 import type { ProvinceRecord, Scored } from "@/lib/score";
 
@@ -20,44 +21,43 @@ type SortKey =
 
 interface Column {
   key: SortKey | "name" | "archetype";
-  label: string;
+  labelKey: import("@/i18n/strings").Key;
   numeric: boolean;
   /** 좁은 화면에서 접는다 — 우선순위·갭·이름은 절대 접지 않는다 */
   secondary?: boolean;
   value?: (r: Scored<ProvinceRecord>) => number;
-  render: (r: Scored<ProvinceRecord>) => ReactNode;
+  render: (r: Scored<ProvinceRecord>, i18n: I18n) => ReactNode;
 }
 
-const n0 = (v: number) => (Number.isFinite(v) ? Math.round(v).toLocaleString("ko-KR") : "—");
 const n1 = (v: number) => (Number.isFinite(v) ? v.toFixed(1) : "—");
 const n2 = (v: number) => (Number.isFinite(v) ? v.toFixed(2) : "—");
 
 const COLUMNS: Column[] = [
-  { key: "name", label: "주", numeric: false,
+  { key: "name", labelKey: "table.col.name", numeric: false,
     render: (r) => (
       <span className="ranktable__name">
         {r.name_en_canonical}
         <span className="ranktable__name-th">{r.name_th}</span>
       </span>
     ) },
-  { key: "priority", label: "우선순위", numeric: true,
+  { key: "priority", labelKey: "table.col.priority", numeric: true,
     value: (r) => r.priority, render: (r) => n1(r.priority) },
-  { key: "gap", label: "갭", numeric: true,
+  { key: "gap", labelKey: "table.col.gap", numeric: true,
     value: (r) => r.gap, render: (r) => n1(r.gap) },
-  { key: "supply", label: "공급", numeric: true, secondary: true,
+  { key: "supply", labelKey: "table.col.supply", numeric: true, secondary: true,
     value: (r) => r.supply, render: (r) => n1(r.supply) },
-  { key: "demand", label: "수요", numeric: true, secondary: true,
+  { key: "demand", labelKey: "table.col.demand", numeric: true, secondary: true,
     value: (r) => r.demand, render: (r) => n1(r.demand) },
-  { key: "branches", label: "지점", numeric: true,
-    value: (r) => r.branches, render: (r) => n0(r.branches) },
-  { key: "branch_density", label: "지점밀도", numeric: true, secondary: true,
+  { key: "branches", labelKey: "table.col.branches", numeric: true,
+    value: (r) => r.branches, render: (r, { n }) => n(r.branches) },
+  { key: "branch_density", labelKey: "table.col.branch_density", numeric: true, secondary: true,
     value: (r) => r.branch_density, render: (r) => n1(r.branch_density) },
-  { key: "credit_deposit", label: "예대율", numeric: true, secondary: true,
+  { key: "credit_deposit", labelKey: "table.col.credit_deposit", numeric: true, secondary: true,
     value: (r) => r.credit_deposit, render: (r) => n2(r.credit_deposit) },
-  { key: "population", label: "인구", numeric: true, secondary: true,
-    value: (r) => r.population, render: (r) => n0(r.population) },
-  { key: "archetype", label: "아키타입", numeric: false, secondary: true,
-    render: (r) => (r.archetype ? ARCHETYPES[r.archetype].label : "—") },
+  { key: "population", labelKey: "table.col.population", numeric: true, secondary: true,
+    value: (r) => r.population, render: (r, { n }) => n(r.population) },
+  { key: "archetype", labelKey: "table.col.archetype", numeric: false, secondary: true,
+    render: (r, { t }) => (r.archetype ? t(ARCHETYPES[r.archetype].labelKey) : "—") },
 ];
 
 export interface RankTableProps {
@@ -72,6 +72,8 @@ export interface RankTableProps {
 export default function RankTable({
   rows, selected, onSelect, onHover, showArchetype,
 }: RankTableProps) {
+  const i18n = useI18n();
+  const { t } = i18n;
   const [sort, setSort] = useState<SortKey>("priority");
   const [asc, setAsc] = useState(false);
   const [query, setQuery] = useState("");
@@ -132,27 +134,27 @@ export default function RankTable({
   };
 
   return (
-    <section className="ranktable" aria-label="주별 랭킹">
+    <section className="ranktable" aria-label={t("table.aria")}>
       <div className="ranktable__bar">
         <label className="ranktable__search">
-          <span className="sr-only">주 이름으로 검색</span>
+          <span className="sr-only">{t("table.searchSr")}</span>
           <input
             type="search"
             value={query}
-            placeholder="주 이름 검색"
+            placeholder={t("table.search")}
             onChange={(e) => setQuery(e.target.value)}
           />
         </label>
         <span className="ranktable__count num">{visible.length} / {rows.length}</span>
         <button type="button" className="ranktable__export" onClick={exportCsv}>
-          CSV 내보내기
+          {t("table.export")}
         </button>
       </div>
 
       <div className="ranktable__scroll">
         <table>
           <caption className="sr-only">
-            주별 우선순위·갭·공급·수요. 열 제목을 눌러 정렬할 수 있습니다.
+            {t("table.caption")}
           </caption>
           <thead>
             <tr>
@@ -169,13 +171,13 @@ export default function RankTable({
                   >
                     {sortable ? (
                       <button type="button" onClick={() => onHeaderClick(c.key)}>
-                        {c.label}
+                        {t(c.labelKey)}
                         <span aria-hidden="true" className="ranktable__caret">
                           {active ? (asc ? "▲" : "▼") : ""}
                         </span>
                       </button>
                     ) : (
-                      c.label
+                      t(c.labelKey)
                     )}
                   </th>
                 );
@@ -190,7 +192,7 @@ export default function RankTable({
                 onMouseEnter={() => onHover?.(r.tis1099_code)}
               >
                 {columns.map((c, i) => {
-                  const content = c.render(r);
+                  const content = c.render(r, i18n);
                   return i === 0 ? (
                     <th key={c.key} scope="row" data-secondary={c.secondary || undefined}>
                       <button
@@ -221,7 +223,7 @@ export default function RankTable({
         </table>
 
         {visible.length === 0 ? (
-          <p className="ranktable__empty">‘{query}’와 일치하는 주가 없습니다.</p>
+          <p className="ranktable__empty">{t("table.empty", { query })}</p>
         ) : null}
       </div>
     </section>

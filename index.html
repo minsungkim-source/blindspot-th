@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Blindspot TH — 태국 금융포용 갭 맵</title>
-    <meta name="description" content="태국 77개 주의 금융 공급과 수요의 격차를 지수화하고, 에이전트·키오스크·지점 확장 우선순위를 보여주는 지도." />
+    <meta name="description" content="태국 77개 주의 금융 공급과 수요의 격차를 지수화한 지도 · Financial inclusion gap across Thailand's 77 provinces — supply against demand, mapped." />
 
     <!--
       OG 이미지 경로는 **절대 URL이어야 한다.** 스크래퍼는 상대 경로를 해석하지 않는다.
@@ -28,11 +28,19 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- JS가 꺼져 있으면 화면 언어를 고를 방법이 없다. 두 언어를 모두 적는다. -->
     <noscript>
-      이 도구는 JavaScript가 필요합니다. 데이터 원본은
-      <a href="https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx?reportID=781&language=eng">BOT 통계</a>와
-      <a href="https://www.nesdc.go.th/en/info/gross-regional-and-provincial-product-gpp/">NESDC GPP</a>에서
-      직접 보실 수 있습니다.
+      <p lang="ko">
+        이 도구는 JavaScript가 필요합니다. 데이터 원본은
+        <a href="https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx?reportID=781&language=eng">BOT 통계</a>와
+        <a href="https://www.nesdc.go.th/en/info/gross-regional-and-provincial-product-gpp/">NESDC GPP</a>에서
+        직접 보실 수 있습니다.
+      </p>
+      <p lang="en">
+        This tool requires JavaScript. The underlying data is available directly from
+        <a href="https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx?reportID=781&language=eng">BOT statistics</a>
+        and <a href="https://www.nesdc.go.th/en/info/gross-regional-and-provincial-product-gpp/">NESDC GPP</a>.
+      </p>
     </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>

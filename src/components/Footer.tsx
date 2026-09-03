@@ -8,6 +8,7 @@
  */
 
 import { ATTRIBUTIONS, CODE_LICENSE, REPO_URL } from "@/config/attribution";
+import { useI18n } from "@/i18n";
 
 export interface FooterProps {
   /** meta.json의 소스별 기준시점. 있으면 각 출처 옆에 붙인다. */
@@ -16,53 +17,44 @@ export interface FooterProps {
   generatedAt?: string | null;
 }
 
-/** meta.json의 소스 키 → ATTRIBUTIONS의 name. 기준시점 배지를 붙일 때만 쓴다. */
-const SOURCE_KEY: Record<string, string> = {
-  "Bank of Thailand": "bot_province",
-  NESDC: "nesdc_gpp",
-  "National Statistical Office of Thailand": "nso_ict",
-  "World Bank Global Findex 2025": "findex",
-  "OpenStreetMap contributors": "osm_atm",
-  "thailand-canonical-admin-names": "admin_ref",
-};
-
 export default function Footer({ asOf, generatedAt }: FooterProps) {
+  const { t } = useI18n();
+
   return (
     <footer className="footer">
-      <h2 className="footer__title">데이터 출처</h2>
+      <h2 className="footer__title">{t("footer.title")}</h2>
 
       <ul className="footer__list">
         {ATTRIBUTIONS.map((a) => {
-          const stamp = asOf?.[SOURCE_KEY[a.name] ?? ""];
+          const stamp = asOf?.[a.metaKey ?? ""];
           return (
             <li key={a.name} className="footer__item">
               <a className="footer__link" href={a.url} target="_blank" rel="noreferrer noopener">
                 {a.name}
               </a>
               {stamp ? <span className="footer__stamp num">{stamp}</span> : null}
-              <span className="footer__provides">{a.provides}</span>
-              <span className="footer__license">{a.license}</span>
+              <span className="footer__provides">{t(a.providesKey)}</span>
+              <span className="footer__license">{t(a.licenseKey)}</span>
             </li>
           );
         })}
       </ul>
 
       <p className="footer__meta">
-        코드 {CODE_LICENSE} ·{" "}
+        {t("footer.code", { license: CODE_LICENSE })} ·{" "}
         <a className="footer__link" href={REPO_URL} target="_blank" rel="noreferrer noopener">
-          저장소
+          {t("footer.repo")}
         </a>
         {generatedAt ? (
           <>
-            {" · 데이터 생성 "}
+            {t("footer.generated", { date: "" })}
             <span className="num">{generatedAt.slice(0, 10)}</span>
           </>
         ) : null}
       </p>
 
       <p className="footer__note">
-        데이터는 각 출처의 라이선스를 따른다. 지수와 순위는 이 도구의 해석이며 출처 기관의
-        견해가 아니다.
+        {t("footer.disclaimer")}
       </p>
     </footer>
   );

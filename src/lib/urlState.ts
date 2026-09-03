@@ -9,6 +9,7 @@
 
 import type { DemandKey, SupplyKey } from "@/config/weights";
 import { DEMAND_DEFAULT, SUPPLY_DEFAULT } from "@/config/weights";
+import { detectLang, isLang, type Lang } from "@/i18n";
 
 const S_ORDER: SupplyKey[] = [
   "branch_density", "geographic_access", "deposit_penetration",
@@ -20,6 +21,8 @@ const D_ORDER: DemandKey[] = [
 ];
 
 export interface AppState {
+  /** 언어도 링크를 따라간다 — 한국어로 보던 화면을 영어권 동료에게 그대로 보낼 수 있어야 한다. */
+  lang: Lang;
   layer: string;
   preset: string;
   supply: Record<SupplyKey, number>;
@@ -29,6 +32,7 @@ export interface AppState {
 }
 
 export const DEFAULT_STATE: AppState = {
+  lang: "ko",
   layer: "gap",
   preset: "balanced",
   supply: SUPPLY_DEFAULT,
@@ -49,6 +53,9 @@ const unpack = <K extends string>(s: string | null, order: K[], fallback: Record
 
 export function toSearch(s: AppState): string {
   const q = new URLSearchParams();
+  // 언어는 항상 싣는다. 링크를 받는 사람의 브라우저 언어가 보낸 사람과 다를 수 있고,
+  // 그때 화면이 다른 언어로 뜨면 "같은 화면을 주고받는다"는 계약이 깨진다.
+  q.set("lang", s.lang);
   if (s.layer !== DEFAULT_STATE.layer) q.set("layer", s.layer);
   if (s.preset !== "custom") q.set("p", s.preset);
   else {
@@ -66,7 +73,10 @@ export function toSearch(s: AppState): string {
 
 export function fromSearch(search: string): AppState {
   const q = new URLSearchParams(search);
+  const lang = q.get("lang");
   return {
+    // URL이 이기고, 없으면 브라우저 언어를 본다.
+    lang: isLang(lang) ? lang : detectLang(),
     layer: q.get("layer") ?? DEFAULT_STATE.layer,
     preset: q.get("p") ?? (q.get("s") ? "custom" : DEFAULT_STATE.preset),
     supply: unpack(q.get("s"), S_ORDER, SUPPLY_DEFAULT),

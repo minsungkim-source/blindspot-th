@@ -11,7 +11,8 @@
 import { useMemo } from "react";
 import GradeBadge from "@/components/GradeBadge";
 import { ARCHETYPES, INDICATORS } from "@/config/indicators";
-import { DEMAND_LABEL, SUPPLY_LABEL, type DemandKey, type SupplyKey } from "@/config/weights";
+import { DEMAND_LABEL_KEY, SUPPLY_LABEL_KEY, type DemandKey, type SupplyKey } from "@/config/weights";
+import { useI18n } from "@/i18n";
 import type { ProvinceRecord, Scored } from "@/lib/score";
 
 export interface TimeseriesPoint {
@@ -29,6 +30,7 @@ export interface ProvincePanelProps {
 }
 
 export default function ProvincePanel({ province, timeseries, onClose }: ProvincePanelProps) {
+  const { t, locale } = useI18n();
   const series = useMemo(
     () =>
       timeseries
@@ -44,79 +46,79 @@ export default function ProvincePanel({ province, timeseries, onClose }: Provinc
   }));
 
   return (
-    <aside className="panel provpanel" aria-label={`${province.name_en_canonical} 상세`}>
+    <aside className="panel provpanel" aria-label={t("panel.aria", { name: province.name_en_canonical })}>
       <header className="provpanel__head">
         <div className="provpanel__title">
           <h2>{province.name_en_canonical}</h2>
           <p className="provpanel__th">{province.name_th}</p>
         </div>
-        <button type="button" className="provpanel__close" onClick={onClose} aria-label="상세 닫기">
+        <button type="button" className="provpanel__close" onClick={onClose} aria-label={t("panel.close")}>
           ✕
         </button>
       </header>
 
       <dl className="provpanel__scores">
-        <Score label="우선순위" value={province.priority} />
-        <Score label="갭" value={province.gap} />
-        <Score label="공급" value={province.supply} />
-        <Score label="수요" value={province.demand} />
+        <Score labelKey="panel.score.priority" value={province.priority} />
+        <Score labelKey="panel.score.gap" value={province.gap} />
+        <Score labelKey="panel.score.supply" value={province.supply} />
+        <Score labelKey="panel.score.demand" value={province.demand} />
       </dl>
 
       <div className="provpanel__meta">
         <span className="chip">{province.region_nso}</span>
         <span className="chip num">TIS {province.tis1099_code}</span>
         {province.archetype ? (
-          <span className="chip">{ARCHETYPES[province.archetype].label}</span>
+          <span className="chip">{t(ARCHETYPES[province.archetype].labelKey)}</span>
         ) : (
-          <span className="chip chip--muted" title="디지털 축이 결측이라 분류하지 않는다">
-            아키타입 분류 불가
+          <span className="chip chip--muted" title={t("panel.archetypeUnavailableWhy")}>
+            {t("panel.archetypeUnavailable")}
           </span>
         )}
       </div>
 
       {province.archetype ? (
-        <p className="provpanel__action">{ARCHETYPES[province.archetype].action}</p>
+        <p className="provpanel__action">{t(ARCHETYPES[province.archetype].actionKey)}</p>
       ) : null}
 
       <Sparkline series={series} />
 
       <section className="provpanel__section">
-        <h3>전국 대비 위치</h3>
+        <h3>{t("panel.position")}</h3>
         <p className="provpanel__hint">
-          백분위 0–100. 공급은 높을수록 잘 갖춰진 것, 수요는 높을수록 필요가 큰 것이다.
+          {t("panel.positionHint")}
         </p>
         <div className="provpanel__bars">
-          {(Object.keys(SUPPLY_LABEL) as SupplyKey[]).map((k) => (
-            <PctBar key={k} label={SUPPLY_LABEL[k]} value={province.pct_supply[k]} axis="supply" />
+          {(Object.keys(SUPPLY_LABEL_KEY) as SupplyKey[]).map((k) => (
+            <PctBar key={k} label={t(SUPPLY_LABEL_KEY[k])} value={province.pct_supply[k]} axis="supply" />
           ))}
-          {(Object.keys(DEMAND_LABEL) as DemandKey[]).map((k) => (
-            <PctBar key={k} label={DEMAND_LABEL[k]} value={province.pct_demand[k]} axis="demand" />
+          {(Object.keys(DEMAND_LABEL_KEY) as DemandKey[]).map((k) => (
+            <PctBar key={k} label={t(DEMAND_LABEL_KEY[k])} value={province.pct_demand[k]} axis="demand" />
           ))}
         </div>
       </section>
 
       <section className="provpanel__section">
-        <h3>원값</h3>
+        <h3>{t("panel.raw")}</h3>
         <div className="provpanel__cards">
           {cards.map(({ ind, value }) => (
             <div key={ind.key} className="provpanel__card">
               <div className="provpanel__card-label">
-                {ind.label}
+                {t(ind.labelKey)}
                 <GradeBadge grade={ind.grade} reason={ind.source} size="sm" />
               </div>
-              <div className="provpanel__card-value num">{ind.format(value)}</div>
-              <div className="provpanel__card-unit">{ind.unit}</div>
+              <div className="provpanel__card-value num">{ind.format(value, locale)}</div>
+              <div className="provpanel__card-unit">{t(ind.unitKey)}</div>
             </div>
           ))}
         </div>
       </section>
 
       <section className="provpanel__section">
-        <h3>디지털 준비도</h3>
+        <h3>{t("panel.digital")}</h3>
         <div className="provpanel__digital">
           <GradeBadge
             grade={province.digital_confidence}
-            reason="주 단위 원본 없음 — DATA_SOURCES.md의 '디지털 축' 절"
+            reason={t("panel.digitalWhy")}
           />
           <span className="num">
             {province.digital_readiness == null ? "—" : province.digital_readiness.toFixed(1)}
@@ -124,8 +126,7 @@ export default function ProvincePanel({ province, timeseries, onClose }: Provinc
         </div>
         {province.digital_readiness == null ? (
           <p className="provpanel__hint">
-            v1에서는 이 축이 비어 있다. 권역별 ICT 이용률과 주별 도시화율을 모두 확보하지
-            못했고, 추정 위에 추정을 쌓지 않기로 했다.
+            {t("panel.digitalMissing")}
           </p>
         ) : null}
       </section>
@@ -133,10 +134,11 @@ export default function ProvincePanel({ province, timeseries, onClose }: Provinc
   );
 }
 
-function Score({ label, value }: { label: string; value: number }) {
+function Score({ labelKey, value }: { labelKey: import("@/i18n/strings").Key; value: number }) {
+  const { t } = useI18n();
   return (
     <div className="provpanel__score">
-      <dt>{label}</dt>
+      <dt>{t(labelKey)}</dt>
       <dd className="num">{Number.isFinite(value) ? value.toFixed(1) : "—"}</dd>
     </div>
   );
@@ -145,12 +147,16 @@ function Score({ label, value }: { label: string; value: number }) {
 function PctBar({
   label, value, axis,
 }: { label: string; value: number | null; axis: "supply" | "demand" }) {
+  const { t } = useI18n();
   const missing = value == null || !Number.isFinite(value);
   return (
     <div className="pctbar" data-axis={axis}>
       <span className="pctbar__label">{label}</span>
       <span className="pctbar__track" role="img"
-            aria-label={`${label} 백분위 ${missing ? "데이터 없음" : Math.round(value!)}`}>
+            aria-label={t("panel.positionAria", {
+              label,
+              value: missing ? t("map.noData") : Math.round(value!),
+            })}>
         {missing ? null : <span className="pctbar__fill" style={{ width: `${value}%` }} />}
       </span>
       <span className="pctbar__value num">{missing ? "—" : Math.round(value!)}</span>
@@ -165,6 +171,7 @@ function PctBar({
  * 아무것도 말하지 않는다.
  */
 function Sparkline({ series }: { series: TimeseriesPoint[] }) {
+  const { t } = useI18n();
   const points = series
     .map((s) => ({ period: s.period, v: s.branches }))
     .filter((p): p is { period: string; v: number } => p.v != null && Number.isFinite(p.v));
@@ -172,8 +179,8 @@ function Sparkline({ series }: { series: TimeseriesPoint[] }) {
   if (points.length < 2) {
     return (
       <section className="provpanel__section">
-        <h3>지점 수 추이</h3>
-        <p className="provpanel__hint">시계열이 부족해 추이를 그리지 않는다.</p>
+        <h3>{t("panel.trend")}</h3>
+        <p className="provpanel__hint">{t("panel.trendInsufficient")}</p>
       </section>
     );
   }
@@ -198,10 +205,12 @@ function Sparkline({ series }: { series: TimeseriesPoint[] }) {
 
   return (
     <section className="provpanel__section">
-      <h3>지점 수 추이</h3>
+      <h3>{t("panel.trend")}</h3>
       <div className="sparkline">
         <svg viewBox={`0 0 ${w} ${h}`} className="sparkline__svg" role="img"
-             aria-label={`${first.period}부터 ${last.period}까지 지점 수 ${first.v}개에서 ${last.v}개로 변화`}>
+             aria-label={t("panel.trendAria", {
+               from: first.period, to: last.period, first: first.v, last: last.v,
+             })}>
           <path d={d} className="sparkline__line" />
           <circle cx={x(points.length - 1)} cy={y(last.v)} r="2.5" className="sparkline__dot" />
         </svg>

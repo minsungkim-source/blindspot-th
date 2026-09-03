@@ -19,6 +19,7 @@ import { feature } from "topojson-client";
 import type { FeatureCollection, Geometry } from "geojson";
 import type { Topology } from "topojson-specification";
 import { NO_DATA, divergingScale, sequentialScale } from "@/lib/scale";
+import { useI18n } from "@/i18n";
 
 const VIEW_W = 620;
 const VIEW_H = 900;      // 태국은 세로로 길다. 가로 기준으로 맞추면 여백이 크게 남는다.
@@ -54,6 +55,8 @@ interface ProvinceProps {
 export default function GapMap({
   topology, data, layerLabel, scale, midpoint, selected, onSelect, onHover,
 }: GapMapProps) {
+  const { t } = useI18n();
+
   const features = useMemo(() => {
     const key = Object.keys(topology.objects)[0]!;
     return feature(
@@ -98,7 +101,7 @@ export default function GapMap({
         className="gapmap__svg"
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
         role="group"
-        aria-label={`태국 77개 주 ${layerLabel} 지도. 각 주는 탭으로 이동할 수 있습니다.`}
+        aria-label={t("map.aria", { layer: layerLabel })}
         onMouseLeave={() => onHover?.(null)}
       >
         <defs>
@@ -114,8 +117,8 @@ export default function GapMap({
           const d = byCode.get(code);
           const isSelected = selected === code;
           const label = d
-            ? `${d.name} ${d.nameTh}. ${d.excluded ? "현재 분석에서 제외됨" : `${layerLabel} ${d.display}`}`
-            : `주 코드 ${code}. ${layerLabel} 데이터 없음`;
+            ? `${d.name} ${d.nameTh}. ${d.excluded ? t("map.excluded") : `${layerLabel} ${d.display}`}`
+            : `${t("map.provinceCode", { code })}. ${layerLabel} ${t("map.noData")}`;
 
           return (
             <path

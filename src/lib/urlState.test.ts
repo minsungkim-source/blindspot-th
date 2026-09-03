@@ -12,11 +12,26 @@ import { DEMAND_DEFAULT, PRESETS, SUPPLY_DEFAULT } from "@/config/weights";
 const roundTrip = (s: AppState): AppState => fromSearch(`?${toSearch(s)}`);
 
 describe("urlState 왕복", () => {
-  it("기본 상태는 빈 쿼리스트링으로 접힌다", () => {
+  it("기본 상태는 언어와 프리셋만 싣는다", () => {
     // 기본값을 URL에 실으면 공유 링크가 쓸데없이 길어지고, 나중에 기본값을 바꿨을 때
-    // 예전 링크가 옛 기본값을 고정해 버린다.
-    const qs = toSearch(DEFAULT_STATE);
-    expect(qs).toBe("p=balanced");
+    // 예전 링크가 옛 기본값을 고정해 버린다. 다만 **언어는 예외로 항상 싣는다** —
+    // 받는 사람의 브라우저 언어가 보낸 사람과 다르면 다른 화면이 뜨기 때문이다.
+    expect(toSearch(DEFAULT_STATE)).toBe("lang=ko&p=balanced");
+  });
+
+  it("언어는 항상 URL에 실린다 — 링크를 받는 쪽 브라우저 설정에 좌우되면 안 된다", () => {
+    for (const lang of ["ko", "en"] as const) {
+      const qs = toSearch({ ...DEFAULT_STATE, lang });
+      expect(qs).toContain(`lang=${lang}`);
+      expect(fromSearch(`?${qs}`).lang).toBe(lang);
+    }
+  });
+
+  it("모르는 언어 코드는 무시한다", () => {
+    // 링크가 손상되거나 누가 손으로 고쳤을 때 화면이 죽지 않아야 한다.
+    for (const q of ["?lang=fr", "?lang=", "?lang=ko-KR"]) {
+      expect(["ko", "en"]).toContain(fromSearch(q).lang);
+    }
   });
 
   it("기본 상태를 왕복해도 그대로다", () => {

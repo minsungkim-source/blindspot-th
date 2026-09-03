@@ -1,4 +1,8 @@
-/** 가중치 기본값과 프리셋. etl/config.yaml의 index 블록과 값이 일치해야 한다. */
+/** 가중치 기본값과 프리셋. etl/config.yaml의 index 블록과 값이 일치해야 한다.
+ *
+ * 표시 문구는 i18n 사전에 있고 여기는 키만 안다 (indicators.ts와 같은 이유). */
+
+import type { Key } from "@/i18n/strings";
 
 export type SupplyKey =
   | "branch_density" | "geographic_access" | "deposit_penetration"
@@ -24,26 +28,26 @@ export const DEMAND_DEFAULT: Record<DemandKey, number> = {
   credit_thirst: 0.10,
 };
 
-export const SUPPLY_LABEL: Record<SupplyKey, string> = {
-  branch_density: "지점 밀도",
-  geographic_access: "지리적 접근성",
-  deposit_penetration: "예금 침투",
-  credit_penetration: "신용 침투",
-  atm_density: "ATM 밀도",
+export const SUPPLY_LABEL_KEY: Record<SupplyKey, Key> = {
+  branch_density: "w.branch_density",
+  geographic_access: "w.geographic_access",
+  deposit_penetration: "w.deposit_penetration",
+  credit_penetration: "w.credit_penetration",
+  atm_density: "w.atm_density",
 };
 
-export const DEMAND_LABEL: Record<DemandKey, string> = {
-  population_scale: "인구 규모",
-  income_downside: "소득 하방",
-  dispersion: "분산 거주",
-  cash_economy: "현금경제 비중",
-  credit_thirst: "신용 갈증",
+export const DEMAND_LABEL_KEY: Record<DemandKey, Key> = {
+  population_scale: "w.population_scale",
+  income_downside: "w.income_downside",
+  dispersion: "w.dispersion",
+  cash_economy: "w.cash_economy",
+  credit_thirst: "w.credit_thirst",
 };
 
 export interface Preset {
   id: string;
-  label: string;
-  note: string;
+  labelKey: Key;
+  noteKey: Key;
   supply: Record<SupplyKey, number>;
   demand: Record<DemandKey, number>;
 }
@@ -54,21 +58,21 @@ export interface Preset {
  */
 export const PRESETS: Preset[] = [
   {
-    id: "balanced", label: "균형", note: "기본값",
+    id: "balanced", labelKey: "preset.balanced", noteKey: "preset.balanced.note",
     supply: SUPPLY_DEFAULT, demand: DEMAND_DEFAULT,
   },
   {
-    id: "scale_first", label: "규모 우선", note: "큰 시장부터",
+    id: "scale_first", labelKey: "preset.scale_first", noteKey: "preset.scale_first.note",
     supply: SUPPLY_DEFAULT,
     demand: { population_scale: 0.50, income_downside: 0.20, dispersion: 0.15, cash_economy: 0.10, credit_thirst: 0.05 },
   },
   {
-    id: "remote_first", label: "원격지 우선", note: "이동거리 중심",
+    id: "remote_first", labelKey: "preset.remote_first", noteKey: "preset.remote_first.note",
     supply: { branch_density: 0.20, geographic_access: 0.35, deposit_penetration: 0.15, credit_penetration: 0.20, atm_density: 0.10 },
     demand: { population_scale: 0.20, income_downside: 0.20, dispersion: 0.35, cash_economy: 0.20, credit_thirst: 0.05 },
   },
   {
-    id: "credit_gap", label: "신용 갈증", note: "대출 상품 화이트스페이스",
+    id: "credit_gap", labelKey: "preset.credit_gap", noteKey: "preset.credit_gap.note",
     supply: { branch_density: 0.20, geographic_access: 0.15, deposit_penetration: 0.20, credit_penetration: 0.35, atm_density: 0.10 },
     demand: { population_scale: 0.25, income_downside: 0.25, dispersion: 0.10, cash_economy: 0.10, credit_thirst: 0.30 },
   },

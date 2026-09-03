@@ -11,13 +11,16 @@
  */
 
 import { useMemo } from "react";
+import { useI18n } from "@/i18n";
+import type { Key } from "@/i18n/strings";
 
 export interface FindexData {
   scope: string;
   not_by_province: boolean;
   as_of: string | null;
   source_url?: string;
-  sample_note?: string;
+  /** ETL이 언어별로 구운 캡션. 옛 산출물은 문자열일 수 있다. */
+  sample_note?: string | Record<string, string>;
   series: Record<string, { year: number; value: number }[]>;
 }
 
@@ -26,13 +29,14 @@ export interface FindexPanelProps {
 }
 
 /** 최신 연도 두 값을 나란히 놓는 비교쌍. 3개 이상 넣지 않는다 — 범주형 3슬롯 규칙. */
-const PAIRS: { label: string; a: [string, string]; b: [string, string] }[] = [
-  { label: "도농", a: ["account_urban", "도시"], b: ["account_rural", "농촌"] },
-  { label: "성별", a: ["account_male", "남성"], b: ["account_female", "여성"] },
-  { label: "소득", a: ["account_all", "전체"], b: ["account_poorest40", "하위 40%"] },
+const PAIRS: { labelKey: Key; a: [string, Key]; b: [string, Key] }[] = [
+  { labelKey: "findex.pair.urbanRural", a: ["account_urban", "findex.pair.urban"], b: ["account_rural", "findex.pair.rural"] },
+  { labelKey: "findex.pair.gender",     a: ["account_male", "findex.pair.male"],   b: ["account_female", "findex.pair.female"] },
+  { labelKey: "findex.pair.income",     a: ["account_all", "findex.pair.all"],     b: ["account_poorest40", "findex.pair.poorest40"] },
 ];
 
 export default function FindexPanel({ data }: FindexPanelProps) {
+  const { t, lang } = useI18n();
   const trend = data.series.account_all ?? [];
   const sorted = useMemo(
     () => trend.slice().sort((a, b) => a.year - b.year),
@@ -49,24 +53,24 @@ export default function FindexPanel({ data }: FindexPanelProps) {
   const mobile = latestOf("mobile_phone");
 
   return (
-    <section className="panel findex" aria-label="Findex 전국 벤치마크">
+    <section className="panel findex" aria-label={t("findex.title")}>
       <header className="findex__head">
-        <h2>전국 벤치마크</h2>
+        <h2>{t("findex.title")}</h2>
         {/* 이 배지는 장식이 아니다. 지우면 옆의 지도 때문에 주별 값으로 읽힌다. */}
-        <span className="chip chip--warn">주별 아님 · 전국 단위</span>
+        <span className="chip chip--warn">{t("findex.notByProvince")}</span>
       </header>
 
       <p className="findex__note">
-        World Bank Global Findex {data.as_of}. {data.sample_note}
+        {t("findex.note", { year: data.as_of ?? "", sample: pickText(data.sample_note, lang) })}
       </p>
 
       <section className="findex__block">
-        <h3>계좌 보유율 추이</h3>
+        <h3>{t("findex.trend")}</h3>
         <TrendBars points={sorted} />
       </section>
 
       <section className="findex__block">
-        <h3>집단 간 차이 (최신)</h3>
+        <h3>{t("findex.groups")}</h3>
         <div className="findex__pairs">
           {PAIRS.map((p) => {
             const a = latestOf(p.a[0]);
@@ -74,46 +78,50 @@ export default function FindexPanel({ data }: FindexPanelProps) {
             if (!a || !b) return null;
             const diff = a.value - b.value;
             return (
-              <div key={p.label} className="findex__pair">
-                <span className="findex__pair-label">{p.label}</span>
+              <div key={p.labelKey} className="findex__pair">
+                <span className="findex__pair-label">{t(p.labelKey)}</span>
                 <span className="findex__pair-row">
-                  <span>{p.a[1]}</span>
+                  <span>{t(p.a[1])}</span>
                   <span className="num">{a.value.toFixed(1)}%</span>
                 </span>
                 <span className="findex__pair-row">
-                  <span>{p.b[1]}</span>
+                  <span>{t(p.b[1])}</span>
                   <span className="num">{b.value.toFixed(1)}%</span>
                 </span>
                 <span className="findex__pair-diff num" data-negligible={Math.abs(diff) < 3 || undefined}>
-                  차이 {diff > 0 ? "+" : ""}{diff.toFixed(1)}p
+                  {t("findex.diff")} {diff > 0 ? "+" : ""}{diff.toFixed(1)}p
                 </span>
               </div>
             );
           })}
         </div>
         <p className="findex__hint">
-          최신 조사 기준 세 격차 모두 3%p 안팎이다. <strong>계좌 보유로 재는 포용은 태국에서
-          이미 닫혔다</strong> — 남은 문제는 전국 평균이 아니라 물리적 접점이 어디에 없는가이고,
-          그것이 이 도구가 재는 것이다.
+          <span dangerouslySetInnerHTML={{ __html: t("findex.hint") }} />
         </p>
       </section>
 
       <div className="findex__stats">
         {borrow ? (
-          <Stat label="공식 차입 경험" value={`${borrow.value.toFixed(1)}%`} year={borrow.year} />
+          <Stat label={t("findex.borrow")} value={`${borrow.value.toFixed(1)}%`} year={borrow.year} />
         ) : null}
         {mobile ? (
-          <Stat label="휴대전화 보유" value={`${mobile.value.toFixed(1)}%`} year={mobile.year} />
+          <Stat label={t("findex.mobile")} value={`${mobile.value.toFixed(1)}%`} year={mobile.year} />
         ) : null}
       </div>
 
       {data.source_url ? (
         <a className="findex__link" href={data.source_url} target="_blank" rel="noreferrer noopener">
-          Global Findex 보고서
+          {t("findex.link")}
         </a>
       ) : null}
     </section>
   );
+}
+
+/** 문자열이면 그대로, 언어별 객체면 골라 쓴다 — 옛 산출물과도 호환된다. */
+export function pickText(v: string | Record<string, string> | undefined, lang: string): string {
+  if (!v) return "";
+  return typeof v === "string" ? v : (v[lang] ?? v.en ?? Object.values(v)[0] ?? "");
 }
 
 function Stat({ label, value, year }: { label: string; value: string; year: number }) {
@@ -131,7 +139,8 @@ function Stat({ label, value, year }: { label: string; value: string; year: numb
  * 점 5개짜리 계열에 축을 그리면 잉크가 데이터보다 많아진다.
  */
 function TrendBars({ points }: { points: { year: number; value: number }[] }) {
-  if (points.length < 2) return <p className="findex__hint">추이를 그릴 만큼의 조사 회차가 없다.</p>;
+  const { t } = useI18n();
+  if (points.length < 2) return <p className="findex__hint">{t("findex.trendInsufficient")}</p>;
 
   const max = Math.max(...points.map((p) => p.value));
   return (

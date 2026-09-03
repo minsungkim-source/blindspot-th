@@ -5,50 +5,61 @@
  * 귀속 표기는 선택이 아니라 라이선스 의무다. 전체 조건은 DATA_SOURCES.md.
  */
 
+import type { Key } from "@/i18n/strings";
+
 export interface Attribution {
+  /** 기관명은 번역하지 않는다 — 고유명사다 */
   name: string;
   url: string;
-  license: string;
+  licenseKey: Key;
   /** 이 소스가 화면의 어느 부분을 만드는가 */
-  provides: string;
+  providesKey: Key;
+  /** meta.json의 소스 키. 기준시점 배지를 붙일 때 쓴다 */
+  metaKey?: string;
 }
 
 export const ATTRIBUTIONS: Attribution[] = [
   {
     name: "Bank of Thailand",
     url: "https://app.bot.or.th/BTWS_STAT/statistics/ReportPage.aspx?reportID=781&language=eng",
-    license: "귀속 표기 · 집계 형태 게시",
-    provides: "주별 지점 수 · 예금 · 여신 · 예대율",
+    licenseKey: "lic.bot",
+    providesKey: "src.bot",
+    metaKey: "bot_province",
   },
   {
     name: "NESDC",
     url: "https://www.nesdc.go.th/en/info/gross-regional-and-provincial-product-gpp/",
-    license: "귀속 표기",
-    provides: "주별 GPP · 인구 · 산업구성",
+    licenseKey: "lic.attribution",
+    providesKey: "src.nesdc",
+    metaKey: "nesdc_gpp",
   },
   {
     name: "National Statistical Office of Thailand",
     url: "https://www.nso.go.th/nsoweb/nso/survey_detail/a4",
-    license: "귀속 표기",
-    provides: "권역별 ICT 이용률 (디지털 준비도 추정의 원자료)",
+    licenseKey: "lic.attribution",
+    providesKey: "src.nso",
+    metaKey: "nso_ict",
   },
   {
     name: "World Bank Global Findex 2025",
     url: "https://www.worldbank.org/en/publication/globalfindex/report",
-    license: "집계 지표만 사용 · 마이크로데이터 미포함",
-    provides: "전국 벤치마크 (주별 아님)",
+    licenseKey: "lic.findex",
+    providesKey: "src.findex",
+    metaKey: "findex",
   },
   {
     name: "OpenStreetMap contributors",
     url: "https://www.openstreetmap.org/copyright",
-    license: "ODbL 1.0",
-    provides: "ATM · 은행 POI",
+    licenseKey: "lic.odbl",
+    providesKey: "src.osm",
+    metaKey: "osm_atm",
   },
   {
     name: "thailand-canonical-admin-names",
     url: "https://github.com/DevelopedbyWill/thailand-canonical-admin-names",
-    license: "CC BY 4.0 · 폴리곤 CC BY 3.0 IGO",
-    provides: "행정구역 크로스워크 · 경계 폴리곤 · 면적",
+    licenseKey: "lic.crosswalk",
+    providesKey: "src.crosswalk",
+    metaKey: "admin_ref",
   },
 ];
 

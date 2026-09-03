@@ -9,6 +9,7 @@
  */
 
 import { DIVERGING, NO_DATA, SEQUENTIAL } from "@/lib/scale";
+import { useI18n } from "@/i18n";
 
 export interface LegendProps {
   label: string;
@@ -25,6 +26,7 @@ export interface LegendProps {
 export default function Legend({
   label, scale, min, max, midpoint, hasMissing,
 }: LegendProps) {
+  const { t } = useI18n();
   const ramp = scale === "diverging" ? DIVERGING : SEQUENTIAL;
 
   return (
@@ -33,7 +35,7 @@ export default function Legend({
 
       <div className="legend__ramp-row">
         <span className="legend__end num">{min}</span>
-        <div className="legend__ramp" role="img" aria-label={`${label} 색 범례: ${min}부터 ${max}까지`}>
+        <div className="legend__ramp" role="img" aria-label={t("legend.aria", { layer: label, min, max })}>
           {ramp.map((c) => (
             <span key={c} className="legend__step" style={{ background: c }} />
           ))}
@@ -46,14 +48,14 @@ export default function Legend({
 
       {scale === "diverging" && midpoint ? (
         <div className="legend__mid">
-          중간값 <span className="num">{midpoint}</span>
+          {t("legend.midpoint")} <span className="num">{midpoint}</span>
         </div>
       ) : null}
 
       {hasMissing ? (
         <div className="legend__missing">
           <span className="legend__swatch" style={{ background: NO_DATA }} aria-hidden="true" />
-          데이터 없음
+          {t("legend.noData")}
         </div>
       ) : null}
     </div>

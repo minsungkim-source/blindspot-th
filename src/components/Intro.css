@@ -1,0 +1,51 @@
+/* 화면 맨 위 소개. 읽히려면 본문보다 조금 크고, 지도로 넘어가는 것을 막을 만큼
+   길지는 않아야 한다 — 세 문단에서 끊는다. */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 var(--r-lg) var(--r-lg) 0;
+  background: var(--surface);
+  max-width: 78ch;          /* 한 줄이 길면 눈이 다음 줄을 놓친다 */
+}
+
+.intro__lead {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--ink);
+  letter-spacing: -0.008em;
+}
+
+.intro__body {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+/* 본문 안의 강조는 굵기만 쓴다 — 계열색을 텍스트에 칠하지 않는다 (DESIGN.md §5) */
+.intro__body b {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.intro__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+
+@media (max-width: 767px) {
+  .intro { padding: 16px 16px; }
+  .intro__lead { font-size: 15px; }
+}
