@@ -148,6 +148,16 @@ validation:
   require_all_units: true
   max_join_failures: 0
   max_mom_change_pct: 30        # 전월 대비 지점수·인구 급변 감지
+  # 지수에 들어가는 지표. 지난달에는 있었는데 이번에 통째로 사라지면 실패시킨다 —
+  # 결측이 되면 가중치가 재정규화되어 모든 주의 축 점수가 움직이기 때문이다.
+  # (필수 필드와 달리 '있어야 한다'가 아니라 '갑자기 없어지면 안 된다'는 검사다.)
+  indicator_columns:
+    - atm_count
+    - atm_density
+    - gpp_agriculture_share
+    - gpp_per_capita
+    - credit_deposit
+
   required_fields:
     - branches
     - deposits_total

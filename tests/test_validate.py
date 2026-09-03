@@ -188,7 +188,7 @@ def test_uncomputed_score_blocks(col):
         run(df, None, CONFIG)
 
 
-# ── 8. 디지털 축 ─────────────────────────────────────────────────────────
+# ── 9. 디지털 축 ─────────────────────────────────────────────────────────
 
 def test_missing_digital_axis_warns_but_does_not_block():
     """v1의 현재 상태다. 갭·우선순위는 멀쩡하므로 배포를 막지 않되,
@@ -220,3 +220,55 @@ def test_error_message_names_every_broken_gate():
     assert "지점수가 0인 주" in msg
     assert "'population'에 결측" in msg
     assert "배포하지 않는다" in msg
+
+
+# ── 8. 지표가 통째로 사라진 경우 ─────────────────────────────────────────
+#
+# 보조 소스가 한 달 실패하면 지표가 결측이 되고 가중치가 재정규화된다 →
+# 모든 주의 축 점수가 움직인다. 실측: Overpass 한 번 실패에 공급 점수가
+# 평균 2.7pt, 최대 7.9pt 이동하고 순위가 최대 7계단 밀렸다.
+# 값이 '틀린' 게 아니라 '없어진' 것이라 다른 게이트에는 걸리지 않는다.
+
+INDICATOR_CONFIG = {
+    **CONFIG,
+    "validation": {**CONFIG["validation"], "indicator_columns": ["atm_count", "atm_density"]},
+}
+
+
+def test_vanished_indicator_blocks():
+    prev = frame()
+    prev["atm_count"] = 40.0
+    df = frame()
+    df["atm_count"] = np.nan          # Overpass가 이번 달 실패
+    with pytest.raises(ValidationError, match="지난달에는 77개 주에 있었는데 이번에는 0개"):
+        run(df, prev, INDICATOR_CONFIG)
+
+
+def test_halved_indicator_warns():
+    """절반 이하로 줄어드는 것도 축 점수를 움직인다 — 막지는 않되 알린다."""
+    prev = frame()
+    prev["atm_count"] = 40.0
+    df = frame()
+    df["atm_count"] = [40.0] * 20 + [np.nan] * (N - 20)
+    warnings = run(df, prev, INDICATOR_CONFIG)
+    assert any("관측 주가 77개 → 20개" in w for w in warnings)
+
+
+def test_indicator_absent_in_both_months_is_fine():
+    """계속 없던 지표는 사라진 것이 아니다 — 디지털 축이 정확히 이 경우다."""
+    prev = frame(); prev["atm_count"] = np.nan
+    df = frame();   df["atm_count"] = np.nan
+    run(df, prev, INDICATOR_CONFIG)          # 예외 없음
+
+
+def test_indicator_appearing_is_fine():
+    """없다가 생긴 것은 복구다. 막을 이유가 없다."""
+    prev = frame(); prev["atm_count"] = np.nan
+    df = frame();   df["atm_count"] = 40.0
+    run(df, prev, INDICATOR_CONFIG)
+
+
+def test_no_previous_output_skips_the_gate():
+    """첫 실행에는 비교 대상이 없다."""
+    df = frame(); df["atm_count"] = np.nan
+    run(df, None, INDICATOR_CONFIG)

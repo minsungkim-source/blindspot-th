@@ -116,7 +116,33 @@ def run(
             if n_null:
                 errors.append(f"'{col}'이 계산되지 않은 주 {n_null}개. 입력 지표 결측을 확인할 것.")
 
-    # 8. 디지털 축은 추정치다 — 없어도 빌드를 막지 않지만, 조용히 넘어가지도 않는다.
+    # 8. 지표가 통째로 사라졌는가
+    #
+    #    보조 소스가 한 달 실패하면 그 지표는 결측이 되고, _weighted()가 가중치에서 빼고
+    #    재정규화한다 — **모든 주의 축 점수가 움직인다.** 실측(2026-08-31): Overpass가
+    #    한 번 실패하면 공급 점수가 평균 2.7pt, 최대 7.9pt 변하고 순위가 최대 7계단 밀린다.
+    #
+    #    앞의 게이트들은 branches·population·deposits만 본다. 지표가 '틀린 값'이 아니라
+    #    '없는 값'이 되는 이 경우는 어디에도 걸리지 않아서, 평범한 월간 갱신처럼 보인다.
+    #    사람이 판단하도록 여기서 세운다.
+    if previous is not None and not previous.empty:
+        for col in cfg.get("indicator_columns", []):
+            if col not in df.columns or col not in previous.columns:
+                continue
+            had = previous[col].notna().sum()
+            has = df[col].notna().sum()
+            if had > 0 and has == 0:
+                errors.append(
+                    f"'{col}'이 지난달에는 {had}개 주에 있었는데 이번에는 0개다. "
+                    f"지표가 통째로 빠지면 가중치가 재정규화되어 **모든 주의 점수가 바뀐다** — "
+                    f"소스 장애인지 확인할 것 (meta.json의 degraded_sources)."
+                )
+            elif had > 0 and has < had * 0.5:
+                warnings.append(
+                    f"'{col}'의 관측 주가 {had}개 → {has}개로 줄었다. 축 점수가 이동한다."
+                )
+
+    # 9. 디지털 축은 추정치다 — 없어도 빌드를 막지 않지만, 조용히 넘어가지도 않는다.
     if "digital_readiness" in df.columns and df["digital_readiness"].isna().all():
         warnings.append(
             "디지털 준비도가 전 주 결측이다. 사분면·아키타입이 비활성화된 채로 배포된다 "

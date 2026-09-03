@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import json
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -32,6 +33,10 @@ out center;
 """
 
 HEADERS = {"User-Agent": "blindspot-th/0.1 (+https://github.com/minsungkim-source/blindspot-th)"}
+
+# 인스턴스당 재시도. 미러로 넘어가기 전에 같은 곳을 먼저 두드린다.
+RETRIES = 3
+BACKOFF_S = (5, 15, 30)
 
 # 폴리곤 밖으로 떨어진 점을 가장 가까운 주에 붙일 때의 상한.
 #
@@ -137,20 +142,30 @@ def load(config: dict) -> dict:
     payload = None
     failures = []
     for endpoint in endpoints:
-        try:
-            # Overpass는 UA 없는 요청에 406을 돌려준다. 연락 가능한 UA를 붙이는 것이 규약이다.
-            r = requests.post(
-                endpoint,
-                data={"data": QUERY.format(timeout=timeout)},
-                headers=HEADERS,
-                timeout=timeout + 30,
-            )
-            r.raise_for_status()
-            payload = r.json()
+        # 504·429는 대개 순간 부하다. 미러로 넘어가기 전에 같은 인스턴스를 몇 번 더 두드린다 —
+        # 이 소스가 한 달 빠지면 ATM 지표가 결측이 되고 모든 주의 공급 점수가 움직인다
+        # (validate.py의 '사라진 지표' 게이트가 그때 빌드를 세운다).
+        for attempt in range(RETRIES):
+            try:
+                # Overpass는 UA 없는 요청에 406을 돌려준다. 연락 가능한 UA를 붙이는 것이 규약이다.
+                r = requests.post(
+                    endpoint,
+                    data={"data": QUERY.format(timeout=timeout)},
+                    headers=HEADERS,
+                    timeout=timeout + 30,
+                )
+                r.raise_for_status()
+                payload = r.json()
+                break
+            except (requests.RequestException, ValueError) as e:
+                failures.append(f"{endpoint} (시도 {attempt + 1}): {e}")
+                if attempt < RETRIES - 1:
+                    print(f"         WARN  Overpass {endpoint} 실패 — "
+                          f"{BACKOFF_S[attempt]}초 후 재시도 ({attempt + 2}/{RETRIES})")
+                    time.sleep(BACKOFF_S[attempt])
+        if payload is not None:
             break
-        except (requests.RequestException, ValueError) as e:
-            failures.append(f"{endpoint}: {e}")
-            print(f"         WARN  Overpass {endpoint} 실패 — 다음 미러를 시도한다.")
+        print(f"         WARN  Overpass {endpoint} {RETRIES}회 실패 — 다음 미러로 넘어간다.")
 
     if payload is None:
         raise SourceUnavailable("Overpass 인스턴스에 모두 실패했다:\n               "
