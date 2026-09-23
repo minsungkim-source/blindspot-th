@@ -18,7 +18,7 @@ import { geoMercator, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import type { FeatureCollection, Geometry } from "geojson";
 import type { Topology } from "topojson-specification";
-import { NO_DATA, divergingScale, sequentialScale } from "@/lib/scale";
+import { FLOOR, NO_DATA, divergingScale, isFloor, sequentialScale } from "@/lib/scale";
 import { useI18n } from "@/i18n";
 
 const VIEW_W = 620;
@@ -43,6 +43,10 @@ export interface GapMapProps {
   scale: "sequential" | "diverging";
   /** 발산형 레이어에서 두 색을 가르는 기준 (보통 전국 중앙값) */
   midpoint?: number;
+  /** 순차 레이어에서 램프 밖으로 빼낼 바닥값. 없으면 전부 램프에 들어간다. */
+  floor?: number;
+  /** 바닥값 주를 스크린리더에 뭐라고 읽어 줄지. 색만으로 뜻을 전하지 않는다. */
+  floorLabel?: string;
   selected: string | null;
   onSelect: (code: string | null) => void;
   onHover?: (code: string | null) => void;
@@ -53,7 +57,7 @@ interface ProvinceProps {
 }
 
 export default function GapMap({
-  topology, data, layerLabel, scale, midpoint, selected, onSelect, onHover,
+  topology, data, layerLabel, scale, midpoint, floor, floorLabel, selected, onSelect, onHover,
 }: GapMapProps) {
   const { t } = useI18n();
 
@@ -80,9 +84,10 @@ export default function GapMap({
       const s = divergingScale(values, mid);
       return (v: number | null) => (v == null ? NO_DATA : s(v));
     }
-    const s = sequentialScale(values);
-    return (v: number | null) => (v == null ? NO_DATA : s(v));
-  }, [data, scale, midpoint]);
+    const s = sequentialScale(values, floor);
+    return (v: number | null) =>
+      v == null ? NO_DATA : isFloor(v, floor) ? FLOOR : s(v);
+  }, [data, scale, midpoint, floor]);
 
   // 정렬 순서가 곧 탭 순서다. 갭이 큰 주부터 도는 것이 이 도구의 읽는 순서와 맞는다.
   const ordered = useMemo(
@@ -110,14 +115,26 @@ export default function GapMap({
           <pattern id="fc-hatch" width="6" height="6" patternUnits="userSpaceOnUse">
             <path d="M0,6 l6,-6" stroke="currentColor" strokeWidth="1" />
           </pattern>
+          {/* 바닥값 전용. 해치와 같은 패턴을 쓰면 forced-colors에서 '확장 대상 아님'과
+              실제 대상 주가 구분되지 않는다 — 색을 잃는 모드일수록 형태로 갈라야 한다. */}
+          <pattern id="fc-dots" width="6" height="6" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="1" fill="currentColor" />
+          </pattern>
         </defs>
 
         {ordered.map((f) => {
           const code = f.properties.tis1099_code;
           const d = byCode.get(code);
           const isSelected = selected === code;
+          // 바닥값은 숫자가 아니라 범주로 읽어 준다. "우선순위 0.0"은 눈으로 본
+          // 회색이 뜻하는 바를 전하지 못한다 — 색만으로 의미를 나르지 않는 규칙이
+          // 스크린리더 쪽에도 똑같이 적용된다.
+          const valueLabel =
+            floorLabel && isFloor(d?.value ?? null, floor)
+              ? `${layerLabel} — ${floorLabel}`
+              : `${layerLabel} ${d?.display ?? ""}`;
           const label = d
-            ? `${d.name} ${d.nameTh}. ${d.excluded ? t("map.excluded") : `${layerLabel} ${d.display}`}`
+            ? `${d.name} ${d.nameTh}. ${d.excluded ? t("map.excluded") : valueLabel}`
             : `${t("map.provinceCode", { code })}. ${layerLabel} ${t("map.noData")}`;
 
           return (
@@ -128,6 +145,7 @@ export default function GapMap({
               fill={colorFor(d?.value ?? null)}
               data-selected={isSelected || undefined}
               data-missing={d?.value == null || undefined}
+              data-floor={isFloor(d?.value ?? null, floor) || undefined}
               data-excluded={d?.excluded || undefined}
               tabIndex={0}
               role="button"

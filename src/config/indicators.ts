@@ -65,10 +65,16 @@ export const INDICATORS: Indicator[] = [
   { key: "digital_readiness", labelKey: "ind.digital_readiness", unitKey: "unit.point", axis: "digital", grade: "estimated", source: "NSO ICT", format: dec(1) },
 ];
 
-/** 지도 레이어 — 한 번에 하나만 보여준다 (순차 컨텍스트를 겹치지 않는다) */
+/** 지도 레이어 — 한 번에 하나만 보여준다 (순차 컨텍스트를 겹치지 않는다)
+ *
+ * `floor`는 **램프에서 빼낼 바닥값**이다. 지표의 성질이지 화면의 취향이 아니라
+ * 여기 선언한다. 우선순위만 해당한다 — `clip(lower=0)` 때문에 공급이 수요 이상인
+ * 주가 전부 정확히 0이고, 그건 '낮은 우선순위'가 아니라 '대상이 아님'이다.
+ * 근거와 실측은 `docs/WEIGHT_SENSITIVITY.md` §5.
+ */
 export const MAP_LAYERS = [
   { key: "gap",                labelKey: "layer.gap" as Key,                scale: "sequential" as const },
-  { key: "priority",           labelKey: "layer.priority" as Key,           scale: "sequential" as const },
+  { key: "priority",           labelKey: "layer.priority" as Key,           scale: "sequential" as const, floor: 0, floorLabelKey: "legend.notTarget" as Key },
   { key: "branch_density",     labelKey: "layer.branch_density" as Key,     scale: "sequential" as const },
   { key: "deposit_per_capita", labelKey: "layer.deposit_per_capita" as Key, scale: "sequential" as const },
   { key: "credit_deposit",     labelKey: "layer.credit_deposit" as Key,     scale: "diverging" as const },

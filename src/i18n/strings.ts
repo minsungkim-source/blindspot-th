@@ -63,6 +63,7 @@ const ko = {
   "legend.aria": "{layer} 색 범례: {min}부터 {max}까지",
   "legend.midpoint": "중간값",
   "legend.noData": "데이터 없음",
+  "legend.notTarget": "확장 대상 아님 (공급 ≥ 수요)",
 
   // ── 신뢰등급 ─────────────────────────────────────────────────
   "grade.measured": "실측",
@@ -320,6 +321,7 @@ const en: Record<Key, string> = {
   "legend.aria": "{layer} colour legend, from {min} to {max}",
   "legend.midpoint": "Midpoint",
   "legend.noData": "No data",
+  "legend.notTarget": "Not a target (supply ≥ demand)",
 
   "grade.measured": "Measured",
   "grade.derived": "Derived",

@@ -192,7 +192,11 @@ function Screen({
 
   const legendBounds = useMemo(() => {
     const spec = specs[layer.key] ?? specs.gap!;
-    const vals = mapData.map((d) => d.value).filter((v): v is number => v != null).sort((a, b) => a - b);
+    const all = mapData.map((d) => d.value).filter((v): v is number => v != null).sort((a, b) => a - b);
+    // 램프가 표현하는 범위만 양끝에 적는다. 바닥값을 빼지 않으면 범례가
+    // "0부터"라고 말하는데 정작 0인 주는 램프 색이 아닌 상황이 된다.
+    const floor = layer.floor;
+    const vals = floor == null ? all : all.filter((v) => v > floor);
     if (!vals.length) {
       return { min: "—", max: "—", mid: undefined as string | undefined, midVal: undefined as number | undefined };
     }
@@ -203,7 +207,14 @@ function Screen({
       mid: spec.format(midVal),
       midVal,
     };
-  }, [mapData, layer.key, specs]);
+  }, [mapData, layer.key, layer.floor, specs]);
+
+  /** 바닥값 주가 실제로 있을 때만 범례 칸을 낸다 — 빈 칸은 설명이 아니라 소음이다. */
+  const floorLabel = useMemo(() => {
+    if (layer.floor == null || !layer.floorLabelKey) return undefined;
+    const any = mapData.some((d) => d.value != null && d.value <= layer.floor! && !d.excluded);
+    return any ? t(layer.floorLabelKey) : undefined;
+  }, [mapData, layer.floor, layer.floorLabelKey, t]);
 
   const selectedRow = useMemo(
     () => scored?.find((r) => r.tis1099_code === state.selected) ?? null,
@@ -300,6 +311,7 @@ function Screen({
             max={legendBounds.max}
             midpoint={layer.scale === "diverging" ? legendBounds.mid : undefined}
             hasMissing={mapData.some((d) => d.value == null && !d.excluded)}
+            floorLabel={floorLabel}
           />
           <GapMap
             topology={data.topology}
@@ -307,6 +319,8 @@ function Screen({
             layerLabel={layerLabel}
             scale={layer.scale}
             midpoint={legendBounds.midVal}
+            floor={layer.floor}
+            floorLabel={floorLabel}
             selected={state.selected}
             onSelect={(code) => setState((s) => ({ ...s, selected: code }))}
             onHover={setHovered}

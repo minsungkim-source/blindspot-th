@@ -56,13 +56,15 @@
 }
 
 /* forced-colors: 시스템이 배경색을 강제 교체해 값 구분이 사라진다.
-   값이 있는 주는 패턴, 없는 주는 빈 채움으로 최소한의 구분을 남긴다. */
+   세 갈래를 형태로 남긴다 — 값이 있으면 해치, 바닥값(확장 대상 아님)은 점,
+   값이 없으면 빈 채움. 색을 잃는 모드이므로 색 외의 채널로 갈라야 한다. */
 @media (forced-colors: active) {
   .gapmap__province {
     fill: url(#fc-hatch) !important;
     stroke: CanvasText;
     stroke-width: 0.75;
   }
+  .gapmap__province[data-floor]   { fill: url(#fc-dots) !important; }
   .gapmap__province[data-missing] { fill: Canvas !important; }
   .gapmap__province[data-selected] { stroke: Highlight; stroke-width: 3; }
   .gapmap__province:focus-visible { stroke: Highlight; stroke-width: 3; }

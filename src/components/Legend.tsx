@@ -8,23 +8,28 @@
  * 회색 폴리곤을 보고 '값이 낮은 것'으로 오해하는 것을 막는 것이 이 칸의 목적이다.
  */
 
-import { DIVERGING, NO_DATA, SEQUENTIAL } from "@/lib/scale";
+import { DIVERGING, FLOOR, NO_DATA, SEQUENTIAL } from "@/lib/scale";
 import { useI18n } from "@/i18n";
 
 export interface LegendProps {
   label: string;
   scale: "sequential" | "diverging";
-  /** 램프 양끝에 적을 값. 이미 포맷된 문자열. */
+  /** 램프 양끝에 적을 값. 이미 포맷된 문자열.
+   *  **바닥값을 뺀 뒤의 최솟값**을 넘겨야 한다 — 램프가 표현하지 않는 값을
+   *  램프 끝에 적으면 범례가 지도를 설명하지 못한다. */
   min: string;
   max: string;
   /** 발산형에서만. 중간값 라벨 (보통 전국 평균). */
   midpoint?: string;
   /** 데이터 없는 주가 실제로 있을 때만 칸을 낸다. */
   hasMissing?: boolean;
+  /** 바닥값 칸의 라벨. 바닥값 주가 실제로 있을 때만 넘긴다.
+   *  '데이터 없음'과 나란히 설 수 있다 — 둘은 다른 뜻이다. */
+  floorLabel?: string;
 }
 
 export default function Legend({
-  label, scale, min, max, midpoint, hasMissing,
+  label, scale, min, max, midpoint, hasMissing, floorLabel,
 }: LegendProps) {
   const { t } = useI18n();
   const ramp = scale === "diverging" ? DIVERGING : SEQUENTIAL;
@@ -49,6 +54,13 @@ export default function Legend({
       {scale === "diverging" && midpoint ? (
         <div className="legend__mid">
           {t("legend.midpoint")} <span className="num">{midpoint}</span>
+        </div>
+      ) : null}
+
+      {floorLabel ? (
+        <div className="legend__missing">
+          <span className="legend__swatch" style={{ background: FLOOR }} aria-hidden="true" />
+          {floorLabel}
         </div>
       ) : null}
 
