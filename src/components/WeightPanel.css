@@ -127,3 +127,123 @@
   .weights { padding: 18px 16px; }
   .wslider { grid-template-columns: 68px 1fr 24px 32px; }
 }
+
+/* ── 지표 정의 툴팁 ─────────────────────────────────────────────
+   규격은 DESIGN.md §5 '툴팁' — --surface-2 배경, --border-strong 1px, 8px 라운드, 12.5px.
+   가중치 그룹도 --surface-2라서 그림자로 떠 있음을 구분한다. */
+
+.wslider { position: relative; }
+
+/* 정의가 숨어 있다는 표시. 점선 밑줄은 '올려 보면 설명이 있다'의 관용 표현이다. */
+.wslider__label {
+  cursor: help;
+  text-decoration: underline dotted var(--ink-3);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.wslider__tip {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;              /* 행 너비를 넘지 않는다 — 좁은 화면에서도 가로로 삐져나가지 않는다 */
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-pop);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+
+  visibility: hidden;
+  opacity: 0;
+  /* 숨길 때는 200ms 뒤에 사라진다 — 라벨에서 툴팁으로 포인터를 옮기는 동안 버틴다 (WCAG 1.4.13) */
+  transition: opacity 120ms var(--ease) 80ms, visibility 0s linear 200ms;
+}
+
+/* 마우스: 라벨 위에 250ms 머물면 뜬다. 스쳐 지나가는 포인터에는 반응하지 않는다. */
+.wslider__label:hover ~ .wslider__tip,
+.wslider__tip:hover {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 120ms var(--ease) 250ms, visibility 0s linear 250ms;
+}
+
+/* 키보드: 기다리지 않는다. Tab으로 들어온 사람은 이미 이 항목을 고른 것이다. */
+.wslider:has(input:focus-visible) .wslider__tip {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 120ms var(--ease), visibility 0s;
+}
+
+/* 터치: 호버가 없다. 라벨을 탭하면 슬라이더에 포커스가 가고 그때 뜬다. */
+@media (hover: none) {
+  .wslider:focus-within .wslider__tip {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 120ms var(--ease), visibility 0s;
+  }
+}
+
+/* 아래에 자리가 없을 때 (WeightPanel.tsx의 visibleBand) */
+.wslider[data-tip-above] .wslider__tip {
+  top: auto;
+  bottom: calc(100% + 4px);
+}
+
+/* Esc로 닫은 뒤에는 포인터가 떠나거나 포커스가 빠질 때까지 다시 뜨지 않는다 */
+.wslider[data-tip-dismissed] .wslider__tip {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+.wslider__tip-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.wslider__tip-title {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.wslider__tip-def { margin: 0; }
+
+.wslider__tip-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+}
+
+.wslider__tip-rows > div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.wslider__tip-rows dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.wslider__tip-rows dd {
+  margin: 0;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wslider__tip { transition: none !important; }
+}

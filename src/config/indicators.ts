@@ -48,17 +48,23 @@ const pct: Formatter = (v) => (v == null ? "—" : `${v.toFixed(1)}%`);
 const baht: Formatter = (v, locale) =>
   v == null ? "—" : `฿${(v / 1e6).toLocaleString(locale, { maximumFractionDigits: 1 })}M`;
 
+/**
+ * `source`는 화면에 그대로 나간다 (상세 패널 배지, 가중치 툴팁). **푸터 귀속 표기와 같은
+ * 이름을 쓴다** — 사용자가 페이지 안에서 그 출처를 찾아갈 수 있어야 한다.
+ * 예전에 면적 출처를 `ADM1`(1급 행정구역을 뜻하는 GIS 용어)로 적었는데, 페이지 어디에도
+ * 없는 말이라 설명이 필요한 설명이 됐다.
+ */
 export const INDICATORS: Indicator[] = [
   { key: "branches",           labelKey: "ind.branches",           unitKey: "unit.count",   axis: "supply",  grade: "measured",  source: "BOT FI_CB_011_S4", format: dec(0) },
   { key: "branch_density",     labelKey: "ind.branch_density",     unitKey: "unit.perPop",  axis: "supply",  grade: "derived",   source: "BOT + NESDC",      format: dec(1) },
-  { key: "geographic_access",  labelKey: "ind.geographic_access",  unitKey: "unit.perArea", axis: "supply",  grade: "derived",   source: "BOT + ADM1",       format: dec(1) },
+  { key: "geographic_access",  labelKey: "ind.geographic_access",  unitKey: "unit.perArea", axis: "supply",  grade: "derived",   source: "BOT + thailand-canonical-admin-names",       format: dec(1) },
   { key: "deposit_per_capita", labelKey: "ind.deposit_per_capita", unitKey: "unit.baht",    axis: "supply",  grade: "derived",   source: "BOT + NESDC",      format: baht },
   { key: "credit_per_capita",  labelKey: "ind.credit_per_capita",  unitKey: "unit.baht",    axis: "supply",  grade: "derived",   source: "BOT + NESDC",      format: baht },
   { key: "atm_density",        labelKey: "ind.atm_density",        unitKey: "unit.perPop",  axis: "supply",  grade: "estimated", source: "OpenStreetMap",    format: dec(1) },
 
   { key: "population",             labelKey: "ind.population",             unitKey: "unit.people",  axis: "demand", grade: "measured", source: "NESDC",            format: dec(0) },
   { key: "gpp_per_capita",         labelKey: "ind.gpp_per_capita",         unitKey: "unit.baht",    axis: "demand", grade: "measured", source: "NESDC", invert: true, format: dec(0) },
-  { key: "population_density",     labelKey: "ind.population_density",     unitKey: "unit.perKm2",  axis: "demand", grade: "derived",  source: "NESDC + ADM1", invert: true, format: dec(1) },
+  { key: "population_density",     labelKey: "ind.population_density",     unitKey: "unit.perKm2",  axis: "demand", grade: "derived",  source: "NESDC + thailand-canonical-admin-names", invert: true, format: dec(1) },
   { key: "gpp_agriculture_share",  labelKey: "ind.gpp_agriculture_share",  unitKey: "unit.percent", axis: "demand", grade: "measured", source: "NESDC",            format: pct },
   { key: "credit_deposit",         labelKey: "ind.credit_deposit",         unitKey: "unit.times",   axis: "demand", grade: "measured", source: "BOT",   invert: true, format: dec(2) },
 

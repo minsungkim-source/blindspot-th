@@ -63,6 +63,7 @@
   --r-lg: 10px;
 
   --ease: cubic-bezier(0.2, 0, 0, 1);
+  --shadow-pop: 0 10px 28px rgba(0, 0, 0, 0.5);  /* 떠 있는 요소(툴팁) — 같은 표면 위에서 구분되게 */
   --dur: 160ms;
 
   /* 소제목(eyebrow) 라벨의 자간.
