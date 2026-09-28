@@ -84,3 +84,66 @@ describe("isFloor", () => {
     expect(isFloor(0.0001, 0)).toBe(false);
   });
 });
+
+
+/* ── 램프 자체의 성질 ─────────────────────────────────────────────
+   "갭이 클수록 진하게" — 사용자가 짚은 요구를 측정 가능한 형태로 고정한다.
+   예전 램프는 밝기는 올랐지만 채도가 3단계부터 빠져서(0.161 → 0.041) 갭이 가장 큰
+   주가 파스텔로 보였다. 밝기만 보면 통과하던 램프라, 채도를 따로 잰다. */
+
+const lin = (c: number) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+const rgb = (hex: string) =>
+  [1, 3, 5].map((i) => lin(parseInt(hex.slice(i, i + 2), 16) / 255)) as [number, number, number];
+
+/** OKLCH의 L(밝기)·C(채도). 사람 눈의 밝기·선명도에 가깝게 맞춘 색공간이다. */
+function oklch(hex: string) {
+  const [r, g, b] = rgb(hex);
+  const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
+  const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
+  const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
+  const L = 0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s;
+  const A = 1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s;
+  const B = 0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s;
+  return { L, C: Math.hypot(A, B) };
+}
+
+const luminance = (hex: string) => {
+  const [r, g, b] = rgb(hex);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
+const contrast = (a: string, b: string) => {
+  const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p);
+  return (x! + 0.05) / (y! + 0.05);
+};
+
+const SURFACE = "#0e1113"; // tokens.css --surface
+
+describe("순차 램프의 성질", () => {
+  const steps = SEQUENTIAL.map(oklch);
+
+  it("갭이 클수록 밝다 — 어두운 배경에서 밝은 쪽이 눈에 먼저 들어온다", () => {
+    for (let i = 1; i < steps.length; i++) {
+      expect(steps[i]!.L).toBeGreaterThan(steps[i - 1]!.L);
+    }
+  });
+
+  it("갭이 클수록 진하다 — 위 끝이 파스텔로 흐려지면 '약하다'로 읽힌다", () => {
+    for (let i = 1; i < steps.length; i++) {
+      expect(steps[i]!.C, `${i + 1}단계 채도가 ${i}단계보다 낮다`).toBeGreaterThanOrEqual(steps[i - 1]!.C - 0.002);
+    }
+    // 가장 진한 색이 갭 최고 단계에 있어야 한다
+    const maxC = Math.max(...steps.map((s) => s.C));
+    expect(steps.at(-1)!.C).toBeCloseTo(maxC, 2);
+  });
+
+  it("가장 어두운 단계도 표면에서 보인다 — 77개 주가 전부 보여야 한다 (DESIGN.md §2.2)", () => {
+    expect(contrast(SEQUENTIAL[0], SURFACE)).toBeGreaterThan(2);
+  });
+
+  it("램프의 첫 칸은 바닥값·데이터없음과 채도로 구분된다", () => {
+    // 우선순위 레이어에서 '대상 아님'(회색)과 '대상 중 최하위'(남색)가 나란히 선다.
+    // 밝기가 비슷해도 색기가 있어야 둘을 가를 수 있다.
+    expect(steps[0]!.C).toBeGreaterThan(oklch(FLOOR).C + 0.05);
+    expect(steps[0]!.C).toBeGreaterThan(oklch(NO_DATA).C + 0.05);
+  });
+});
