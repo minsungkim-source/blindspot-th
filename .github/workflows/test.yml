@@ -38,6 +38,22 @@ jobs:
       # -rs: 건너뛴 테스트와 그 사유를 로그에 남긴다 — 조용히 skip되면 통과한 것처럼 보인다
       - run: python -m pytest tests/ -q -rs
 
+      # 월간 갱신에서만 도는 두 스크립트를 러너에서 매번 실제로 돌려 본다 — 깨지는지만 본다.
+      # 테스트는 판정 함수만 부르므로, `git show HEAD:`로 지난달을 읽는 경로와
+      # GITHUB_OUTPUT에 쓰는 경로는 여기서만 러너에서 검증된다.
+      # (깨끗한 checkout이라 요약은 항상 "변화 없음"이다. 내용이 아니라 실행 가능 여부를 본다.)
+      # Step summary는 끈다 — 코드 푸시마다 "머지해도 된다"가 뜨면 헷갈린다.
+      - name: Smoke — refresh scripts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 .github/scripts/refresh_gate.py
+          grep -Eq '^run=(true|false)$' "$GITHUB_OUTPUT"
+          env -u GITHUB_STEP_SUMMARY python .github/scripts/refresh_summary.py "$RUNNER_TEMP/pr-body.md"
+          grep -Eq '머지해도 된다|머지 보류' "$RUNNER_TEMP/pr-body.md"
+          grep -q 'BOT 표 구조' "$RUNNER_TEMP/pr-body.md"
+          echo "--- 요약 앞부분 ---"; head -8 "$RUNNER_TEMP/pr-body.md"
+
   typescript:
     runs-on: ubuntu-latest
     steps:
