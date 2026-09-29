@@ -24,6 +24,7 @@ import WeightPanel from "@/components/WeightPanel";
 import { REPO_URL } from "@/config/attribution";
 import { MAP_LAYERS } from "@/config/indicators";
 import { isFloor } from "@/lib/scale";
+import { STALE_MONTHS, formatAge, monthsSince } from "@/lib/dataAge";
 import { I18nProvider, LANGS, LOCALE, makeI18n, useI18n, type Lang } from "@/i18n";
 import type { Key } from "@/i18n/strings";
 import { scoreAll, type ProvinceRecord, type Scored } from "@/lib/score";
@@ -229,6 +230,10 @@ function Screen({
   const digitalMissing = data?.meta.digital_confidence === "missing";
   const asOfLabel =
     data?.meta.sources?.bot_province?.as_of_label ?? data?.meta.sources?.bot_province?.as_of;
+  // 기준시점이 얼마나 오래됐는지. 레이블만 보여주면 보는 사람이 직접 계산해야 한다.
+  const asOfMonths = monthsSince(data?.meta.sources?.bot_province?.as_of, new Date());
+  const asOfStale = asOfMonths != null && asOfMonths >= STALE_MONTHS;
+  const checkedOn = data?.meta.generated_at?.slice(0, 10) ?? "—";
 
   // 귀속 표기는 라이선스 의무다. 로딩·에러 화면에서도 빠지지 않는다.
   const chrome = (body: ReactNode) => (
@@ -293,7 +298,23 @@ function Screen({
           </label>
 
           {langPicker}
-          {asOfLabel ? <span className="chip num">BOT {asOfLabel}</span> : null}
+          {asOfLabel ? (
+            <span
+              className={`chip num${asOfStale ? " chip--warn" : ""}`}
+              title={asOfStale
+                ? t("asof.staleWhy", { label: asOfLabel, age: formatAge(asOfMonths!, locale), checked: checkedOn })
+                : t("asof.why", { checked: checkedOn })}
+            >
+              BOT {asOfLabel}
+              {/* 경고색만으로 뜻을 전하지 않는다 — 나이를 글로 적는다 (CLAUDE.md 상태색 규칙) */}
+              {asOfMonths != null ? <span className="chip__age"> · {formatAge(asOfMonths, locale)}</span> : null}
+              {asOfStale ? (
+                <span className="sr-only">
+                  {t("asof.staleWhy", { label: asOfLabel, age: formatAge(asOfMonths!, locale), checked: checkedOn })}
+                </span>
+              ) : null}
+            </span>
+          ) : null}
           <ShareBar />
         </div>
       </header>

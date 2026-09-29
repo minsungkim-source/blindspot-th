@@ -35,6 +35,9 @@ const ko = {
   "app.layer": "레이어",
   "app.excludeBangkok": "방콕 제외",
   "app.language": "언어",
+  "asof.staleWhy":
+    "BOT이 공개한 가장 최근 주별 통계가 {label}이다 ({age}). 지점·예금·여신 등 공급 지표가 모두 이 시점 기준이다. 마지막 확인 {checked}.",
+  "asof.why": "공급 지표(지점·예금·여신)의 기준시점. 마지막 확인 {checked}.",
 
   "app.notice.digital.title": "디지털 준비도 축이 비어 있습니다.",
   "app.notice.digital.body":
@@ -320,6 +323,9 @@ const en: Record<Key, string> = {
   "app.layer": "Layer",
   "app.excludeBangkok": "Exclude Bangkok",
   "app.language": "Language",
+  "asof.staleWhy":
+    "The latest province-level figures BOT has published are for {label} ({age}). All supply indicators — branches, deposits, credit — describe that month. Last checked {checked}.",
+  "asof.why": "Reference month for the supply indicators (branches, deposits, credit). Last checked {checked}.",
 
   "app.notice.digital.title": "The digital-readiness axis is empty.",
   "app.notice.digital.body":

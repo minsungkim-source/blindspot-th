@@ -131,6 +131,8 @@ body {
 
 /* 오독을 막기 위한 경고성 라벨 ('주별 아님' 등). 지우면 안 되는 종류다. */
 .chip--warn { border-color: var(--warning); color: var(--ink); }
+/* 칩 안의 부가 설명 (예: 기준시점의 나이). 본문보다 한 단계 흐리게 */
+.chip__age { color: var(--ink-2); font-family: var(--sans); }
 
 /* 스크린리더 전용. 시각적으로는 숨기되 접근성 트리에는 남긴다 — display:none은 안 된다. */
 .sr-only {
