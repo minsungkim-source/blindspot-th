@@ -25,6 +25,7 @@ import { REPO_URL } from "@/config/attribution";
 import { MAP_LAYERS } from "@/config/indicators";
 import { isFloor } from "@/lib/scale";
 import { STALE_MONTHS, formatAge, monthsSince } from "@/lib/dataAge";
+import { validSelection } from "@/lib/selection";
 import { I18nProvider, LANGS, LOCALE, makeI18n, useI18n, type Lang } from "@/i18n";
 import type { Key } from "@/i18n/strings";
 import { scoreAll, type ProvinceRecord, type Scored } from "@/lib/score";
@@ -107,6 +108,17 @@ function Screen({
   const [data, setData] = useState<Data | null>(null);
   const [failed, setFailed] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
+
+  // 선택은 지금 화면에 있는 주여야 한다 (lib/selection.ts). 방콕을 선택한 채 제외하거나,
+  // 없는 코드가 주소로 들어오면 선택을 지운다 — 보이지 않는 선택이 주소에 남으면 안 된다.
+  useEffect(() => {
+    if (!data || state.selected == null) return;
+    const codes = new Set(data.rows.map((r) => r.tis1099_code));
+    const excluded = new Set(state.excludeBangkok ? [BANGKOK] : []);
+    if (validSelection(state.selected, codes, excluded) == null) {
+      setState((s) => ({ ...s, selected: null }));
+    }
+  }, [data, state.selected, state.excludeBangkok, setState]);
 
   useEffect(() => {
     Promise.all([
