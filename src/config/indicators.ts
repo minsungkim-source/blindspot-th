@@ -42,11 +42,24 @@ export interface Indicator {
   format: Formatter;
 }
 
+/**
+ * 포맷 함수는 **숫자만** 낸다. 단위는 `unitKey`가 화면에서 따로 붙인다.
+ *
+ * 예전에는 `pct`가 `%`를, `baht`가 `฿…M`을 직접 붙였고 상세 패널이 단위를 또 붙여서
+ * `16.6% %`, `฿0.1M 바트`가 찍혔다. 게다가 `baht`는 무조건 백만으로 나눠서
+ * 1인당 금액(수만 바트)이 `฿0M`으로 뭉개졌다 — 값이 통째로 사라졌다.
+ */
 const dec = (digits: number): Formatter => (v, locale) =>
   v == null ? "—" : v.toLocaleString(locale, { maximumFractionDigits: digits });
-const pct: Formatter = (v) => (v == null ? "—" : `${v.toFixed(1)}%`);
-const baht: Formatter = (v, locale) =>
-  v == null ? "—" : `฿${(v / 1e6).toLocaleString(locale, { maximumFractionDigits: 1 })}M`;
+const pct: Formatter = (v, locale) =>
+  v == null ? "—" : v.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+/**
+ * 우선순위의 바닥값. `priority = clip(gap_raw × log10(인구), 0)`이라 공급이 수요 이상인 주는
+ * 정확히 0이고, 그건 '낮은 우선순위'가 아니라 **'확장 대상 아님'**이다 (DESIGN.md §2.3).
+ * 지도·범례·표·상세 패널·호버 문구가 모두 이 값 하나를 본다.
+ */
+export const PRIORITY_FLOOR = 0;
 
 /**
  * `source`는 화면에 그대로 나간다 (상세 패널 배지, 가중치 툴팁). **푸터 귀속 표기와 같은
@@ -58,8 +71,8 @@ export const INDICATORS: Indicator[] = [
   { key: "branches",           labelKey: "ind.branches",           unitKey: "unit.count",   axis: "supply",  grade: "measured",  source: "BOT FI_CB_011_S4", format: dec(0) },
   { key: "branch_density",     labelKey: "ind.branch_density",     unitKey: "unit.perPop",  axis: "supply",  grade: "derived",   source: "BOT + NESDC",      format: dec(1) },
   { key: "geographic_access",  labelKey: "ind.geographic_access",  unitKey: "unit.perArea", axis: "supply",  grade: "derived",   source: "BOT + thailand-canonical-admin-names",       format: dec(1) },
-  { key: "deposit_per_capita", labelKey: "ind.deposit_per_capita", unitKey: "unit.baht",    axis: "supply",  grade: "derived",   source: "BOT + NESDC",      format: baht },
-  { key: "credit_per_capita",  labelKey: "ind.credit_per_capita",  unitKey: "unit.baht",    axis: "supply",  grade: "derived",   source: "BOT + NESDC",      format: baht },
+  { key: "deposit_per_capita", labelKey: "ind.deposit_per_capita", unitKey: "unit.baht",    axis: "supply",  grade: "derived",   source: "BOT + NESDC",      format: dec(0) },
+  { key: "credit_per_capita",  labelKey: "ind.credit_per_capita",  unitKey: "unit.baht",    axis: "supply",  grade: "derived",   source: "BOT + NESDC",      format: dec(0) },
   { key: "atm_density",        labelKey: "ind.atm_density",        unitKey: "unit.perPop",  axis: "supply",  grade: "estimated", source: "OpenStreetMap",    format: dec(1) },
 
   { key: "population",             labelKey: "ind.population",             unitKey: "unit.people",  axis: "demand", grade: "measured", source: "NESDC",            format: dec(0) },
@@ -80,7 +93,7 @@ export const INDICATORS: Indicator[] = [
  */
 export const MAP_LAYERS = [
   { key: "gap",                labelKey: "layer.gap" as Key,                scale: "sequential" as const },
-  { key: "priority",           labelKey: "layer.priority" as Key,           scale: "sequential" as const, floor: 0, floorLabelKey: "legend.notTarget" as Key },
+  { key: "priority",           labelKey: "layer.priority" as Key,           scale: "sequential" as const, floor: PRIORITY_FLOOR, floorLabelKey: "legend.notTarget" as Key },
   { key: "branch_density",     labelKey: "layer.branch_density" as Key,     scale: "sequential" as const },
   { key: "deposit_per_capita", labelKey: "layer.deposit_per_capita" as Key, scale: "sequential" as const },
   { key: "credit_deposit",     labelKey: "layer.credit_deposit" as Key,     scale: "diverging" as const },

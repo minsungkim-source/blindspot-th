@@ -145,3 +145,12 @@
 @media (max-width: 900px) {
   .ranktable [data-secondary] { display: none; }
 }
+
+/* 우선순위 0 = 확장 대상 아님. 숫자가 아니라 범주라서 sans로, 흐리게.
+   숫자 열이 우측 정렬이라 짧은 라벨도 오른쪽에 붙는다 — 열 정렬이 깨지지 않는다. */
+.ranktable__floor {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  white-space: nowrap;
+}

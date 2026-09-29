@@ -64,6 +64,7 @@ const ko = {
   "legend.midpoint": "중간값",
   "legend.noData": "데이터 없음",
   "legend.notTarget": "확장 대상 아님 (공급 ≥ 수요)",
+  "notTarget.short": "대상 아님",
 
   // ── 신뢰등급 ─────────────────────────────────────────────────
   "grade.measured": "실측",
@@ -346,6 +347,7 @@ const en: Record<Key, string> = {
   "legend.midpoint": "Midpoint",
   "legend.noData": "No data",
   "legend.notTarget": "Not a target (supply ≥ demand)",
+  "notTarget.short": "Not a target",
 
   "grade.measured": "Measured",
   "grade.derived": "Derived",

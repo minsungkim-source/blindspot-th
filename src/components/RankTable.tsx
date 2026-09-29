@@ -10,9 +10,10 @@
  */
 
 import { useMemo, useState, type ReactNode } from "react";
-import { ARCHETYPES } from "@/config/indicators";
+import { ARCHETYPES, PRIORITY_FLOOR } from "@/config/indicators";
 import { useI18n, type I18n } from "@/i18n";
 import { downloadCsv, toCsv } from "@/lib/csv";
+import { isFloor } from "@/lib/scale";
 import type { ProvinceRecord, Scored } from "@/lib/score";
 
 type SortKey =
@@ -32,6 +33,36 @@ interface Column {
 const n1 = (v: number) => (Number.isFinite(v) ? v.toFixed(1) : "—");
 const n2 = (v: number) => (Number.isFinite(v) ? v.toFixed(2) : "—");
 
+/**
+ * 표 정렬 비교 함수. 컴포넌트 밖에 두어 테스트할 수 있게 했다.
+ *
+ * - 결측은 정렬 방향과 무관하게 항상 아래로 — 위로 올라오면 '값이 낮다'로 오독된다.
+ * - **둘 다 결측이면 0.** 예전엔 둘 다 1을 돌려서 비교가 앞뒤가 안 맞았다
+ *   (a > b이면서 b > a). 그러면 정렬 결과가 브라우저 구현에 좌우된다.
+ * - 동점은 갭으로 가른다. 우선순위는 40개 주가 정확히 0(확장 대상 아님)이라,
+ *   가르지 않으면 그 절반이 주 코드 순으로 늘어선다 — 의미 없는 순서다.
+ */
+export function compareRows(
+  get: (r: Scored<ProvinceRecord>) => number | null | undefined,
+  asc: boolean,
+) {
+  const byDir = (x: number, y: number) => (asc ? x - y : y - x);
+  const fin = (v: number | null | undefined): v is number => typeof v === "number" && Number.isFinite(v);
+  return (a: Scored<ProvinceRecord>, b: Scored<ProvinceRecord>) => {
+    const av = get(a);
+    const bv = get(b);
+    const aOk = fin(av);
+    const bOk = fin(bv);
+    if (aOk !== bOk) return aOk ? -1 : 1;
+    const primary = aOk && bOk ? byDir(av, bv) : 0;
+    if (primary !== 0) return primary;
+    const ag = fin(a.gap) ? a.gap : -Infinity;
+    const bg = fin(b.gap) ? b.gap : -Infinity;
+    if (ag === bg) return 0;
+    return byDir(ag, bg);
+  };
+}
+
 const COLUMNS: Column[] = [
   { key: "name", labelKey: "table.col.name", numeric: false,
     render: (r) => (
@@ -41,7 +72,14 @@ const COLUMNS: Column[] = [
       </span>
     ) },
   { key: "priority", labelKey: "table.col.priority", numeric: true,
-    value: (r) => r.priority, render: (r) => n1(r.priority) },
+    value: (r) => r.priority,
+    // 지도가 "확장 대상 아님"이라고 말하는 주를 표가 "0.0"이라고 말하면 안 된다.
+    // 표는 지도의 접근성 대안이다 — 같은 사실을 같은 말로 전해야 한다.
+    // "—"도 안 된다. 그건 이 표에서 '결측'의 표시다.
+    render: (r, { t }) =>
+      isFloor(r.priority, PRIORITY_FLOOR) ? (
+        <span className="ranktable__floor" title={t("legend.notTarget")}>{t("notTarget.short")}</span>
+      ) : n1(r.priority) },
   { key: "gap", labelKey: "table.col.gap", numeric: true,
     value: (r) => r.gap, render: (r) => n1(r.gap) },
   { key: "supply", labelKey: "table.col.supply", numeric: true, secondary: true,
@@ -96,14 +134,7 @@ export default function RankTable({
 
     const col = COLUMNS.find((c) => c.key === sort);
     const get = col?.value ?? ((r: Scored<ProvinceRecord>) => r.priority);
-    return filtered.slice().sort((a, b) => {
-      const av = get(a);
-      const bv = get(b);
-      // 결측은 정렬 방향과 무관하게 항상 아래로 — 위로 올라오면 '값이 낮다'로 오독된다
-      if (!Number.isFinite(av)) return 1;
-      if (!Number.isFinite(bv)) return -1;
-      return asc ? av - bv : bv - av;
-    });
+    return filtered.slice().sort(compareRows(get, asc));
   }, [rows, query, sort, asc]);
 
   const onHeaderClick = (key: Column["key"]) => {

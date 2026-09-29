@@ -10,7 +10,8 @@
 
 import { useMemo } from "react";
 import GradeBadge from "@/components/GradeBadge";
-import { ARCHETYPES, INDICATORS } from "@/config/indicators";
+import { ARCHETYPES, INDICATORS, PRIORITY_FLOOR } from "@/config/indicators";
+import { isFloor } from "@/lib/scale";
 import { DEMAND_LABEL_KEY, SUPPLY_LABEL_KEY, type DemandKey, type SupplyKey } from "@/config/weights";
 import { useI18n } from "@/i18n";
 import type { ProvinceRecord, Scored } from "@/lib/score";
@@ -58,7 +59,8 @@ export default function ProvincePanel({ province, timeseries, onClose }: Provinc
       </header>
 
       <dl className="provpanel__scores">
-        <Score labelKey="panel.score.priority" value={province.priority} />
+        <Score labelKey="panel.score.priority" value={province.priority}
+               floor={isFloor(province.priority, PRIORITY_FLOOR)} />
         <Score labelKey="panel.score.gap" value={province.gap} />
         <Score labelKey="panel.score.supply" value={province.supply} />
         <Score labelKey="panel.score.demand" value={province.demand} />
@@ -134,8 +136,19 @@ export default function ProvincePanel({ province, timeseries, onClose }: Provinc
   );
 }
 
-function Score({ labelKey, value }: { labelKey: import("@/i18n/strings").Key; value: number }) {
+function Score({
+  labelKey, value, floor = false,
+}: { labelKey: import("@/i18n/strings").Key; value: number; floor?: boolean }) {
   const { t } = useI18n();
+  // 우선순위 0은 숫자가 아니라 범주다 — 지도·범례·표와 같은 말로 쓴다.
+  if (floor) {
+    return (
+      <div className="provpanel__score" data-floor>
+        <dt>{t(labelKey)}</dt>
+        <dd className="provpanel__score-floor" title={t("legend.notTarget")}>{t("notTarget.short")}</dd>
+      </div>
+    );
+  }
   return (
     <div className="provpanel__score">
       <dt>{t(labelKey)}</dt>
@@ -216,8 +229,9 @@ function Sparkline({ series }: { series: TimeseriesPoint[] }) {
         </svg>
         <div className="sparkline__side">
           <span className="num">{last.v}</span>
+          {/* 변화가 없을 때 "0"만 두면 옆의 현재값과 붙어 "130"처럼 읽힌다 */}
           <span className="sparkline__delta num" data-dir={delta === 0 ? "flat" : delta > 0 ? "up" : "down"}>
-            {delta > 0 ? "+" : ""}{delta}
+            {delta > 0 ? "+" : delta === 0 ? "±" : ""}{delta}
           </span>
         </div>
       </div>

@@ -23,6 +23,7 @@ import ShareBar from "@/components/ShareBar";
 import WeightPanel from "@/components/WeightPanel";
 import { REPO_URL } from "@/config/attribution";
 import { MAP_LAYERS } from "@/config/indicators";
+import { isFloor } from "@/lib/scale";
 import { I18nProvider, LANGS, LOCALE, makeI18n, useI18n, type Lang } from "@/i18n";
 import type { Key } from "@/i18n/strings";
 import { scoreAll, type ProvinceRecord, type Scored } from "@/lib/score";
@@ -101,7 +102,7 @@ function Screen({
   state: AppState;
   setState: React.Dispatch<React.SetStateAction<AppState>>;
 }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [data, setData] = useState<Data | null>(null);
   const [failed, setFailed] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
@@ -125,6 +126,9 @@ function Screen({
   const specs = useMemo(() => {
     const perPop = t("layer.unit.perPop");
     const times = t("layer.unit.times");
+    // 1인당 예금은 7만~120만 바트에 걸친다. 백만 단위로 고정하면 `฿0.07M`처럼 읽기 어렵다.
+    // 로캘의 축약 표기를 쓴다 — 한국어 "฿7.4만", 영어 "฿74K".
+    const compact = new Intl.NumberFormat(locale, { notation: "compact", maximumFractionDigits: 1 });
     return {
       gap: { get: (r: Scored<ProvinceRecord>) => finite(r.gap), format: (v: number | null) => (v == null ? "—" : v.toFixed(1)) },
       priority: { get: (r: Scored<ProvinceRecord>) => finite(r.priority), format: (v: number | null) => (v == null ? "—" : v.toFixed(1)) },
@@ -134,14 +138,14 @@ function Screen({
       },
       deposit_per_capita: {
         get: (r: Scored<ProvinceRecord>) => finite(r.deposit_per_capita),
-        format: (v: number | null) => (v == null ? "—" : `฿${(v / 1e6).toFixed(2)}M`),
+        format: (v: number | null) => (v == null ? "—" : `฿${compact.format(v)}`),
       },
       credit_deposit: {
         get: (r: Scored<ProvinceRecord>) => finite(r.credit_deposit),
         format: (v: number | null) => (v == null ? "—" : `${v.toFixed(2)}${times}`),
       },
     } as Record<string, { get: (r: Scored<ProvinceRecord>) => number | null; format: (v: number | null) => string }>;
-  }, [t]);
+  }, [t, locale]);
 
   const scored = useMemo(() => {
     if (!data) return null;
@@ -168,7 +172,8 @@ function Screen({
         name: r.name_en_canonical,
         nameTh: r.name_th,
         value,
-        display: spec.format(value),
+        // 바닥값은 숫자 대신 범주로. 호버 문구("Ang Thong · 0.0")가 지도 색·범례와 어긋나지 않게.
+        display: isFloor(value, layer.floor) ? t("notTarget.short") : spec.format(value),
       };
     });
 
@@ -188,7 +193,7 @@ function Screen({
       }
     }
     return out;
-  }, [scored, data, layer.key, specs, state.excludeBangkok, t]);
+  }, [scored, data, layer.key, layer.floor, specs, state.excludeBangkok, t]);
 
   const legendBounds = useMemo(() => {
     const spec = specs[layer.key] ?? specs.gap!;

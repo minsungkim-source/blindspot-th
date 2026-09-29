@@ -197,3 +197,12 @@
   .provpanel { padding: 18px 16px; }
   .provpanel__scores { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* 우선순위 0 = 확장 대상 아님. 다른 점수와 같은 자리에 두되 숫자가 아님을 드러낸다. */
+/* `.provpanel__score dd`(18px)보다 구체적이어야 이긴다 */
+.provpanel__score dd.provpanel__score-floor {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+}
