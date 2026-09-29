@@ -65,6 +65,13 @@ jobs:
         working-directory: etl
         run: python build.py
 
+      # 지난달 산출물(HEAD)과 비교해 검토 요약을 만든다 — PR 본문이 된다.
+      # 기계가 비교할 수 있는 건 기계가 비교하고, 사람은 판정만 본다.
+      # Actions 실행 화면(Step summary)에도 같은 내용이 남는다.
+      - name: Summarize for review
+        if: steps.gate.outputs.run == 'true'
+        run: python .github/scripts/refresh_summary.py "$RUNNER_TEMP/pr-body.md"
+
       # validate.py 게이트를 통과하지 못하면 위에서 실패하고 PR이 열리지 않는다.
       - name: Open PR if data changed
         if: steps.gate.outputs.run == 'true'
@@ -73,22 +80,7 @@ jobs:
           branch: data/auto-refresh
           title: "data: 월간 갱신"
           commit-message: "data: refresh from upstream sources"
-          body: |
-            ETL 자동 실행 결과입니다. **머지 전에 diff를 확인하세요.**
-
-            BOT 통계 페이지는 ASP.NET 렌더라 구조가 바뀌면 파서가 조용히 깨집니다.
-            아래를 눈으로 확인해 주세요:
-
-            - [ ] 77개 주가 전부 있는가
-            - [ ] 지점수가 0이 된 주가 없는가
-            - [ ] 예금·여신 자릿수가 이상하지 않은가
-            - [ ] `meta.json`의 `as_of`가 실제로 전진했는가
-            - [ ] `meta.json`의 `degraded_sources`에 새로 추가된 소스가 없는가
-                  (있다면 해당 지표가 조용히 결측이 된 것이다)
-            - [ ] `meta.json`의 `fingerprint.header_hash`가 지난달과 같은가
-            - [ ] `public/og.png` 미리보기가 지도처럼 보이는가 (한글이 두부로 깨지지 않았는가)
-            - [ ] `meta.json`에 `from_cache` / `from_snapshot`이 붙은 소스가 없는가
-                  (있으면 그 소스는 이번에 새로 받은 것이 아니다)
+          body-path: ${{ runner.temp }}/pr-body.md
           labels: data
           add-paths: |
             data/processed
