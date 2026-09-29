@@ -1,0 +1,51 @@
+name: test
+
+# 푸시·PR마다 두 언어의 테스트를 모두 돌린다.
+#
+# 이게 생기기 전에는 Python 테스트 전체가 **월간 갱신 워크플로 안에서만** 돌았다
+# (`Test → Run ETL → PR` 순서). 그래서 새로 넣은 테스트가 러너(Python 3.12)에서 처음 도는
+# 날이 곧 갱신일이었고, 거기서 하나라도 깨지면 그달 PR이 안 열렸다. 로컬은 3.9라
+# 버전 차이로 깨지는 건 로컬에서 못 잡는다.
+#
+# TS 테스트는 deploy.yml에도 있다 (배포를 막는 용도). 여기서는 PR에서도 돌게 하려고 둔다.
+#
+# 참고: 월간 갱신 PR은 GITHUB_TOKEN이 만들어서 이 워크플로를 트리거하지 못한다 (GitHub 규칙).
+# 그 PR은 refresh-data.yml이 ETL 전에 전체 테스트를 이미 돌린다.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"   # refresh-data.yml·parser-canary.yml과 같게
+          cache: pip
+      - run: pip install -r etl/requirements.txt
+      # og_image 테스트 중 한글판 카드 검사는 한글 폰트가 있어야 돈다 (없으면 skip).
+      # 갱신 워크플로와 같은 환경에서 검사해야 의미가 있다.
+      - name: Install Korean font
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-nanum
+      # -rs: 건너뛴 테스트와 그 사유를 로그에 남긴다 — 조용히 skip되면 통과한 것처럼 보인다
+      - run: python -m pytest tests/ -q -rs
+
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20   # deploy.yml과 같게
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
