@@ -128,7 +128,11 @@ def _left_column_ink(img, y0: int, y1: int) -> int:
     """카드 왼쪽 텍스트 단에서 배경이 아닌 픽셀 수. 지도는 오른쪽에 있어 섞이지 않는다."""
     crop = img.convert("RGB").crop((40, y0, 560, y1))
     bg = og_image._hex(og_image.GROUND) if isinstance(og_image.GROUND, str) else og_image.GROUND
-    return sum(1 for px in crop.getdata() if px != bg)
+    # getdata()는 Pillow 14(2027-10)에서 제거된다. 러너는 최신 Pillow를 받으므로(>=10.0)
+    # 그날 이 테스트가 깨지고, 그러면 월간 갱신이 Test 단계에서 멈춘다.
+    # getcolors()는 10부터 지금까지 있다. maxcolors를 픽셀 수로 주면 None이 나오지 않는다.
+    total = crop.width * crop.height
+    return total - sum(n for n, c in (crop.getcolors(total) or []) if c == bg)
 
 
 def test_korean_card_also_carries_the_english_subtitle(tmp_path, geo, rows):
