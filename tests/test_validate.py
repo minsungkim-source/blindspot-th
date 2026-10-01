@@ -27,6 +27,7 @@ CONFIG = {
         "require_all_units": True,
         "max_join_failures": 0,
         "max_mom_change_pct": 30,
+        "max_total_change_pct": {"atm_count": 15},
         "required_fields": [
             "branches", "deposits_total", "credits_total",
             "population", "area_km2", "gpp_per_capita", "gpp_agriculture_share",
@@ -272,3 +273,32 @@ def test_no_previous_output_skips_the_gate():
     """첫 실행에는 비교 대상이 없다."""
     df = frame(); df["atm_count"] = np.nan
     run(df, None, INDICATOR_CONFIG)
+
+
+
+# ── 10. 보조 지표 전국 합계 급변 ──────────────────────────────────────
+
+def _with_atm(df, per_province):
+    df = df.copy()
+    df["atm_count"] = per_province
+    return df
+
+
+def test_atm_total_collapse_blocks():
+    """2026-10-01 실제 상황: 묵은 미러가 ATM을 −43%로 줬다. 값이 '없어진' 게 아니라
+    '줄어든' 것이라 8번(사라진 지표)도, 지점만 보는 5번도 못 잡았다."""
+    prev = _with_atm(frame(), 58.0)          # 77 × 58 ≈ 4,466
+    df = _with_atm(frame(), 33.0)            # −43%
+    with pytest.raises(ValidationError, match="'atm_count' 전국 합계.*-43"):
+        run(df, prev, CONFIG)
+
+
+def test_normal_monthly_atm_drift_passes():
+    """OSM의 실제 월간 변화는 1~2%다. 이걸 막으면 사람이 게이트를 꺼 버린다."""
+    run(_with_atm(frame(), 59.0), _with_atm(frame(), 58.0), CONFIG)
+
+
+def test_atm_absent_last_month_is_not_this_gates_job():
+    """지난달에 없던 지표가 생긴 건 급변이 아니다 (사라진 경우는 8번 게이트가 본다)."""
+    prev = _with_atm(frame(), np.nan)
+    run(_with_atm(frame(), 58.0), prev, CONFIG)

@@ -16,9 +16,14 @@ cron은 "매월 1일"을 표현하지 못한다 (말일이 28~31일로 달라서
 
 - 갱신 창을 **ICT 1~3일**로 넓힌다. cron에 1·2일을 더해 기회가 세 번이 된다
   (말일 22:00 UTC → ICT 1일 05:00, 1일 → 2일 05:00, 2일 → 3일 05:00)
-- **이번 ICT 달에 만든 갱신 PR이 이미 있으면 건너뛴다.** 열려 있든, 머지됐든,
-  사람이 닫았든 — 닫은 것도 사람의 결정이므로 다시 열지 않는다
+- 이번 ICT 달의 갱신 PR이 **머지됐거나 닫혔으면** 건너뛴다. 닫은 것도 사람의 결정이다
+- 이번 달 PR이 **열려 있으면 다시 돌린다.** 같은 브랜치라 새 PR이 생기지 않고 그 PR이 갱신된다
 - 첫 시도가 실패해 PR을 못 만들었으면 다음 날 자동으로 다시 시도한다
+
+열린 PR을 다시 돌리는 이유 (2026-10-01): 예전엔 열린 PR도 "이미 있음"으로 건너뛰었다.
+그날 묵은 미러가 ATM −43%짜리 PR을 열었는데, 그 PR이 열려 있는 한 2·3일 회차가
+재시도하지 않았다 — **나쁜 PR이 그달 갱신을 붙잡았다.** 다시 돌려도 안전한 이유는
+validate.py가 통과한 결과만 PR을 덮어쓰기 때문이다. 좋은 PR이 나쁜 데이터로 바뀌지 않는다.
 
 지연은 문제되지 않는다. 판단 기준이 **태국 날짜**라서, 1일 05:00 ICT 예정이 몇 시간
 늦어져도 여전히 1일이다.
@@ -42,8 +47,12 @@ def in_window(now_utc: datetime) -> bool:
     return now_utc.astimezone(ICT).day in WINDOW_DAYS
 
 
-def decide(now_utc: datetime, event: str, prior_prs: list[datetime]) -> tuple[bool, str]:
-    """(돌릴지, 사유). 순수 함수 — 테스트가 이것만 부른다."""
+def decide(now_utc: datetime, event: str, prior_prs: list) -> tuple[bool, str]:
+    """(돌릴지, 사유). 순수 함수 — 테스트가 이것만 부른다.
+
+    prior_prs: (생성시각, 상태) 목록. 상태는 "OPEN" / "MERGED" / "CLOSED".
+    상태 없이 시각만 오면 머지된 것으로 본다 (예전 호출 방식 — 건너뛰는 쪽이 안전하다).
+    """
     if event != "schedule":
         return True, f"수동 실행({event or '알 수 없음'}) — 게이트를 적용하지 않는다"
 
@@ -51,12 +60,22 @@ def decide(now_utc: datetime, event: str, prior_prs: list[datetime]) -> tuple[bo
     if now.day not in WINDOW_DAYS:
         return False, f"ICT {now:%m-%d} — 갱신 창(매월 1~3일) 밖이라 건너뛴다"
 
-    for created in prior_prs:
+    open_pr = None
+    for item in prior_prs:
+        created, state = item if isinstance(item, tuple) else (item, "MERGED")
         c = created.astimezone(ICT)
-        if (c.year, c.month) == (now.year, now.month):
-            return False, (f"ICT {now:%m-%d} — 이번 달 갱신 PR이 이미 있다 "
-                           f"({c:%m-%d %H:%M} ICT 생성). 건너뛴다")
+        if (c.year, c.month) != (now.year, now.month):
+            continue
+        if state == "OPEN":
+            open_pr = c
+            continue
+        verb = "머지됐다" if state == "MERGED" else "닫혔다"
+        return False, (f"ICT {now:%m-%d} — 이번 달 갱신 PR이 이미 {verb} "
+                       f"({c:%m-%d %H:%M} ICT 생성). 건너뛴다")
 
+    if open_pr is not None:
+        return True, (f"ICT {now:%m-%d %H:%M} — 이번 달 PR이 아직 열려 있다 "
+                      f"({open_pr:%m-%d %H:%M} ICT 생성). 다시 돌려 그 PR을 갱신한다")
     return True, f"ICT {now:%m-%d %H:%M} — 이번 달 첫 갱신이다"
 
 
@@ -64,8 +83,8 @@ def _parse(ts: str) -> datetime:
     return datetime.fromisoformat(ts.replace("Z", "+00:00"))
 
 
-def fetch_prior_prs() -> list[datetime]:
-    """이 브랜치로 만든 PR들의 생성 시각. 조회에 실패하면 빈 목록 — 실행하는 쪽으로 간다.
+def fetch_prior_prs() -> list[tuple[datetime, str]]:
+    """이 브랜치로 만든 PR들의 (생성 시각, 상태). 조회에 실패하면 빈 목록 — 실행하는 쪽으로 간다.
 
     실패 시 돌리는 이유: 한 달을 조용히 놓치는 것보다, 이미 있는 PR을 한 번 더 갱신하거나
     타임스탬프만 바뀐 PR이 하나 더 열리는 편이 낫다. 후자는 사람이 보고 닫으면 된다.
@@ -73,10 +92,10 @@ def fetch_prior_prs() -> list[datetime]:
     try:
         out = subprocess.run(
             ["gh", "pr", "list", "--head", BRANCH, "--state", "all",
-             "--json", "createdAt", "--limit", "50"],
+             "--json", "createdAt,state", "--limit", "50"],
             check=True, capture_output=True, text=True, timeout=60,
         ).stdout
-        return [_parse(x["createdAt"]) for x in json.loads(out)]
+        return [(_parse(x["createdAt"]), x.get("state", "MERGED")) for x in json.loads(out)]
     except Exception as e:  # noqa: BLE001 — 조회 실패가 갱신을 막으면 안 된다
         print(f"::warning::이전 갱신 PR을 조회하지 못했다 ({type(e).__name__}: {e}) — 실행하는 쪽으로 간다.")
         return []

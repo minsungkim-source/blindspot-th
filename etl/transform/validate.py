@@ -142,6 +142,41 @@ def run(
                     f"'{col}'의 관측 주가 {had}개 → {has}개로 줄었다. 축 점수가 이동한다."
                 )
 
+    # 10. 보조 지표의 전국 합계가 급변했는가
+    #
+    #     5번 게이트는 지점·인구·예금을 **주별로** ±30% 본다. ATM은 거기 없고, 주별로 보면 작은
+    #     주(ATM 5 → 3 = −40%)에서 정상 편집에도 걸려서 쓸 수 없다. 그래서 **전국 합계**를 본다.
+    #
+    #     2026-10-01 실측: 묵은 미러가 ATM 4,451 → 2,536개(−43%)를 돌려줬고 어디에도 걸리지
+    #     않았다. 값이 '없어진' 게 아니라 '줄어든' 것이라 8번(사라진 지표)도 못 잡았다.
+    #     OSM의 실제 월간 변화는 1~2% 안팎이다 (8/26 4,446 → 9/3 4,451).
+    #
+    #     여기서 막으면 PR이 안 열리고, 갱신 창(ICT 1~3일) 안에서 다음 날 다시 시도한다.
+    #
+    #     **두 달 모두 값이 있는 주끼리만** 더한다. 이 게이트가 재는 건 "같은 주의 값이 줄었다"이다.
+    #     "주가 통째로 결측이 됐다"는 8번 게이트의 영역이고, 거기서는 절반 이하로 줄면 경고만
+    #     하기로 이미 정해 두었다 (test_halved_indicator_warns). 전국 합계를 그냥 더하면 그 결정을
+    #     이 게이트가 몰래 뒤집는다.
+    if previous is not None and not previous.empty:
+        limit = cfg.get("max_total_change_pct", {})
+        for col, pct in limit.items():
+            if col not in df.columns or col not in previous.columns:
+                continue
+            m = df[["tis1099_code", col]].merge(
+                previous[["tis1099_code", col]], on="tis1099_code", suffixes=("", "_prev"))
+            both = m[col].notna() & m[f"{col}_prev"].notna()
+            before = m.loc[both, f"{col}_prev"].sum()
+            after = m.loc[both, col].sum()
+            if not both.any() or before == 0:
+                continue          # 비교할 주가 없다 — 지난달에 없던 지표거나, 코드 타입이 어긋났다(5번이 잡는다)
+            change = (after - before) / before * 100
+            if abs(change) > pct:
+                errors.append(
+                    f"'{col}' 전국 합계가 {before:,.0f} → {after:,.0f} ({change:+.1f}%)로 변했다. "
+                    f"허용치 ±{pct}%. 실제 변화가 아니라 수집 문제일 가능성이 크다 — "
+                    "묵은 미러·부분 응답을 확인할 것 (meta.json 각 소스의 as_of, 빌드 로그의 미러 전환)."
+                )
+
     # 9. 디지털 축은 추정치다 — 없어도 빌드를 막지 않지만, 조용히 넘어가지도 않는다.
     if "digital_readiness" in df.columns and df["digital_readiness"].isna().all():
         warnings.append(

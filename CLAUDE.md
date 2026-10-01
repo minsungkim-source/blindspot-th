@@ -51,6 +51,9 @@
   가중치에서 빼고 재정규화한다 — 값이 틀린 게 아니라 **모든 주의 축 점수가 이동한다**
   (Overpass 한 번 실패에 공급 평균 2.7pt·최대 7.9pt·순위 7계단). 눈에 안 띄는 종류라
   `validate.py`의 '사라진 지표' 게이트가 세운다. `indicator_columns`를 줄이지 마라.
+- **"HTTP 200 = 좋은 응답"으로 믿지 마라.** Overpass는 시간 초과면 일부만 담아 200으로 보내고(`remark`),
+  동기화가 멈춘 미러는 몇 달 전 지도를 200으로 보낸다. 2026-10-01에 묵은 미러가 ATM −43%를 냈다.
+  `osm_atm.payload_problem()`과 validate.py 10번(전국 합계 ±15%)이 그 그물이다. 상한을 늘려 통과시키지 마라.
 - **보조 소스 실패를 필수 소스처럼 다루지 마라.** `admin_ref`·`bot_province`·`nesdc_gpp`는
   실패하면 빌드가 죽는다. `nso_ict`·`osm_atm`·`findex`는 결측으로 두고 계속 간다.
   `build.py`의 `SOURCES` 목록이 그 등급을 정의한다.

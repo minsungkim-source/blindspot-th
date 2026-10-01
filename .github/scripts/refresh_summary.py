@@ -115,6 +115,20 @@ def check_as_of(prev: dict | None, new: dict, today: date) -> list[Check]:
     return out
 
 
+def check_osm_base(prev: dict | None, new: dict) -> list[Check]:
+    """OSM DB 기준시각이 지난달보다 **뒤로** 갔으면 묵은 미러에서 받은 것이다.
+
+    2026-10-01 PR #2가 정확히 이랬다: 09-03 → 07-24. 이걸 봤으면 ATM 숫자를 보기 전에 알 수 있었다.
+    (osm_atm.py가 이제 7일 넘게 묵은 응답을 거부하므로, 여기 걸리는 건 그 안쪽의 후퇴다.)
+    """
+    p = (((prev or {}).get("sources") or {}).get("osm_atm") or {}).get("as_of")
+    n = ((new.get("sources") or {}).get("osm_atm") or {}).get("as_of")
+    if p and n and n < p:
+        return [Check(BLOCK, f"OSM 데이터 기준시각이 **뒤로 갔다** ({p[:10]} → {n[:10]})",
+                      "동기화가 늦은 미러에서 받은 것이다. ATM 수가 지난달보다 오래된 지도 기준이다.")]
+    return []
+
+
 def check_degraded(prev: dict | None, new: dict) -> list[Check]:
     pd_ = (prev or {}).get("degraded_sources") or {}
     nd = new.get("degraded_sources") or {}
@@ -236,9 +250,15 @@ def check_atm(prev_figi: list | None, new_figi: list) -> list[Check]:
     if a == b:
         return [Check(INFO, f"OSM ATM {b:,}개 (변화 없음)")]
     pct = (b - a) / a * 100 if a else 0
-    level = WARN if abs(pct) >= 10 else INFO
-    return [Check(level, f"OSM ATM {a:,} → {b:,}개 ({b - a:+,}, {pct:+.1f}%)",
-                  "한 달에 10% 넘게 변하면 자원봉사 편집보다 수집 문제일 가능성이 크다." if level == WARN else
+    # 🛑다. 예전엔 ⚠️였고, 그래서 2026-10-01 PR #2가 ATM −43%를 달고도 "머지해도 된다"로 나왔다.
+    # ATM은 공급 축의 한 항이라 이게 틀리면 **모든 주의 점수가 같이 틀린다** — 실제로 그 PR에서
+    # 확장 대상이 37 → 39개, 상위 10 중 2개가 바뀌었다. 틀린 숫자가 나가는 신호는 🛑다.
+    # (validate.py 10번이 ±15%에서 빌드를 세우므로, 여기 오는 건 10~15% 구간이다.)
+    if abs(pct) >= 10:
+        return [Check(BLOCK, f"OSM ATM {a:,} → {b:,}개 ({b - a:+,}, {pct:+.1f}%)",
+                      "OSM의 실제 월간 변화는 1~2% 안팎이다. 이 폭이면 묵은 미러나 부분 응답일 가능성이 크고, "
+                      "ATM이 틀리면 공급 축을 타고 **모든 주의 점수가 틀린다.** 빌드 로그에서 미러 전환을 확인할 것.")]
+    return [Check(INFO, f"OSM ATM {a:,} → {b:,}개 ({b - a:+,}, {pct:+.1f}%)",
                   "자원봉사자 편집으로 매달 조금씩 변한다.")]
 
 
@@ -248,7 +268,8 @@ def summarize(prev_meta, new_meta, prev_figi, new_figi, today: date, og_changed:
     bot_unchanged = _bot(prev_meta).get("as_of") == _bot(new_meta).get("as_of")
     sections = [
         ("데이터 기준시점", check_as_of(prev_meta, new_meta, today)),
-        ("소스 확보", check_degraded(prev_meta, new_meta) + check_flags(new_meta)),
+        ("소스 확보", check_degraded(prev_meta, new_meta) + check_flags(new_meta)
+                       + check_osm_base(prev_meta, new_meta)),
         ("BOT 표 구조", check_fingerprint(prev_meta, new_meta)),
         ("우선순위 변화", check_ranking(prev_figi, new_figi, bot_unchanged) + check_atm(prev_figi, new_figi)),
     ]

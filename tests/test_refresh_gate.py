@@ -58,6 +58,24 @@ def test_pr_month_is_judged_in_ict_not_utc():
     assert g.decide(utc(2026, 10, 1, 22), "schedule", made)[0] is False
 
 
+def test_open_pr_this_month_is_rerun_to_update_it():
+    """2026-10-01: 묵은 미러가 만든 나쁜 PR이 열려 있는 동안 2·3일 회차가 재시도하지 않았다.
+    열린 PR은 다시 돌려 갱신한다 — 같은 브랜치라 새 PR은 생기지 않는다."""
+    run, why = g.decide(utc(2026, 10, 1, 22), "schedule", [(utc(2026, 10, 1, 1, 14), "OPEN")])
+    assert run is True and "열려 있다" in why
+
+
+def test_merged_or_closed_pr_this_month_skips():
+    for state in ("MERGED", "CLOSED"):
+        run, _ = g.decide(utc(2026, 10, 1, 22), "schedule", [(utc(2026, 10, 1, 1), state)])
+        assert run is False, state
+
+
+def test_bare_timestamps_are_treated_as_merged():
+    """상태 없이 시각만 오는 예전 형식은 '건너뛴다' 쪽으로 — 모르면 중복을 만들지 않는다."""
+    assert g.decide(utc(2026, 10, 1, 22), "schedule", [utc(2026, 10, 1, 1)])[0] is False
+
+
 def test_last_months_pr_does_not_block():
     assert g.decide(utc(2026, 10, 31, 22), "schedule", [utc(2026, 10, 1, 1)])[0] is True
 
@@ -83,10 +101,14 @@ def _fires(start: datetime, end: datetime):
         d += timedelta(days=1)
 
 
-def _simulate(*, drop=lambda t: False, fail=lambda t, n: False, gate="new", seed=7):
-    """2026-12 ~ 2028-01을 돌려 2027년 각 ICT 달의 (성공 실행 수, 시도 수)를 센다."""
+def _simulate(*, drop=lambda t: False, fail=lambda t, n: False, gate="new", seed=7, merge=True):
+    """2026-12 ~ 2028-01을 돌려 2027년 각 ICT 달의 (성공 실행 수, 시도 수)를 센다.
+
+    merge=True: 사람이 PR이 열린 그날 머지한다 (평소). False: 창이 끝날 때까지 열어 둔다.
+    성공 실행은 PR을 '만들거나 갱신'한다 — 같은 브랜치라 그달 PR은 하나뿐이다.
+    """
     rng = random.Random(seed)
-    prs: list[datetime] = []
+    prs: list = []
     ok = {m: 0 for m in range(1, 13)}
     tries = {m: 0 for m in range(1, 13)}
     outside_window_runs = 0
@@ -109,7 +131,9 @@ def _simulate(*, drop=lambda t: False, fail=lambda t, n: False, gate="new", seed
         if fail(t, tries[ict.month]):
             continue                      # ETL 실패 → PR 없음 → 다음 회차가 재시도해야 한다
         ok[ict.month] += 1
-        prs.append(t)
+        if not any(isinstance(x, tuple) and (x[0].astimezone(g.ICT).year, x[0].astimezone(g.ICT).month)
+                   == (ict.year, ict.month) for x in prs):
+            prs.append((t, "MERGED" if merge else "OPEN"))     # 그달 첫 성공만 PR을 만든다
     return ok, tries, outside_window_runs
 
 
@@ -157,3 +181,10 @@ def test_cron_in_workflow_matches_simulation():
     assert 'cron: "0 22 1,2,28-31 * *"' in wf
     assert f'branch: {g.BRANCH}' in wf
     assert "refresh_gate.py" in wf
+
+
+def test_year_open_pr_is_refreshed_daily_but_stays_one_pr():
+    """사람이 머지하지 않고 두면 창 안에서 매일 다시 돌아 같은 PR을 갱신한다 — PR은 하나다."""
+    ok, tries, outside = _simulate(merge=False)
+    assert all(ok[m] == 3 for m in range(1, 13))      # 1·2·3일 모두 실행(갱신)
+    assert outside == 0                                # 창 밖에서는 절대 안 돈다

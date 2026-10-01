@@ -136,9 +136,32 @@ def test_floor_ties_do_not_count_as_moves():
     assert "순위 변화 없음" in run(meta(), meta(), pf, nf)
 
 
-def test_atm_jump_warns():
-    body = run(meta(), meta(), figi(BASE_PRIOS, atm=100), figi(BASE_PRIOS, atm=80))
-    assert s.WARN in body and "ATM" in body
+def test_atm_jump_blocks():
+    """2026-10-01 PR #2: ATM −43%가 ⚠️로 분류돼 "머지해도 된다"가 나왔다.
+    ATM이 틀리면 공급 축을 타고 모든 주의 점수가 틀린다 — 🛑다."""
+    body = run(meta(), meta(), figi(BASE_PRIOS, atm=100), figi(BASE_PRIOS, atm=57))
+    assert verdict(body) == "block" and "ATM" in body
+
+
+def test_small_atm_change_is_info():
+    body = run(meta(), meta(), figi(BASE_PRIOS, atm=100), figi(BASE_PRIOS, atm=102))
+    assert verdict(body) == "ok"
+
+
+def _with_osm(m, as_of):
+    m["sources"]["osm_atm"]["as_of"] = as_of
+    return m
+
+
+def test_osm_base_going_backwards_blocks():
+    """PR #2의 실제 모습: 09-03 → 07-24. 동기화가 늦은 미러에서 받은 것이다."""
+    body = run(_with_osm(meta(), "2026-09-03T09:00:30Z"), _with_osm(meta(), "2026-07-24T11:04:51Z"))
+    assert verdict(body) == "block" and "뒤로 갔다" in body
+
+
+def test_osm_base_advancing_is_fine():
+    assert verdict(run(_with_osm(meta(), "2026-09-03T09:00:30Z"),
+                       _with_osm(meta(), "2026-10-01T05:00:00Z"))) == "ok"
 
 
 # ── 다른 파일과의 약속 ────────────────────────────────────────────────

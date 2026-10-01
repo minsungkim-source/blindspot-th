@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -57,6 +58,39 @@ MAX_UNASSIGNED_SHARE = 0.01
 
 class SourceUnavailable(RuntimeError):
     """소스에 도달하지 못했다. 파싱 오류(ValueError)와 구분한다."""
+
+
+# 응답의 DB 기준시각(`osm3s.timestamp_osm_base`)이 이보다 오래되면 받지 않는다.
+#
+# 2026-10-01 실측: 주 서버가 504를 세 번 내자 미러(kumi.systems)로 넘어갔는데, 그 미러의 DB가
+# **2026-07-24 것**이었다 — 지난달 주 서버(09-03)보다 두 달 넘게 묵었다. 코드는 HTTP 200이면
+# 그대로 받았고, ATM이 4,451 → 2,536개(−43%)로 찍힌 갱신 PR이 "머지해도 된다"를 달고 열렸다.
+# 주 서버는 분 단위로 동기화된다. 미러도 정상이면 몇 시간 안이다. 7일은 넉넉한 상한이다.
+MAX_BASE_AGE_DAYS = 7
+
+
+def payload_problem(payload: dict, now: datetime) -> str | None:
+    """받으면 안 되는 응답이면 그 이유를, 받아도 되면 None.
+
+    둘 다 **HTTP 200으로 온다**는 게 문제다. 상태 코드만 보면 정상 응답과 구별되지 않는다.
+    - `remark`: Overpass는 시간 초과·메모리 부족이면 그때까지 모은 일부만 담고 여기에 오류를
+      적어 200으로 보낸다. 받으면 ATM이 조용히 줄어든다
+    - 묵은 DB: 동기화가 멈춘 미러는 몇 달 전 지도를 정상 응답처럼 돌려준다
+    """
+    remark = (payload.get("remark") or "").strip()
+    if remark:
+        return f"부분 응답이다 (remark: {remark[:160]})"
+    base = (payload.get("osm3s") or {}).get("timestamp_osm_base")
+    if not base:
+        return "DB 기준시각(osm3s.timestamp_osm_base)이 없다 — 응답이 얼마나 묵었는지 알 수 없다"
+    try:
+        ts = datetime.fromisoformat(base.replace("Z", "+00:00"))
+    except ValueError:
+        return f"DB 기준시각을 읽을 수 없다: {base!r}"
+    age = (now - ts).total_seconds() / 86400
+    if age > MAX_BASE_AGE_DAYS:
+        return f"DB가 {age:.0f}일 묵었다 (기준 {base}, 상한 {MAX_BASE_AGE_DAYS}일) — 동기화가 멈춘 인스턴스다"
+    return None
 
 
 def _points(elements: list[dict]) -> pd.DataFrame:
@@ -155,7 +189,12 @@ def load(config: dict) -> dict:
                     timeout=timeout + 30,
                 )
                 r.raise_for_status()
-                payload = r.json()
+                candidate = r.json()
+                # 200이어도 잘렸거나 묵은 응답이면 실패로 친다 — 재시도하고 다음 미러로 간다
+                problem = payload_problem(candidate, datetime.now(timezone.utc))
+                if problem:
+                    raise ValueError(problem)
+                payload = candidate
                 break
             except (requests.RequestException, ValueError) as e:
                 failures.append(f"{endpoint} (시도 {attempt + 1}): {e}")
