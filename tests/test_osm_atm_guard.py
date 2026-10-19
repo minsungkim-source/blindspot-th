@@ -94,13 +94,17 @@ def test_load_skips_stale_mirror_and_fails_loudly(monkeypatch):
 
 
 def test_load_falls_through_to_a_good_mirror(monkeypatch):
-    """반대로, 주 서버가 죽어도 멀쩡한 미러가 있으면 그걸 쓴다 — 미러를 둔 이유다."""
+    """반대로, 주 서버가 죽어도 멀쩡한 미러가 있으면 그걸 쓴다 — 미러를 둔 이유다.
+
+    load()는 실제 시계로 나이를 잰다. 그래서 '멀쩡한 미러'의 기준시점도 지금을 기준으로 만든다 —
+    고정 날짜(10-01)를 쓰면 7일 뒤(10-08)부터 이 미러가 묵은 것이 되어 테스트가 저절로 깨진다."""
     seen = {}
+    fresh = (datetime.now(timezone.utc) - timedelta(hours=1)).isoformat().replace("+00:00", "Z")
 
     def fake_post(url, **kw):
         if "overpass-api.de" in url:
             return _Resp(504, ValueError("html"))
-        return _Resp(200, payload())
+        return _Resp(200, payload(base=fresh))
 
     def fake_build(p, geojson, from_snapshot):
         seen["n"] = len(p["elements"])
