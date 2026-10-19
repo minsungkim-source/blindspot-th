@@ -1,0 +1,62 @@
+name: redeploy-thai-wealth
+
+# 이 리포의 데이터를 읽는 3D 지도(thai-wealth-terrain.vercel.app, 프라이빗 리포)를 다시 굽게 한다.
+# 그쪽 Vercel 빌드는 이 리포 main의 raw 파일을 받아 굽는데, 월간 갱신 PR이 머지돼도
+# 그쪽 리포엔 푸시가 없어서 다시 빌드되지 않았다. Vercel Deploy Hook으로 깨운다.
+#
+# 훅 URL은 그 자체로 배포 권한이다. 이 리포는 공개이니 저장소 시크릿에만 둔다
+# (VERCEL_DEPLOY_HOOK_THAI_WEALTH). 로그에 찍지 않는다.
+# 시크릿이 없으면 경고만 남기고 성공으로 끝난다 — 데이터 푸시를 빨갛게 만들 일은 아니다.
+
+on:
+  push:
+    branches: [main]
+    # 3D 지도의 build.py가 받는 파일 두 개뿐이다. 그쪽이 읽는 파일이 늘면 여기도 늘린다.
+    paths:
+      - data/processed/figi.json
+      - data/reference/provinces.topo.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# 연달아 푸시되면 마지막 것만 훅을 친다.
+concurrency:
+  group: redeploy-thai-wealth
+  cancel-in-progress: true
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      # raw.githubusercontent.com은 몇 분간 캐시한다. 푸시 직후에 훅을 치면 Vercel이
+      # 지난달 파일로 구워 놓고 "갱신됨"처럼 보인다. 빌드가 받는 바로 그 URL이
+      # 이 커밋의 파일을 내줄 때까지 기다린다.
+      - name: Wait for raw.githubusercontent.com to serve this commit
+        run: |
+          base="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main"
+          for f in data/processed/figi.json data/reference/provinces.topo.json; do
+            want=$(sha256sum "$f" | cut -d' ' -f1)
+            for i in $(seq 1 40); do
+              got=$(curl -fsS "$base/$f" | sha256sum | cut -d' ' -f1) || got=""
+              [ "$got" = "$want" ] && { echo "$f: 최신"; continue 2; }
+              sleep 15
+            done
+            echo "::error::$f — 10분이 지나도 raw URL이 이 커밋의 파일을 내주지 않는다"
+            exit 1
+          done
+
+      - name: Trigger Vercel deploy hook
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_THAI_WEALTH }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::VERCEL_DEPLOY_HOOK_THAI_WEALTH 시크릿이 없어 3D 지도를 다시 굽지 않았다"
+            exit 0
+          fi
+          code=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "$HOOK")
+          echo "Vercel 응답: HTTP $code"
+          case "$code" in 2*) ;; *) echo "::error::배포 훅 실패 (HTTP $code)"; exit 1 ;; esac
